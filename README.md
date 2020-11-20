@@ -291,20 +291,20 @@ You will need to setup the following environment variables on your system.
 
 The easiest way to deploy the project to Heroku is to set your connect method to GitHub and link the repository master branch. If you set the project up for automatic deploys, it will deploy once the master branch is updated.
 
-Travel Experiences site was developed on GitPod and VS code, using GitHub and Heroku to host the repository. As GitHub pages cannot host dynamic pages, for this purpose I used Heroku.
+My photo portfolio site was developed on GitPod and VS code, using GitHub and Heroku to host the repository. As GitHub pages cannot host dynamic pages, for this purpose I used Heroku.
 
-When deploying Travel Experiences using Heroku, the following steps were taken:
+When deploying photo portfolio using Heroku, the following steps were taken:
 
 Linking the Heroku and GitHub:
 * Log in to [Heroku](https://www.heroku.com/) and [GitHub](github.com)
 * Make sure you have admin privileges on GitHub
-* Go to Heroku and select Travel Experiences app
+* Go to Heroku and select photo-portfolio app
 * Click on Deploy and in Deployment method, select GitHub(Connect to GitHub)
 * Select repository to connect to
 * Enter repo name in the empty field and click on search. Be sure your repo exists on GitHub and that you typed it in correctly.
 * When repo shows click on "Connect"
 * Your Heroku app will be synchronised each time you "git push"
-* Travel Experiences are now live on Heroku. To run the site, click on "Open App" at the top
+* Website is now live on Heroku. To run the site, click on "Open App" at the top
 
 If GitHub asks you to authorize the Heroku app in any of the steps above, do so, and you will be able to do an automated deployment from GitHub to Heroku.
 
