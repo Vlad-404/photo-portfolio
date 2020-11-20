@@ -217,7 +217,7 @@ As a user:
 4. As a recruiter, I want to see Vladimir's work and decide whether to hire him or not
     - All of the best images are displayed on this web page, and everyone can sort them by category, panorama or not, colour or black/white, name, rating, price and top rated.  This will make the recruiter's job much easier.
 
-As an owner:
+As the owner:
 1. I want to be able to display my work publicly
     - all images will be hosted on Heroku where they will have exposure to everyone on the internet, accessible 24 hours a day - every day.
 2. I want to be able to add, remove and edit the images
