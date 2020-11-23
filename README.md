@@ -100,7 +100,10 @@ For styling the page Bootstrap library was used.
 ### Fonts
 
 The following fonts were chosen:
-- ...
+* For page name:
+    - [Black Ops One](https://fonts.google.com/specimen/Black+Ops+One?selection.family=Black+Ops+One&category=Display&preview.text_type=custom&sidebar.open=true) goes with Open Sans and Roboto
+* For all of the text:
+    - [Open Sans](https://fonts.google.com/specimen/Open+Sans?query=open+sans) for regular text
 
 
 ### Colours
