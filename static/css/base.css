@@ -1,11 +1,12 @@
 html {
-    height: 100%;
+    scroll-behavior: smooth;
 }
 
-body {
+.home-page {
     background: url('/media/church-day.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #555;
+    height: 100vh;
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -21,6 +22,10 @@ body {
     font-family: 'Black Ops One', cursive;
 }
 
+.montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
+
 /* from Bulma */
 .icon {
     align-items: center;
@@ -28,6 +33,24 @@ body {
     justify-content: center;
     height: 1.5rem;
     width: 1.5rem;
+}
+
+/* General formatting */
+
+.fixed-nav {
+    position: fixed;
+    left: 5rem;
+    top: 2rem;
+    height: 3.5rem;
+
+    background-color: #5F5F5F;
+    opacity: 0.5;
+
+    color: #F2F2F2;
+}
+
+.mheight-3-5 {
+    min-height: 3.5rem;
 }
 
 .logo-font {
@@ -90,4 +113,13 @@ body {
     .header-container {
         padding-top: 164px;
     }
+}
+
+/* index.html styling */
+
+.galery-background {
+    background: url('/media/wien-night.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #555;
+    font-family: 'Open Sans', sans-serif;
 }

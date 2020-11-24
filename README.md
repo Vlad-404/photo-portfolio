@@ -236,10 +236,15 @@ As the owner:
 
 **List of bugs found:**
 
-* **Description:** wrong country displayed  in home page
-    * **How I found it:** after submitting a new experience and comming back to the home page, country name was a number instead of full name
-    * **What went wrong:** dropdown menu had ``value`` field which overwrote the country name
-    * **Resolution:** renamed ``value`` to ``country_id`` later replaced the country dropdown menu with Country selector with flags (see [credits](#credits) below)
+* **Description:** text in the top navbar wouldn't align to the midle of the container horizontally
+    * **How I found it:** after adding a class of ``align-items-center`` text wouldn't align 
+    * **What went wrong:** ``row`` class didn't have the same height as the parent ``container``
+    * **Resolution:** added class of ``.mheight-3-5`` to the ``row`` container which equalized both containers in height
+
+* **Description:** 
+    * **How I found it:** 
+    * **What went wrong:** 
+    * **Resolution:**
 
 [Backt to top](#photo-portfolio)
 
@@ -278,7 +283,7 @@ You will need to setup the following environment variables on your system.
 | CLOUDINARY_CLOUD_NAME | Cloudinary Image package | Found in your Cloudinary account dashboard                    |
 | CLOUDINARY_API_KEY    | Cloudinary Image package | Found in your Clouinary account dashboard                    |
 | CLOUDINARY_API_SECRET | Cloudinary Image package | Found in your Clouinary account dashboard                    |
-| MONGO_DBNAME       | Mongo DB                 | This is the name of your database collection e.g.: "travel_experiences" |
+| MONGO_DBNAME       | Mongo DB                 | This is the name of your database collection e.g.: "photo-portfolio" |
 | MONGO_URI          | Mongo DB                 | Found in the connect button on the database cluster          |
 | SECRET_KEY        | Session Variables        | This is a unique secret used for cookie encryption,  you can use any random string for this |
 | IP                    | Flask                    | You can use `0.0.0.0` here to indicate a local IP address    |
@@ -316,7 +321,7 @@ If GitHub asks you to authorize the Heroku app in any of the steps above, do so,
 # Credits
 
 ## Content
- During development, you will notice users of name test01,test02,... These were my test accounts with which I tested the functionality of the site. Images in these experiences belong to me. Images from other users belong to their respective owners.
+All of the images were made by me. I used various cameras to capture the images. Even if I was carefull not to include any logos, business names or faces, if you find anything related to yourself, and you don't want it contained in my photos, please contact me on vmijat21@gmail.com and explain the situation. I will be glad to answer and correct if there are any issues you find with my photos.
 
 ## Acknowledgments and Thank-Yous
 
