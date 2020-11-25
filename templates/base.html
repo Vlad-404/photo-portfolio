@@ -40,20 +40,52 @@
   <body>
     <header class="container fixed-nav">
         <div class="row">
-            <div class="col">
+            <!-- Navigation bar with links -->
+            <div class="col col-8 d-none d-xl-block">
                 <ul class="nav">
+                    <!-- Shows the shopping bag if there's something in it -->
+                    {% if grand_total %}
+                        <li class="list-inline-item navbar-styling">
+                            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="#">
+                                <div class="text-center text-white">
+                                    <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                                    <p class="my-0">
+                                        ${{ grand_total|floatformat:2 }}
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    <!-- Social network links -->
                     <li class="nav-item navbar-styling mheight-3-5">
                         <a class="nav-link text-white active" href="https://www.instagram.com/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
                     </li>
                     <li class="nav-item navbar-styling mheight-3-5">
                         <a class="nav-link text-white active" href="https://www.facebook.com/" target="_blank" rel="noopener"><i class="fab fa-facebook-square"></i></a>
                     </li>
+
+                    <!-- Contact and account management -->
                     <li class="nav-item navbar-styling mheight-3-5">
                         <a class="nav-link text-white active text-uppercase montserrat" href="#">Contact</a>
                     </li>
-                    <li class="nav-item navbar-styling mheight-3-5">
-                        <a class="nav-link text-white active text-uppercase montserrat" href="#">Log In</a>
+                    <li class="nav-item dropdown navbar-styling mheight-3-5">
+                        <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
+                        <div class="dropdown-menu navbar-styling border-dark top-075rem" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                    <a href="" class="dropdown-item text-white">Images</a>
+                                {% endif %}
+                                    <a href="" class="dropdown-item text-white">My Profile</a>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item text-white">Logout</a>
+                            {% else %}
+                                    <a href="{% url 'account_signup' %}" class="dropdown-item text-white">Register</a>
+                                    <a href="{% url 'account_login' %}" class="dropdown-item text-white">Login</a>
+                            {% endif %}
+                        </div>
                     </li>
+
+                    <!-- Page navigation -->
                     <li class="nav-item navbar-styling mheight-3-5">
                         <a class="nav-link text-white text-uppercase montserrat active" href="#">Search</a>
                     </li>
@@ -61,13 +93,13 @@
                     {% endblock %}
                     <li class="nav-item dropdown navbar-styling mheight-3-5">
                         <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Galleries</a>
-                        <div class="dropdown-menu">
-                            <a class="dropdown-item" href="#">All Images</a>
+                        <div class="dropdown-menu navbar-styling border-dark top-075rem">
+                            <a class="dropdown-item text-white" href="#">All Images</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Landscapes</a>
-                            <a class="dropdown-item" href="#">Architecture</a>
-                            <a class="dropdown-item" href="#">Seasons</a>
-                            <a class="dropdown-item" href="#">Food</a>
+                            <a class="dropdown-item text-white" href="#">Landscapes</a>
+                            <a class="dropdown-item text-white" href="#">Architecture</a>
+                            <a class="dropdown-item text-white" href="#">Seasons</a>
+                            <a class="dropdown-item text-white" href="#">Food</a>
                         </div>
                     </li>
                     <li class="nav-item navbar-styling mheight-3-5">
@@ -75,8 +107,10 @@
                     </li>
                 </ul>
             </div>
+
+            <!-- Logo -->
             <div class="col text-right logo-font mheight-3-5">
-                <h1 class="logo">Vladimir</h1>
+                <h1 class="logo">Vladimir Mijatovic</h1>
             </div>
         </div> 
     </header>
