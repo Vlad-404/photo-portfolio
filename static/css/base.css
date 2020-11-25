@@ -22,6 +22,7 @@ html {
     font-family: 'Black Ops One', cursive;
 }
 
+/* Montserrat font */
 .montserrat {
     font-family: 'Montserrat', sans-serif;
 }
@@ -37,9 +38,23 @@ html {
 
 /* General formatting */
 
+/* Navbar formatting */
 .fixed-nav {
     position: fixed;
-    left: 5rem;
+    left: 10vw;
+    top: 10vh;
+    min-width: 80vw;
+}
+
+.navbar-styling {
+    background-color: #5F5F5F;
+    opacity: 0.5;
+    color: #F2F2F2;
+}
+
+.logo-aside {
+    position: fixed;
+    left: -5rem;
     top: 2rem;
     height: 3.5rem;
 
@@ -51,6 +66,8 @@ html {
 
 .mheight-3-5 {
     min-height: 3.5rem;
+    padding-top: .5rem;
+
 }
 
 .logo-font {

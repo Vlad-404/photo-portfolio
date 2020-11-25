@@ -41,8 +41,48 @@
 
 
   <body>
-    <header class="container-flex fixed-nav">
-        <div class="row align-items-center mheight-3-5">
+    <header class="container fixed-nav">
+        <div class="row">
+            <div class="col">
+                <ul class="nav">
+                    <li class="nav-item navbar-styling mheight-3-5">
+                        <a class="nav-link text-white active" href="https://www.instagram.com/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                    </li>
+                    <li class="nav-item navbar-styling mheight-3-5">
+                        <a class="nav-link text-white active" href="https://www.facebook.com/" target="_blank" rel="noopener"><i class="fab fa-facebook-square"></i></a>
+                    </li>
+                    <li class="nav-item navbar-styling mheight-3-5">
+                        <a class="nav-link text-white active text-uppercase montserrat" href="#">Contact</a>
+                    </li>
+                    <li class="nav-item navbar-styling mheight-3-5">
+                        <a class="nav-link text-white active text-uppercase montserrat" href="#">Log In</a>
+                    </li>
+                    <li class="nav-item navbar-styling mheight-3-5">
+                        <a class="nav-link text-white text-uppercase montserrat active" href="#">Search</a>
+                    </li>
+                    {% block sort %}
+                    {% endblock %}
+                    <li class="nav-item dropdown navbar-styling mheight-3-5">
+                        <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Galleries</a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">All Images</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Landscapes</a>
+                            <a class="dropdown-item" href="#">Architecture</a>
+                            <a class="dropdown-item" href="#">Seasons</a>
+                            <a class="dropdown-item" href="#">Food</a>
+                        </div>
+                    </li>
+                    <li class="nav-item navbar-styling mheight-3-5">
+                        <a class="nav-link text-white active montserrat text-uppercase" href="#">Home</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col text-right">
+                <p>Right</p>
+            </div>
+
+        <!--
             <div class="col">
                 <ul class="nav">
                     <li class="nav-item">
@@ -58,12 +98,10 @@
                         <a class="nav-link text-white active text-uppercase montserrat" href="#">Log In</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white text-uppercase active" href="#">Search</a>
+                        <a class="nav-link text-white text-uppercase montserrat active" href="#">Search</a>
                     </li>
-                    {% block sort %}
-                    {% endblock %}
                     <li class="nav-item dropdown">
-                        <a class="nav-link text-white dropdown-toggle text-uppercase" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Galleries</a>
+                        <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Galleries</a>
                         <div class="dropdown-menu">
                             <a class="dropdown-item" href="#">All Images</a>
                             <div class="dropdown-divider"></div>
@@ -74,11 +112,15 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white active text-uppercase" href="#">Home</a>
+                        <a class="nav-link text-white active montserrat text-uppercase" href="#">Home</a>
                     </li>
                 </ul>
             </div>
         </div>
+
+        <div class="col">
+            <h2 class="logo-font text-right">Aside text</h2>-->
+        </div> 
     </header>
   
     {% if messages %}
