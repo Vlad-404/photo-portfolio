@@ -102,6 +102,8 @@ For styling the page Bootstrap library was used.
 The following fonts were chosen:
 * For page name:
     - [Black Ops One](https://fonts.google.com/specimen/Black+Ops+One?selection.family=Black+Ops+One&category=Display&preview.text_type=custom&sidebar.open=true) goes with Open Sans and Roboto
+* For accents:
+    - [Montserrat](https://fonts.google.com/specimen/Montserrat) for titles and accents
 * For all of the text:
     - [Open Sans](https://fonts.google.com/specimen/Open+Sans?query=open+sans) for regular text
 
@@ -326,6 +328,7 @@ All of the images were made by me. I used various cameras to capture the images.
 ## Acknowledgments and Thank-Yous
 
 - Big thanks to Nate Luebbe whos page served as an inspiration to my project. You can find his page here: [Nate Luebbe](https://www.nateluebbe.com/)
+- Sidenav for mobile devices used from w3schools: https://www.w3schools.com/howto/howto_js_sidenav.asp
 
 [Backt to top](#photo-portfolio)
 

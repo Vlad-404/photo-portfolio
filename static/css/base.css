@@ -1,11 +1,12 @@
+/* Imported fonts: Black Ops One, Montserrat and Open Sans */
 @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Montserrat&family=Open+Sans:wght@300&display=swap');
 
 html {
     scroll-behavior: smooth;
 }
 
-.home-page {
-    background: url('/media/church-day.jpg') no-repeat center center fixed;
+body {
+    background: url('/media/wien-night.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #555;
     height: 100vh;
@@ -13,7 +14,6 @@ html {
 }
 
 /* Basics (fonts, colours,...) */
-
 /* Open sans font */
 .osans {
     font-family: 'Open Sans', sans-serif;
@@ -41,21 +41,26 @@ html {
 }
 
 /* General formatting */
+.shadow-text {
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.75);
+}
 
-
-
-
-/* Navbar formatting */
+/* Navbars  */
+/* Gives navbars fixed position */
 .fixed-nav {
     position: fixed;
     left: 5vw;
     top: 10vh;
+}
+
+/* Large screen navbar sizing */
+.large-nav {
     min-width: 90vw;
+    z-index: 1000;
 }
 
 .navbar-styling {
-    background-color: #5F5F5F;
-    opacity: 0.5;
+    background-color: #5F5F5F60;
     color: #F2F2F2;
 }
 
@@ -64,69 +69,35 @@ html {
     padding-top: .75rem;
 }
 
+/* For large screen navbar and logo */
+.z-1050 {
+    z-index: 1050;
+}
+
+/* For mobile sidenav */
+.z-2000 {
+    z-index: 2000;
+}
+
 /* Removes overlapping of dropdown menu with navbar */
 .top-075rem {
     top: .75rem !important;
 }
 
-.shop-now-button {
-    background: black;
-    color: white;
-    min-width: 260px;
-}
-
-.btn-black {
-    background: black;
-    color: white;
-}
-
-.shop-now-button:hover,
-.shop-now-button:active,
-.shop-now-button:focus,
-.btn-black:hover,
-.btn-black:active,
-.btn-black:focus {
-    background: #222;
-    color: white;
-}
-
-.text-black {
-    color: #000 !important;
-}
-
-.border-black {
-    border: 1px solid black !important;
-}
-
-/* -------------------------------- Media Queries */
-
-/* Slightly larger container on xl screens */
-@media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
-}
-
-/* fixed top navbar only on medium and up */
-@media (min-width: 992px) {
-    .fixed-top-desktop-only {
-        position: fixed;
-        top: 0;
-        right: 0;
-        left: 0;
-        z-index: 1030;
-    }
-
-    .header-container {
-        padding-top: 164px;
-    }
-}
-
-/* index.html styling */
+/* Home page styling */
 
 .galery-background {
     background: url('/media/wien-night.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #555;
     font-family: 'Open Sans', sans-serif;
+}
+
+/* -------------------------------- Media Queries(?) */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
 }
