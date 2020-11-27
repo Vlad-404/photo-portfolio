@@ -6,7 +6,7 @@ html {
 }
 
 body {
-    background: url('/media/wien-night.jpg') no-repeat center center fixed;
+    background: url('/media/church-day.jpg') no-repeat center center fixed;
     background-size: cover;
     color: #555;
     height: 100vh;
@@ -43,6 +43,10 @@ body {
 /* General formatting */
 .shadow-text {
     text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.75);
+}
+
+.shadow-box {
+    box-shadow: 2px 2px 5px #fff;
 }
 
 /* Navbars  */
@@ -82,6 +86,16 @@ body {
 /* Removes overlapping of dropdown menu with navbar */
 .top-075rem {
     top: .75rem !important;
+}
+
+.basket-fixed {
+    position: absolute;
+    left: 10rem;
+    /*
+    position: fixed;
+    left: 15vw;
+    top: 10vh;*/
+    z-index: 2050;
 }
 
 /* Home page styling */

@@ -51,7 +51,7 @@
                                 <div class="text-center text-white">
                                     <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                                     <p class="my-0">
-                                        ${{ grand_total|floatformat:2 }}
+                                        €{{ grand_total|floatformat:2 }}
                                     </p>
                                 </div>
                             </a>
@@ -77,7 +77,7 @@
                                 {% if request.user.is_superuser %}
                                     <a href="" class="dropdown-item text-white">Images</a>
                                 {% endif %}
-                                    <a href="" class="dropdown-item text-white">My Profile</a>
+                                    <a href="" class="dropdown-item text-white">Account</a>
                                     <a href="{% url 'account_logout' %}" class="dropdown-item text-white">Logout</a>
                             {% else %}
                                     <a href="{% url 'account_signup' %}" class="dropdown-item text-white">Register</a>
@@ -88,7 +88,10 @@
 
                     <!-- Page navigation -->
                     <li class="nav-item navbar-styling mheight-3-5">
-                        <a class="nav-link text-white text-uppercase montserrat active" href="#">Search</a>
+                        <button type="button" class="btn bg-transparent text-white shadow-text montserrat" data-toggle="modal" data-target="#search-bar">
+                            SEARCH
+                        </button>
+                        <!--<a class="nav-link text-white text-uppercase montserrat active" href="#">Search</a>-->
                     </li>
                     {% block sort %}
                     {% endblock %}
@@ -110,7 +113,7 @@
             </div>
 
             <!-- Logo -->
-            <div class="col text-right logo-font mheight-3-5">
+            <div class="col text-right logo-font mheight-3-5 mr-3">
                 <h1 class="logo text-white">Vladimir Mijatovic</h1>
             </div>
         </div> 
@@ -119,19 +122,32 @@
     <!-- Mobile sidenav -->
     <aside>
         <button class="btn fixed-nav navbar-styling d-xl-none z-2000" type="button" data-toggle="collapse" data-target="#mobile-sidenav" aria-expanded="false" aria-controls="collapseExample">
-            <h2 class="text-white"><i class="fas fa-bars"></i></h2>
+            <h2 class="text-white"><i class="fas fa-bars"></i>{% if grand_total %}  €{% endif %}</h2>
         </button>
         <div id="mobile-sidenav" class="collapse navbar-styling fixed-nav d-xl-none z-1050 shadow-text">
             <div class="card card-body navbar-styling" style="padding-top: 4rem;">
+
+                <!-- Social network links -->
+                <div class="container">
+                    <div class="row">
+                        <div class="col-6">
+                            <a href="https://www.facebook.com/" class="nav-item text-center text-white"><h3><i class="fab fa-facebook-square"></i></h3></a>
+                        </div>
+                        <div class="col-6">
+                            <a href="https://www.instagram.com/" class="nav-item text-center text-white"><h3><i class="fab fa-instagram"></i></h3></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="dropdown-divider"></div>
+
+                <!-- Page navigation -->
                 <ul class="nav flex-column montserrat">
-                    <!-- Page navigation -->
                     <li class="nav-item">
                         <a class="nav-link active text-white" href="#">HOME</a>
                     </li>
-
                     <li class="nav-item">
-                        <div class="btn-group dropright">
-                            <button type="button" class="btn navbar-styling dropdown-toggle shadow-text" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="btn-group dropright bg-transparent">
+                            <button type="button" class="btn dropdown-toggle text-white shadow-text" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 GALLERIES
                             </button>
                             <div class="dropdown-menu navbar-styling">
@@ -145,13 +161,15 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">SEARCH</a>
+                        <button type="button" id="toggle-search-bar" class="btn bg-transparent text-white shadow-text" data-toggle="modal" data-target="#search-bar" onclick="hideMobileNavBar()">
+                            SEARCH
+                        </button>
                     </li>
 
                     <!-- Contact and account management -->
                     <li class="nav-item">
-                        <div class="btn-group dropright">
-                            <button type="button" class="btn navbar-styling dropdown-toggle shadow-text" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <div class="btn-group dropright bg-transparent">
+                            <button type="button" class="btn dropdown-toggle text-white shadow-text" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 MY PROFILE
                             </button>
                             <div class="dropdown-menu navbar-styling">
@@ -172,22 +190,57 @@
                         <a class="nav-link text-white" href="#">CONTACT</a>
                     </li>
                 </ul>
+                {% if grand_total %}
                 <div class="dropdown-divider"></div>
 
-                <!-- Social network links -->
+                <!-- Basket for mobile sidenav -->
                 <div class="container">
                     <div class="row">
-                        <div class="col-6">
-                            <a href="https://www.facebook.com/" class="nav-item text-center text-white"><h3><i class="fab fa-facebook-square"></i></h3></a>
+                        <div class="col-4 text-center text-white">
+                            <i class="fas fa-shopping-bag fa-lg"></i>:
                         </div>
-                        <div class="col-6">
-                            <a href="https://www.instagram.com/" class="nav-item text-center text-white"><h3><i class="fab fa-instagram"></i></h3></a>
+                        <div class="col-8 text-center text-white">
+                            <p class="my-0">
+                                €{{ grand_total|floatformat:2 }}
+                            </p>
                         </div>
                     </div>
                 </div>
+                {% endif %}
             </div>
         </div>
+        
     </aside>
+
+    <!-- Search bar -->
+    <div class="modal fade justify-content-center" id="search-bar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-transparent border-0">
+                <form>
+                    <div class="container-fluid w-100 p-0">
+                        <div class="row">
+                            <div class="col-10">
+                                <div class="form-group">
+                                    <input type="text" id="search" name="search" class="rounded border-secondary shadow-box form-control navbar-styling" aria-describedby="Search" placeholder="Search">
+                                    <small id="emailHelp" class="form-text text-white">Type in what you are looking for</small>
+                                </div>
+                            </div>
+                            <div class="col-2 pt-2 text-white">
+                                <h3><i class="fas fa-search"></i></h3>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function hideMobileNavBar() {
+            var element = document.getElementById("toggle-search-bar");
+            mobileNavBar = document.getElementById("mobile-sidenav");
+            mobileNavBar.classList.remove("show");
+    </script>
   
     {% if messages %}
     <div class="message-container"></div>    
