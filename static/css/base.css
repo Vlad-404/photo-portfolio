@@ -5,14 +5,6 @@ html {
     scroll-behavior: smooth;
 }
 
-body {
-    background: url('/media/church-day.jpg') no-repeat center center fixed;
-    background-size: cover;
-    color: #555;
-    height: 100vh;
-    font-family: 'Open Sans', sans-serif;
-}
-
 /* Basics (fonts, colours,...) */
 /* Open sans font */
 .osans {
@@ -46,7 +38,7 @@ body {
 }
 
 .shadow-box {
-    box-shadow: 2px 2px 5px #fff;
+    box-shadow: 0 0 20px 5px #fff;
 }
 
 /* Navbars  */
@@ -98,13 +90,29 @@ body {
     z-index: 2050;
 }
 
-/* Home page styling */
-
-.galery-background {
-    background: url('/media/wien-night.jpg') no-repeat center center fixed;
+/* Welcome page carousel */
+.images-container {
     background-size: cover;
     color: #555;
     font-family: 'Open Sans', sans-serif;
+    min-height: 100vh;
+}
+
+.carousel-img-1 {
+    background: url('/media/church-day.jpg') no-repeat center center;
+}
+
+.carousel-img-2 {
+    background: url('/media/wien-night.jpg') no-repeat center center;
+}
+
+.carousel-img-3 {
+    background: url('/media/mountains.jpg') no-repeat center center;
+}
+
+/* Galleries */
+.galleries-background {
+    background: url('/media/lake.jpg') no-repeat center center fixed;
 }
 
 /* -------------------------------- Media Queries(?) */

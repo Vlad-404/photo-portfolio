@@ -1,21 +1,45 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block page_header %}
-    <div class="container header-container">
+{% block content %}
+    <!-- Home page -->
+    <div id="carouselExampleSlidesOnly" class="carousel slide w-100" data-ride="carousel">
+        <div class="carousel-inner">
+            <div class="carousel-item images-container carousel-img-1 active"></div>
+            <div class="carousel-item images-container carousel-img-2"></div>
+            <div class="carousel-item images-container carousel-img-3"></div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+        <h1 class="text-white text-center fixed-bottom" style="position: absolute;">
+            <i class="fas fa-chevron-down"></i>
+        </h1>
+    </div>
+
+    <!-- Galleries -->
+    <div class="container-fluid images-container galleries-background">
+        <h2 class="montserrat">Galleries</h2>
         <div class="row">
-            <div class="col"></div>
+            <div class="col-6">
+                <h3 class="montserrat">Left</h3>
+            </div>
+            <div class="col-6">
+                <h3 class="montserrat">Right</h3>
+            </div>
         </div>
     </div>
-{% endblock %}
 
-{% block content %}
-    <div class="container h-100 home-page">
-        <div class="row h-100">
+    <!-- Contact -->
+    <div class="container">
+        <div class="row">
             <div class="col">
-                <h1 class="text-white text-center fixed-bottom">
-                    <i class="fas fa-chevron-down"></i>
-                </h1>
+                <h2 class="bops">Contact</h2>
             </div>
         </div>
     </div>
