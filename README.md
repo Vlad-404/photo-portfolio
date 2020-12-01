@@ -243,6 +243,11 @@ As the owner:
     * **What went wrong:** ``row`` class didn't have the same height as the parent ``container``
     * **Resolution:** added class of ``.mheight-3-5`` to the ``row`` container which equalized both containers in height
 
+* **Description:** Carousel on the home page sometimes just stops changing the images
+    * **How I found it:** I was editing code on the home page
+    * **What went wrong:** ?
+    * **Resolution:** ?
+
 * **Description:** 
     * **How I found it:** 
     * **What went wrong:** 

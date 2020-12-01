@@ -37,12 +37,17 @@ html {
     text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.75);
 }
 
+/* Search bar shadow */
 .shadow-box {
     box-shadow: 0 0 20px 5px #fff;
 }
 
 a {
     text-decoration: none !important;
+}
+
+.responsive-font {
+    font-size: 4vw;
 }
 
 /* Navbars  */
@@ -121,6 +126,16 @@ a {
 /* Adds spacing from top for galleries on home page */
 .galeries-top-margin {
     padding-top: 25vh;
+}
+
+/* Adds top spacing for contact on home page */
+.contact-top-margin {
+    padding-top: 30vh;
+}
+
+.fixed-footer {
+    position: absolute;
+    bottom: 0;
 }
 
 /* -------------------------------- Media Queries(?) */

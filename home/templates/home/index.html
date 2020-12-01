@@ -2,22 +2,22 @@
 {% load static %}
 
 {% block content %}
-    <!-- Home page -->
-    <div id="carouselExampleSlidesOnly" class="carousel slide w-100" data-ride="carousel">
+    <!-- Home page carousel -->
+    <div id="home-page-carousel" class="carousel slide w-100" data-ride="carousel">
         <div class="carousel-inner">
             <div class="carousel-item images-container carousel-img-1 active"></div>
             <div class="carousel-item images-container carousel-img-2"></div>
             <div class="carousel-item images-container carousel-img-3"></div>
         </div>
-        <!-- Carousel controlls
-        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <!-- Carousel controlls -->
+        <a class="carousel-control-prev" href="#home-page-carousel" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <a class="carousel-control-next" href="#home-page-carousel" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
-        </a> -->
+        </a>
         <h1 class="text-white text-center fixed-bottom" style="position: absolute;">
             <a href="#galleries" class="text-white"><i class="fas fa-chevron-down"></i></a>
         </h1>
@@ -42,7 +42,7 @@
                             </div>
                             <div class="col-7 h-100">
                                 <a href="#" class="text-white">
-                                    <h1>Landscape</h1>
+                                    <p class="responsive-font">Landscape</p>
                                 </a>
                             </div>
                         </div>
@@ -54,7 +54,7 @@
                         <div class="row align-items-center text-white m-0">
                             <div class="col-7 h-100 text-left">
                                 <a href="#" class="text-white">
-                                    <h1>Architecture</h1>
+                                    <p class="responsive-font">Architecture</p>
                                 </a>
                             </div>
                             <div class="col-5 h-100 p-0">
@@ -76,7 +76,7 @@
                             </div>
                             <div class="col-7 h-100">
                                 <a href="#" class="text-white">
-                                    <h1>Seasons</h1>
+                                    <p class="responsive-font">Seasons</p>
                                 </a>
                             </div>
                         </div>
@@ -88,7 +88,7 @@
                         <div class="row align-items-center text-white m-0">
                             <div class="col-7 h-100 text-left">
                                 <a href="#" class="text-white">
-                                    <h1>Food</h1>
+                                    <p class="responsive-font">Food</p>
                                 </a>
                             </div>
                             <div class="col-5 h-100 p-0">
@@ -105,11 +105,35 @@
     </div>
 
     <!-- Contact -->
-    <div class="container images-container">
-        <div class="row">
-            <div class="col">
-                <h2 class="bops">Contact</h2>
+    <div class="container-fluid images-container" style="position: relative;">
+        <div class="container w-75 contact-top-margin">
+            <div class="row">
+                <div class="col-xl-6">
+                    <h2 class="montserrat text-uppercase shadow-text">Contact</h2>
+                </div>
+                <div class="col-xl-6">
+                    <form class="text-right">
+                        <label for="contact-email">Your Email:</label>
+                        <input type="email" class="form-control form-control-lg text-right mb-2" id="contact-email" placeholder="my-email@domain.com">
+                        <label for="contact-message" class="mt-3">Message:</label>
+                        <input type="email" class="form-control form-control-lg text-right mb-2" id="contact-message" placeholder="Type in your message here...">
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
             </div>
+            <footer class="row fixed-footer">
+                <div class="col align-self-center text-center">
+                    <p>Footer</p>
+                </div>
+            </footer>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+<script>
+$('.carousel').carousel({
+  interval: 4000
+})
+</script>
 {% endblock %}
