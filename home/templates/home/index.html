@@ -9,6 +9,7 @@
             <div class="carousel-item images-container carousel-img-2"></div>
             <div class="carousel-item images-container carousel-img-3"></div>
         </div>
+        <!-- Carousel controlls
         <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Previous</span>
@@ -16,27 +17,95 @@
         <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
-        </a>
+        </a> -->
         <h1 class="text-white text-center fixed-bottom" style="position: absolute;">
-            <i class="fas fa-chevron-down"></i>
+            <a href="#galleries" class="text-white"><i class="fas fa-chevron-down"></i></a>
         </h1>
     </div>
 
     <!-- Galleries -->
-    <div class="container-fluid images-container galleries-background">
-        <h2 class="montserrat">Galleries</h2>
-        <div class="row">
-            <div class="col-6">
-                <h3 class="montserrat">Left</h3>
-            </div>
-            <div class="col-6">
-                <h3 class="montserrat">Right</h3>
+    <!-- Background container -->
+    <div id="galleries" class="container-fluid images-container galleries-background">
+        <!-- Container for galleries -->
+        <div class="container w-75 galeries-top-margin">
+            <h2 class="text-white text-uppercase montserrat shadow-text">Galleries</h2>
+            <!-- Links to galleries -->
+            <div class="row">
+                <!-- Image left -->
+                <div class="col-sm-12 text-right navbar-styling shadow-text mb-3 pl-0">
+                    <div class="container-fluid w-100 p-0">
+                        <div class="row align-items-center text-white m-0">
+                            <div class="col-5 h-100 p-0">
+                                <a href="#">
+                                    <img src="/media/wien-night.jpg" alt="Night city image" class="img-fluid float-left">
+                                </a>
+                            </div>
+                            <div class="col-7 h-100">
+                                <a href="#" class="text-white">
+                                    <h1>Landscape</h1>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Image right -->
+                <div class="col-sm-12 text-right navbar-styling shadow-text mb-3 pr-0">
+                    <div class="container-fluid w-100 p-0">
+                        <div class="row align-items-center text-white m-0">
+                            <div class="col-7 h-100 text-left">
+                                <a href="#" class="text-white">
+                                    <h1>Architecture</h1>
+                                </a>
+                            </div>
+                            <div class="col-5 h-100 p-0">
+                                <a href="#">
+                                    <img src="/media/mountains.jpg" alt="Mountains image" class="img-fluid float-right">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Image left -->
+                <div class="col-sm-12 text-right navbar-styling shadow-text mb-3 pl-0">
+                    <div class="container-fluid w-100 p-0">
+                        <div class="row align-items-center text-white m-0">
+                            <div class="col-5 h-100 p-0">
+                                <a href="#">
+                                    <img src="/media/wien-night.jpg" alt="Night city image" class="img-fluid float-left">
+                                </a>
+                            </div>
+                            <div class="col-7 h-100">
+                                <a href="#" class="text-white">
+                                    <h1>Seasons</h1>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Image right -->
+                <div class="col-sm-12 text-right navbar-styling shadow-text mb-3 pr-0">
+                    <div class="container-fluid w-100 p-0">
+                        <div class="row align-items-center text-white m-0">
+                            <div class="col-7 h-100 text-left">
+                                <a href="#" class="text-white">
+                                    <h1>Food</h1>
+                                </a>
+                            </div>
+                            <div class="col-5 h-100 p-0">
+                                <a href="#">
+                                    <img src="/media/mountains.jpg" alt="Mountains image" class="img-fluid float-right">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
         </div>
     </div>
 
     <!-- Contact -->
-    <div class="container">
+    <div class="container images-container">
         <div class="row">
             <div class="col">
                 <h2 class="bops">Contact</h2>

@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Montserrat&family=Open+Sans:wght@300&display=swap');
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 /* Basics (fonts, colours,...) */
@@ -39,6 +39,10 @@ html {
 
 .shadow-box {
     box-shadow: 0 0 20px 5px #fff;
+}
+
+a {
+    text-decoration: none !important;
 }
 
 /* Navbars  */
@@ -113,6 +117,10 @@ html {
 /* Galleries */
 .galleries-background {
     background: url('/media/lake.jpg') no-repeat center center fixed;
+}
+/* Adds spacing from top for galleries on home page */
+.galeries-top-margin {
+    padding-top: 25vh;
 }
 
 /* -------------------------------- Media Queries(?) */
