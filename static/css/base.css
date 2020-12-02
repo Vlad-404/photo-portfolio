@@ -139,11 +139,6 @@ a {
     background: url('/media/mountains.jpg') no-repeat center center;
 }
 
-.fixed-footer {
-    position: absolute;
-    bottom: 0;
-}
-
 /* -------------------------------- Media Queries(?) */
 
 /* Slightly larger container on xl screens */

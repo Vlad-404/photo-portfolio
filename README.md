@@ -244,9 +244,9 @@ As the owner:
     * **Resolution:** added class of ``.mheight-3-5`` to the ``row`` container which equalized both containers in height
 
 * **Description:** Carousel on the home page sometimes just stops changing the images
-    * **How I found it:** I was editing code on the home page
-    * **What went wrong:** ?
-    * **Resolution:** ?
+    * **How I found it:** While editing code on the home page
+    * **What went wrong:** Bootstrap code(?)
+    * **Resolution:** Lowered the time needed for images to change (still not resolved)
 
 * **Description:** 
     * **How I found it:** 
