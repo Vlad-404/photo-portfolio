@@ -130,7 +130,13 @@ a {
 
 /* Adds top spacing for contact on home page */
 .contact-top-margin {
-    padding-top: 30vh;
+    padding-top: 10vh;
+}
+
+/* Styling for the contact section image on the home page */
+.contact-header-image {
+    height: 40vh;
+    background: url('/media/mountains.jpg') no-repeat center center;
 }
 
 .fixed-footer {

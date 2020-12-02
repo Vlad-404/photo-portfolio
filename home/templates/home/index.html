@@ -23,7 +23,7 @@
         </h1>
     </div>
 
-    <!-- Galleries -->
+<!-- Galleries -->
     <!-- Background container -->
     <div id="galleries" class="container-fluid images-container galleries-background">
         <!-- Container for galleries -->
@@ -105,28 +105,48 @@
     </div>
 
     <!-- Contact -->
-    <div class="container-fluid images-container" style="position: relative;">
-        <div class="container w-75 contact-top-margin">
+    <div id="home-page-contact" class="container-fluid images-container p-0">
+        <!-- Contact header image -->
+        <div class="container-fluid contact-header-image p-0"></div>
+
+        <!-- Contact area -->
+        <div class="container w-75 contact-top-margin" style="margin-bottom: 10vh;">
             <div class="row">
                 <div class="col-xl-6">
                     <h2 class="montserrat text-uppercase shadow-text">Contact</h2>
                 </div>
                 <div class="col-xl-6">
                     <form class="text-right">
-                        <label for="contact-email">Your Email:</label>
-                        <input type="email" class="form-control form-control-lg text-right mb-2" id="contact-email" placeholder="my-email@domain.com">
-                        <label for="contact-message" class="mt-3">Message:</label>
-                        <input type="email" class="form-control form-control-lg text-right mb-2" id="contact-message" placeholder="Type in your message here...">
-                        <input type="submit" value="Submit">
+                        <label for="contact-email" class="montserrat">Your Email:</label>
+                        <input type="email" class="form-control form-control-lg osans text-right mb-2" id="contact-email" placeholder="my-email@domain.com">
+                        <label for="contact-message" class="mt-3 montserrat">Message:</label>
+                        <textarea id = "contact-message" class="form-control form-control-lg text-right osans mb-2" rows = "3" placeholder="Type in your message here..."></textarea>
+                        
+                        <input type="submit" value="Send">
                     </form>
                 </div>
             </div>
-            <footer class="row fixed-footer">
-                <div class="col align-self-center text-center">
-                    <p>Footer</p>
-                </div>
-            </footer>
         </div>
+
+        <!-- Footer -->
+        <footer class="container-fluid mt-3 w-100 border-top pt-2">
+            <div class="row justify-content-center text-center">
+                <div class="col col-auto text-muted">
+                    <ul class="nav">
+                        <li class="mr-3 ml-3">
+                            <a href="https://www.facebook.com/" class="nav-item text-center text-muted"><h3><i class="fab fa-facebook-square"></i></h3></a>
+                        </li>
+                        <li class="mr-3 ml-3">
+                            <a href="https://www.instagram.com/" class="nav-item text-center text-muted"><h3><i class="fab fa-instagram"></i></h3></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col col-12 mt-2">
+                    <p class="montserrat">Copyright... 2020</p>
+                </div>
+            </div>
+        </footer>
+        
     </div>
 {% endblock %}
 
