@@ -101,14 +101,15 @@ a {
 
 /* Welcome page carousel */
 .images-container {
+    min-height: 100vh;
     background-size: cover;
     color: #555;
     font-family: 'Open Sans', sans-serif;
-    min-height: 100vh;
 }
 
 .carousel-img-1 {
     background: url('/media/church-day.jpg') no-repeat center center;
+
 }
 
 .carousel-img-2 {
@@ -145,5 +146,12 @@ a {
 @media (min-width: 1200px) {
   .container {
     max-width: 80%;
+  }
+
+  .images-container {
+    min-height: 100vh;
+    background-size: 100% 100% !important;
+    color: #555;
+    font-family: 'Open Sans', sans-serif;
   }
 }
