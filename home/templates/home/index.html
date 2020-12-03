@@ -35,7 +35,7 @@
                 {% for categories in category %}
                     <!-- For image on the left -->
                     {{ forloop.counter }}
-                    {% if forloop.counter % 2 != 0 %}
+                    {% if forloop.counter|divisibleby:2 %}
                         <div class="col-sm-12 text-right navbar-styling shadow-text mb-3 pl-0">
                             <div class="container-fluid w-100 p-0">
                                 <div class="row align-items-center text-white m-0">
