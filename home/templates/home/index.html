@@ -31,75 +31,47 @@
             <h2 class="text-white text-uppercase montserrat shadow-text">Galleries</h2>
             <!-- Links to galleries -->
             <div class="row">
-                <!-- Image left -->
-                <div class="col-sm-12 text-right navbar-styling shadow-text mb-3 pl-0">
-                    <div class="container-fluid w-100 p-0">
-                        <div class="row align-items-center text-white m-0">
-                            <div class="col-5 h-100 p-0">
-                                <a href="#">
-                                    <img src="/media/wien-night.jpg" alt="Night city image" class="img-fluid float-left">
-                                </a>
-                            </div>
-                            <div class="col-7 h-100">
-                                <a href="#" class="text-white">
-                                    <p class="responsive-font">Landscape</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Image right -->
-                <div class="col-sm-12 text-right navbar-styling shadow-text mb-3 pr-0">
-                    <div class="container-fluid w-100 p-0">
-                        <div class="row align-items-center text-white m-0">
-                            <div class="col-7 h-100 text-left">
-                                <a href="#" class="text-white">
-                                    <p class="responsive-font">Architecture</p>
-                                </a>
-                            </div>
-                            <div class="col-5 h-100 p-0">
-                                <a href="#">
-                                    <img src="/media/mountains.jpg" alt="Mountains image" class="img-fluid float-right">
-                                </a>
+                <!-- Alternating image sections -->
+                {% for categories in category %}
+                    <!-- For image on the left -->
+                    {{ forloop.counter }}
+                    {% if forloop.counter % 2 != 0 %}
+                        <div class="col-sm-12 text-right navbar-styling shadow-text mb-3 pl-0">
+                            <div class="container-fluid w-100 p-0">
+                                <div class="row align-items-center text-white m-0">
+                                    <div class="col-5 h-100 p-0">
+                                        <a href="#">
+                                            <img src="{{ categories.image_url }}" alt="{{ categories.name }} image" class="img-fluid float-left">
+                                        </a>
+                                    </div>
+                                    <div class="col-7 h-100">
+                                        <a href="#" class="text-white">
+                                            <p class="responsive-font">{{ categories.name }}</p>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <!-- Image left -->
-                <div class="col-sm-12 text-right navbar-styling shadow-text mb-3 pl-0">
-                    <div class="container-fluid w-100 p-0">
-                        <div class="row align-items-center text-white m-0">
-                            <div class="col-5 h-100 p-0">
-                                <a href="#">
-                                    <img src="/media/wien-night.jpg" alt="Night city image" class="img-fluid float-left">
-                                </a>
-                            </div>
-                            <div class="col-7 h-100">
-                                <a href="#" class="text-white">
-                                    <p class="responsive-font">Seasons</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Image right -->
-                <div class="col-sm-12 text-right navbar-styling shadow-text mb-3 pr-0">
-                    <div class="container-fluid w-100 p-0">
-                        <div class="row align-items-center text-white m-0">
-                            <div class="col-7 h-100 text-left">
-                                <a href="#" class="text-white">
-                                    <p class="responsive-font">Food</p>
-                                </a>
-                            </div>
-                            <div class="col-5 h-100 p-0">
-                                <a href="#">
-                                    <img src="/media/mountains.jpg" alt="Mountains image" class="img-fluid float-right">
-                                </a>
+                    <!-- For image on the right -->
+                    {% else %}
+                        <div class="col-sm-12 text-right navbar-styling shadow-text mb-3 pr-0">
+                            <div class="container-fluid w-100 p-0">
+                                <div class="row align-items-center text-white m-0">
+                                    <div class="col-7 h-100 text-left">
+                                        <a href="#" class="text-white">
+                                            <p class="responsive-font">{{ categories.name }}</p>
+                                        </a>
+                                    </div>
+                                    <div class="col-5 h-100 p-0">
+                                        <a href="#">
+                                            <img src="{{ categories.image_url }}" alt="{{ categories.name }} image" class="img-fluid float-right">
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                
+                    {% endif %}
+                {% endfor %}
             </div>
         </div>
     </div>
@@ -147,6 +119,23 @@
             </div>
         </footer>
         
+    </div>
+    <div>
+        {{ category }}
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>Image URL</td>
+                <td>Image ID</td>
+            </tr>
+        {% for categories in category %}
+            <tr>
+                <td>{{ categories.name}}</td>
+                <td>{{ categories.image_url}}</td>
+                <td>{{ categories.image_id}}</td>
+            </tr>
+        {% endfor %}
+        </table>
     </div>
 {% endblock %}
 

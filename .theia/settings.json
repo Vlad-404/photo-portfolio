@@ -20,5 +20,6 @@
       "**/core.python*": true,
    },
 "emmet.extensionsPath": ".theia",
-"python.pythonPath": "/home/gitpod/.pyenv/versions/3.8.6/bin/python"
+"python.pythonPath": "/home/gitpod/.pyenv/versions/3.8.6/bin/python",
+"editor.autoSave": "off"
 }
