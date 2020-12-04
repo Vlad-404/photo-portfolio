@@ -25,7 +25,7 @@
 
 <!-- Galleries -->
     <!-- Background container -->
-    <div id="galleries" class="container-fluid images-container galleries-background">
+    <div id="galleries" class="container-fluid images-container galleries-background pb-5">
         <!-- Container for galleries -->
         <div class="container w-75 galeries-top-margin">
             <h2 class="text-white text-uppercase montserrat shadow-text">Galleries</h2>
@@ -34,7 +34,6 @@
                 <!-- Alternating image sections -->
                 {% for categories in category %}
                     <!-- For image on the left -->
-                    {{ forloop.counter }}
                     {% if forloop.counter|divisibleby:2 %}
                         <div class="col-sm-12 text-right navbar-styling shadow-text mb-3 pl-0">
                             <div class="container-fluid w-100 p-0">
@@ -120,23 +119,7 @@
         </footer>
         
     </div>
-    <div>
-        {{ category }}
-        <table>
-            <tr>
-                <td>Name</td>
-                <td>Image URL</td>
-                <td>Image ID</td>
-            </tr>
-        {% for categories in category %}
-            <tr>
-                <td>{{ categories.name}}</td>
-                <td>{{ categories.image_url}}</td>
-                <td>{{ categories.image_id}}</td>
-            </tr>
-        {% endfor %}
-        </table>
-    </div>
+    
 {% endblock %}
 
 {% block postloadjs %}

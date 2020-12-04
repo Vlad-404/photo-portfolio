@@ -59,12 +59,11 @@
                     {% endif %}
 
                     <!-- Social network links -->
+                    {% for social in media_links %}
                     <li class="nav-item navbar-styling mheight-3-5">
-                        <a class="nav-link text-white active" href="https://www.instagram.com/" target="_blank" rel="noopener"><i class="fab fa-instagram"></i></a>
+                        <a class="nav-link text-white active" href="{{ social.site_url}}" target="_blank" rel="noopener"><i class="{{ social.icon }}"></i></a>
                     </li>
-                    <li class="nav-item navbar-styling mheight-3-5">
-                        <a class="nav-link text-white active" href="https://www.facebook.com/" target="_blank" rel="noopener"><i class="fab fa-facebook-square"></i></a>
-                    </li>
+                    {% endfor %}
 
                     <!-- Contact and account management -->
                     <li class="nav-item navbar-styling mheight-3-5">
@@ -76,6 +75,8 @@
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
                                     <a href="" class="dropdown-item text-white">Images</a>
+                                    <a href="" class="dropdown-item text-white">Add Image Category</a>
+                                    <a href="" class="dropdown-item text-white">Add Social Media</a>
                                 {% endif %}
                                     <a href="" class="dropdown-item text-white">Account</a>
                                     <a href="{% url 'account_logout' %}" class="dropdown-item text-white">Logout</a>
@@ -130,12 +131,11 @@
                 <!-- Social network links -->
                 <div class="container">
                     <div class="row">
-                        <div class="col-6">
-                            <a href="https://www.facebook.com/" class="nav-item text-center text-white"><h3><i class="fab fa-facebook-square"></i></h3></a>
+                        {% for social in media_links %}
+                        <div class="col">
+                            <a href="{{ social.site_url}}" class="nav-item text-center text-white"><h3><i class="{{ social.icon}}"></i></h3></a>
                         </div>
-                        <div class="col-6">
-                            <a href="https://www.instagram.com/" class="nav-item text-center text-white"><h3><i class="fab fa-instagram"></i></h3></a>
-                        </div>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="dropdown-divider"></div>
@@ -176,6 +176,8 @@
                                 {% if request.user.is_authenticated %}
                                     {% if request.user.is_superuser %}
                                         <a href="" class="dropdown-item text-white">Images</a>
+                                        <a href="" class="dropdown-item text-white">Add Image Category</a>
+                                        <a href="" class="dropdown-item text-white">Add Social Media</a>
                                     {% endif %}
                                     <a href="" class="dropdown-item text-white">My Profile</a>
                                     <a href="{% url 'account_logout' %}" class="dropdown-item text-white">Logout</a>
@@ -190,10 +192,11 @@
                         <a class="nav-link text-white" href="#">CONTACT</a>
                     </li>
                 </ul>
+                <!-- If there is something in the basket - for mobile sidenav -->
                 {% if grand_total %}
                 <div class="dropdown-divider"></div>
 
-                <!-- Basket for mobile sidenav -->
+                
                 <div class="container">
                     <div class="row">
                         <div class="col-4 text-center text-white">
