@@ -3,6 +3,10 @@ from django.db import models
 
 # Create your models here.
 class Images(models.Model):
+
+    class Meta:
+        verbose_name_plural = 'Images'
+
     title = models.CharField(max_length=30, default=None, null=False, blank=False)
     description = models.TextField(default=None)
     category = models.CharField(max_length=24, default=None, null=False, blank=False)
