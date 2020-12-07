@@ -1,0 +1,39 @@
+[
+    {
+        "pkey": 1,
+        "model": "image_presentation.images",
+        "fields": {
+            "uid": "lcnp00001",
+            "title": "Sunset",
+            "description": "Sun setting over the snow covered hills",
+            "category": "landscape",
+            "panorama": false,
+            "color": true,
+            "price": 12.99,
+            "rating": 4,
+            "imgurl": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1607345621/photo-portfolio/DSC_0140_iisobc.jpg",
+            "imgid": "DSC_0140_iisobc",
+            "notes": "When printing, pay attention to dark tones. Image can become too dark if light not adjusted",
+            "uploaded_by": "vladimir"
+        }
+    },
+
+    {
+        "pkey": 2,
+        "model": "image_presentation.images",
+        "fields": {
+            "uid": "abwnp00001",
+            "title": "St Mary's Church",
+            "description": "A black and white image of St. Marry's church in Limerick",
+            "category": "architecture",
+            "panorama": false,
+            "color": false,
+            "price": 10.99,
+            "rating": 3,
+            "imgurl": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1607345621/photo-portfolio/St.Marys_bw_pqfan2.jpg",
+            "imgid": "St.Marys_bw_pqfan2",
+            "notes": "Sharpnes can get too low after print",
+            "uploaded_by": "vladimir"
+        }
+    }
+]

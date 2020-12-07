@@ -63,7 +63,7 @@ Going through all of these portfolio pages, I noticed that all of them some thin
 ### Wireframes
 
 After the initial idea, I decided to make a couple of sketches and make wireframes for different platforms to have an idea of how the page will look like on different platforms. Software used for generating mockups was [Balsamiq](https://balsamiq.com/?gclid=EAIaIQobChMIzK-ozrWk6QIVF-vtCh1l-woMEAAYASAAEgJ_vvD_BwE). 
-You can find all the wireframes in the [wireframes](#) folder.
+You can find all the wireframes in the [wireframes](https://github.com/Vlad-404/photo-portfolio/tree/master/wireframes) folder.
 
 After finishing the project, some of the design and features were changed:
 - ...
