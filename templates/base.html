@@ -67,7 +67,7 @@
 
                     <!-- Contact and account management -->
                     <li class="nav-item navbar-styling mheight-3-5">
-                        <a class="nav-link text-white active text-uppercase montserrat" href="#">Contact</a>
+                        <a class="nav-link text-white active text-uppercase montserrat" href="{% url 'home' %}#home-page-contact">Contact</a>
                     </li>
                     <li class="nav-item dropdown navbar-styling mheight-3-5">
                         <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
@@ -99,7 +99,7 @@
                     <li class="nav-item dropdown navbar-styling mheight-3-5">
                         <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Galleries</a>
                         <div class="dropdown-menu navbar-styling border-dark top-075rem">
-                            <a class="dropdown-item text-white" href="#">All Images</a>
+                            <a class="dropdown-item text-white" href="{% url 'all_images' %}">All Images</a>
                             <div class="dropdown-divider"></div>
                             <a class="dropdown-item text-white" href="#">Landscapes</a>
                             <a class="dropdown-item text-white" href="#">Architecture</a>
@@ -108,7 +108,7 @@
                         </div>
                     </li>
                     <li class="nav-item navbar-styling mheight-3-5">
-                        <a class="nav-link text-white active montserrat text-uppercase" href="#">Home</a>
+                        <a class="nav-link text-white active montserrat text-uppercase" href="{% url 'home' %}">Home</a>
                     </li>
                 </ul>
             </div>
@@ -143,7 +143,7 @@
                 <!-- Page navigation -->
                 <ul class="nav flex-column montserrat">
                     <li class="nav-item">
-                        <a class="nav-link active text-white" href="#">HOME</a>
+                        <a class="nav-link active text-white" href="{% url 'home' %}">HOME</a>
                     </li>
                     <li class="nav-item">
                         <div class="btn-group dropright bg-transparent">
@@ -151,7 +151,7 @@
                                 GALLERIES
                             </button>
                             <div class="dropdown-menu navbar-styling">
-                                <a class="dropdown-item text-white" href="#">All Images</a>
+                                <a class="dropdown-item text-white" href="{% url 'all_images' %}">All Images</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item text-white" href="#">Landscapes</a>
                                 <a class="dropdown-item text-white" href="#">Architecture</a>
@@ -189,7 +189,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white" href="#">CONTACT</a>
+                        <a class="nav-link text-white" href="{% url 'home' %}#home-page-contact">CONTACT</a>
                     </li>
                 </ul>
                 <!-- If there is something in the basket - for mobile sidenav -->

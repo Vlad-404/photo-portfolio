@@ -10,4 +10,4 @@ def all_images(request):
         'images': images,
     }
 
-    return render(request, 'image_presentation/all-images.html', context)
+    return render(request, 'gallery/gallery.html', context)
