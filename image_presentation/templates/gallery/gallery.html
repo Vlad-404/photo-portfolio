@@ -10,42 +10,42 @@
 <div class="container-fluid header-40vh contact-header-image p-0"></div>
 
 <!-- Galleries container -->
-<h1 class="montserrat text-center">Galleries</h1>
+<h1 class="montserrat text-center mt-5">Galleries</h1>
 
-<main class="container-fluid">
-    <div class="row p-5">
-        <div class="col col-xl-4 col-md-6 col-sm-12">
-            {% for images in random %}
-                <div class="card bg-dark text-white">
+<main class="container">
+    <div class="row">
+        <div class="col col-12 col-xl-4 col-md-6 px-2">
+            {% for images in random1 %}
+                <div class="card bg-dark text-white mb-4">
                     <img class="card-img" src="{{ images.imgurl }}" alt="{{ images.title }} image">
                     <div class="card-img-overlay">
                         <h5 class="card-title">{{ images.title }}</h5>
                         <p class="card-text">{{ images.description }}</p>
-                        <p class="card-text">{{ images.rating }}</p>
+                        <p class="card-text">Rating: {{ images.rating }}</p>
                     </div>
                 </div>
             {% endfor %}
         </div>
-        <div class="col col-xl-4 col-md-6 col-sm-12">
-            {% for images in random %}
-                <div class="card bg-dark text-white">
+        <div class="col col-12 col-xl-4 col-md-6 px-2">
+            {% for images in random2 %}
+                <div class="card bg-dark text-white mb-4">
                     <img class="card-img" src="{{ images.imgurl }}" alt="{{ images.title }} image">
                     <div class="card-img-overlay">
                         <h5 class="card-title">{{ images.title }}</h5>
                         <p class="card-text">{{ images.description }}</p>
-                        <p class="card-text">{{ images.rating }}</p>
+                        <p class="card-text">Rating: {{ images.rating }}</p>
                     </div>
                 </div>
             {% endfor %}
         </div>
-        <div class="col col-xl-4 col-md-6 col-sm-12">
-            {% for images in random %}
-                <div class="card bg-dark text-white">
+        <div class="col col-12 col-xl-4 col-md-6 px-2">
+            {% for images in random3 %}
+                <div class="card bg-dark text-white mb-4">
                     <img class="card-img" src="{{ images.imgurl }}" alt="{{ images.title }} image">
                     <div class="card-img-overlay">
                         <h5 class="card-title">{{ images.title }}</h5>
                         <p class="card-text">{{ images.description }}</p>
-                        <p class="card-text">{{ images.rating }}</p>
+                        <p class="card-text">Rating: {{ images.rating }}</p>
                     </div>
                 </div>
             {% endfor %}

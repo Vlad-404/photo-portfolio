@@ -237,13 +237,6 @@
             </div>
         </div>
     </div>
-
-    <script>
-        function hideMobileNavBar() {
-            mobileNavBar = document.getElementById("mobile-sidenav");
-            mobileNavBar.classList.remove("show");
-        }
-    </script>
   
     {% if messages %}
     <div class="message-container"></div>    
@@ -252,6 +245,32 @@
     {% block content %}
     {% endblock %}
 
+    <!-- Footer -->
+        <footer class="container-fluid mt-3 w-100 border-top pt-2">
+            <div class="row justify-content-center text-center">
+                <div class="col col-auto text-muted">
+                    <ul class="nav">
+                        <li class="mr-3 ml-3">
+                            <a href="https://www.facebook.com/" class="nav-item text-center text-muted" target="_blank" rel="noopener"><h3><i class="fab fa-facebook-square"></i></h3></a>
+                        </li>
+                        <li class="mr-3 ml-3">
+                            <a href="https://www.instagram.com/" class="nav-item text-center text-muted" target="_blank" rel="noopener"><h3><i class="fab fa-instagram"></i></h3></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col col-12 mt-2">
+                    <p class="montserrat">Under construction - 2020</p>
+                </div>
+            </div>
+        </footer>
+    
+    <script>
+        function hideMobileNavBar() {
+            mobileNavBar = document.getElementById("mobile-sidenav");
+            mobileNavBar.classList.remove("show");
+        }
+    </script>
+    
     {% block postloadjs %}
     {% endblock %}
 

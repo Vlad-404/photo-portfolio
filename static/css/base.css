@@ -65,7 +65,7 @@ a {
 }
 
 .navbar-styling {
-    background-color: #5F5F5F60;
+    background-color: #5F5F5F90;
     color: #F2F2F2;
 }
 
@@ -159,3 +159,8 @@ a {
 }
 
 /* GALLERY CSS */
+@media (max-width: 480px) {
+    .row {
+      padding:0;
+    }
+}
