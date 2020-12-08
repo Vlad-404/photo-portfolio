@@ -6,17 +6,51 @@
 {% endblock %}
 
 {% block content %}
-    <h2>Galleries</h2>
-    <h4>Content:</h4>
-    <p>
-    Raw data:
-    {{ random }}
-    </p>
-    {% for images in random %}
-        <ul>
-            <li>Image title: {{ images.title }}</li>
-            <li>Image category: {{ images.category }}</li>
-        </ul>
-    {% endfor %}
+<!-- Header -->
+<div class="container-fluid header-40vh contact-header-image p-0"></div>
 
+<!-- Galleries container -->
+<h1 class="montserrat text-center">Galleries</h1>
+
+<main class="container-fluid">
+    <div class="row p-5">
+        <div class="col col-xl-4 col-md-6 col-sm-12">
+            {% for images in random %}
+                <div class="card bg-dark text-white">
+                    <img class="card-img" src="{{ images.imgurl }}" alt="{{ images.title }} image">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">{{ images.title }}</h5>
+                        <p class="card-text">{{ images.description }}</p>
+                        <p class="card-text">{{ images.rating }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col col-xl-4 col-md-6 col-sm-12">
+            {% for images in random %}
+                <div class="card bg-dark text-white">
+                    <img class="card-img" src="{{ images.imgurl }}" alt="{{ images.title }} image">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">{{ images.title }}</h5>
+                        <p class="card-text">{{ images.description }}</p>
+                        <p class="card-text">{{ images.rating }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="col col-xl-4 col-md-6 col-sm-12">
+            {% for images in random %}
+                <div class="card bg-dark text-white">
+                    <img class="card-img" src="{{ images.imgurl }}" alt="{{ images.title }} image">
+                    <div class="card-img-overlay">
+                        <h5 class="card-title">{{ images.title }}</h5>
+                        <p class="card-text">{{ images.description }}</p>
+                        <p class="card-text">{{ images.rating }}</p>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        
+    </div>
+</main>
 {% endblock %}

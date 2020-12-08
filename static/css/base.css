@@ -135,8 +135,10 @@ a {
 }
 
 /* Styling for the contact section image on the home page */
-.contact-header-image {
+.header-40vh {
     height: 40vh;
+}
+.contact-header-image {
     background: url('/media/mountains.jpg') no-repeat center center;
 }
 
