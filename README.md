@@ -248,6 +248,11 @@ As the owner:
     * **What went wrong:** Bootstrap code(?)
     * **Resolution:** Lowered the time needed for images to change (still not resolved)
 
+* **Description:** While trying to migrate `images` model, django refused and threw an error
+    * **How I found it:** While trying to `makemigrations` with images model, _"You are trying to add a non-nullable field 'category' to images without a default"_ error, and wouldn't make any migrations
+    * **What went wrong:** Probable cause was editing already existing model
+    * **Resolution:** Added `deafult=None` to every field that hasn't got `default` value
+
 * **Description:** 
     * **How I found it:** 
     * **What went wrong:** 

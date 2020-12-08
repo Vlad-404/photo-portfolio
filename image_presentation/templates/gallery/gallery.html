@@ -8,5 +8,15 @@
 {% block content %}
     <h2>Galleries</h2>
     <h4>Content:</h4>
-    {{ images }}
+    <p>
+    Raw data:
+    {{ random }}
+    </p>
+    {% for images in random %}
+        <ul>
+            <li>Image title: {{ images.title }}</li>
+            <li>Image category: {{ images.category }}</li>
+        </ul>
+    {% endfor %}
+
 {% endblock %}

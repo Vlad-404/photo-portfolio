@@ -140,7 +140,7 @@ a {
     background: url('/media/mountains.jpg') no-repeat center center;
 }
 
-/* -------------------------------- Media Queries(?) */
+/* -------------------------------- Media Queries */
 
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
@@ -155,3 +155,5 @@ a {
     font-family: 'Open Sans', sans-serif;
   }
 }
+
+/* GALLERY CSS */
