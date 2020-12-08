@@ -15,6 +15,7 @@ def all_images(request):
         'random1': random_list1,
         'random2': random_list2,
         'random3': random_list3,
+        'page_title': 'Galleries',
     }
 
     return render(request, 'gallery/gallery.html', context)
