@@ -159,8 +159,15 @@ a {
 }
 
 /* GALLERY CSS */
-@media (max-width: 480px) {
-    .row {
-      padding:0;
-    }
+/* Restricts the image height so it doesn't break the visual appeal of the page */
+.restrict-image-height {
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+/* Comment for the image cards in galleries */
+.card-comment {
+    position: absolute;
+    bottom: 0;
+    height: 4rem;
 }

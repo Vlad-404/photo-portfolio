@@ -24,12 +24,12 @@
                 {% include 'includes/image-card.html' %}
             {% endfor %}
         </div>
+    <!-- For medium and large screens, this column is hidden because it continues under 1st and breaks the visual appeal of the page -->
         <div class="col col-12 col-xl-4 col-md-6 d-md-none d-lg-none d-xl-block px-2">
             {% for images in random|slice:"10:15" %}
                 {% include 'includes/image-card.html' %}
             {% endfor %}
         </div>
-        
     </div>
 </main>
 {% endblock %}

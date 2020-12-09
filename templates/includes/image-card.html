@@ -1,8 +1,9 @@
-<div class="card bg-dark text-white mb-4">
+<div class="card bg-dark restrict-image-height text-center text-white mb-4">
     <img class="card-img" src="{{ images.imgurl }}" alt="{{ images.title }} image">
-    <div class="card-img-overlay">
-        <h5 class="card-title">{{ images.title }}</h5>
-        <p class="card-text">{{ images.description }}</p>
-        <p class="card-text">Rating: {{ images.rating }}</p>
+    <div class="container-fluid navbar-styling px-5 card-comment align-items-center">
+        <div class="row">
+         <div class="col-6 text-left p-0">{{ images.title }}</div>
+         <div class="col-6 text-right p-0">{{ images.rating }}</div>
+        </div>
     </div>
 </div>
