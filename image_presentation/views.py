@@ -1,21 +1,19 @@
-import random
 from django.shortcuts import render
 from .models import Images
+from home.models import SocialMedia
 
 
 # Create your views here.
 def all_images(request):
-    """ A view to show all of the images """
-    images = Images.objects.all()
-    random_list1 = Images.objects.order_by('?')
-    random_list2 = Images.objects.order_by('?')
-    random_list3 = Images.objects.order_by('?')
+    """ Import social media links for navbar """
+    media_links = SocialMedia.objects.all()
+
+    """ A view that randomises the images each time page is loaded """
+    random_list = Images.objects.order_by('?')
     context = {
-        'images': images,
-        'random1': random_list1,
-        'random2': random_list2,
-        'random3': random_list3,
+        'media_links': media_links,
         'page_title': 'Galleries',
+        'random': random_list
     }
 
     return render(request, 'gallery/gallery.html', context)

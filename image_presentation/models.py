@@ -57,8 +57,8 @@ class Images(models.Model):
                             default=None
                             )
     image = models.ImageField(
-                            null=False,
-                            blank=False,
+                            null=True,
+                            blank=True,
                             default=None
                             )
     notes = models.TextField(

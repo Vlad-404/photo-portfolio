@@ -15,39 +15,18 @@
 <main class="container">
     <div class="row">
         <div class="col col-12 col-xl-4 col-md-6 px-2">
-            {% for images in random1|slice:":5" %}
-                <div class="card bg-dark text-white mb-4">
-                    <img class="card-img" src="{{ images.imgurl }}" alt="{{ images.title }} image">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title">{{ images.title }}</h5>
-                        <p class="card-text">{{ images.description }}</p>
-                        <p class="card-text">Rating: {{ images.rating }}</p>
-                    </div>
-                </div>
+            {% for images in random|slice:":5" %}
+                {% include 'includes/image-card.html' %}
             {% endfor %}
         </div>
         <div class="col col-12 col-xl-4 col-md-6 px-2">
-            {% for images in random2|slice:":5" %}
-                <div class="card bg-dark text-white mb-4">
-                    <img class="card-img" src="{{ images.imgurl }}" alt="{{ images.title }} image">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title">{{ images.title }}</h5>
-                        <p class="card-text">{{ images.description }}</p>
-                        <p class="card-text">Rating: {{ images.rating }}</p>
-                    </div>
-                </div>
+            {% for images in random|slice:"5:10" %}
+                {% include 'includes/image-card.html' %}
             {% endfor %}
         </div>
-        <div class="col col-12 col-xl-4 col-md-6 px-2">
-            {% for images in random3|slice:":5" %}
-                <div class="card bg-dark text-white mb-4">
-                    <img class="card-img" src="{{ images.imgurl }}" alt="{{ images.title }} image">
-                    <div class="card-img-overlay">
-                        <h5 class="card-title">{{ images.title }}</h5>
-                        <p class="card-text">{{ images.description }}</p>
-                        <p class="card-text">Rating: {{ images.rating }}</p>
-                    </div>
-                </div>
+        <div class="col col-12 col-xl-4 col-md-6 d-md-none d-lg-none d-xl-block px-2">
+            {% for images in random|slice:"10:15" %}
+                {% include 'includes/image-card.html' %}
             {% endfor %}
         </div>
         
