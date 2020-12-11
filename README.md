@@ -139,6 +139,11 @@ as per [research](#research-and-preparations) and [design choices](#design-choic
 * Users can create and delete their account
 * Image hosting will be handled by a third-party provider - [Cloudinary](https://cloudinary.com) as current storage capacities aren't adequate for a large number of images. 
 
+## Decisions during development
+As every project encounters issues during it's development, I have decided to add things not originally planned or modify some parts of the site to better serve the purpose or simplify things.
+* **Added** - I added a separate page instead of full page modal where visitors and users can see an image accross the full page and decide about their purchase;
+* ...
+
 ## Features Left to Implement
 ...
 

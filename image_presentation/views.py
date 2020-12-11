@@ -21,14 +21,14 @@ def all_images(request):
 
 
 # More info for selected image
-def image_view(request):
+# def image_view(request, image_id):
+def image_view(request, image_id):
     """ A view to show individual image details with purchasing options"""
-    # image = get_object_or_404(Images, pk=image_id)
+    image = get_object_or_404(Images, pk=image_id)
 
     context = {
-        # 'image': image,
+        'image': image,
         'page_title': 'More info'
     }
 
     return render(request, 'gallery/image-view.html', context)
-# def image_view(request, """image_id"""):

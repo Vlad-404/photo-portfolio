@@ -1,16 +1,15 @@
 <div class="card bg-dark restrict-image-height text-center text-white mb-4">
-    <a href="{% url 'image_view' %}" target="_blank">
+    <a href="{% url 'image_view' images.id %}" target="_blank">
         <img class="card-img" src="{{ images.imgurl }}" alt="{{ images.title }} image">
     </a>
     <div class="container-fluid navbar-styling px-5 card-comment align-items-center">
         <div class="row">
             <div class="col-6 text-left p-0">{{ images.title }}</div>
-            <div class="col-6 text-right p-0">{{ images.rating }}</div>
+            <div class="col-6 text-right p-0">{{ images.rating }} / 5</div>
         </div>
         <div class="row">
             <div class="col-6 text-left p-0"><a href="" class="btn btn-info text-white">Edit</a></div>
             <div class="col-6 text-right p-0"><a href="" class="btn btn-danger text-white">Delete</a></div>
         </div>
     </div>
-    
 </div>

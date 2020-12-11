@@ -6,6 +6,15 @@
 {% endblock %}
 
 {% block content %}
-    <h1>More info about the image</h1>
-    {{ image.id }}
+    <div id="view-image" class="container p-0">
+        <img src="{{ image.imgurl }}" alt="{{ image.title }} image" class="img-fluid" style="z-index: -1;"> 
+    </div>
+
+    <aside id="image-info-and-purchase" class="navbar-styling z-1050">
+        <p>{{ image.title }}</p>
+        <p>{{ image.description }}</p>
+        <p>{{ image.category }}</p>
+        <p>{{ image.price }}</p>
+    </aside>
+    
 {% endblock %}
