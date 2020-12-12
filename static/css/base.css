@@ -193,3 +193,13 @@ a {
     min-width: 400px;
     background-color: #3C3C3C90;
 }
+
+.image-view-dropup {
+    background-color: #4b4b4b;
+}
+
+.image-details-navigation {
+    position: fixed;
+    bottom: 1rem;
+    right: 3rem;
+}

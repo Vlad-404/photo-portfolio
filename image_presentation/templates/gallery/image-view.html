@@ -10,14 +10,53 @@
         <img src="{{ image.imgurl }}" alt="{{ image.title }} image" id="image-view-container" class="card-image" style="z-index: -1;"> 
     </div>
 
-    <aside id="image-info-and-purchase" class="navbar-styling z-1050 p-3 shadow-text text-white">
-        <h3 class="montserrat text-uppercase">{{ image.title }}</h3>
-        <div class="dropdown-divider"></div>
-        <h6 class="montserrat text-uppercase">Description: </h6><p>{{ image.description }}</p>
-        <h6 class="montserrat text-uppercase">Category: </h6><p>{{ image.category }}</p>
-        <h5 class="montserrat text-uppercase">Price: </h5><p>€ {{ image.price }}</p>
-        
-        <h5>Footer</h5>
+    <aside id="image-info-and-purchase" class="navbar-styling z-1050 p-3 shadow-text text-white montserrat">
+        <div class="container-fluid h-100 mx-0">
+            <div class="row w-100">
+                <div class="col px-0">
+                    <h3 class="montserrat text-uppercase">{{ image.title }}</h3>
+                    <div class="dropdown-divider"></div>
+                    <h6 class="montserrat text-uppercase">Description: </h6><p>{{ image.description }}</p>
+                    <h6 class="montserrat text-uppercase">Category: </h6><p>{{ image.category }}</p>
+                    <h5 class="montserrat text-uppercase">Price: </h5><p>€ {{ image.price }}</p>
+                </div>
+            </div>
+            
+            <!-- Footer with nav links -->
+            <div class="row image-details-navigation align-items-center border-top border-white">
+                <div class="col-4 nav-item d-flex justify-content-center">
+                    <a href="{% url 'home' %}" class="text-white">HOME</a>
+                </div>
+                <div class="col-4 nav-item dropup d-flex justify-content-center">
+                    <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Galleries</a>
+                    <div class="dropdown-menu image-view-dropup border-dark top-075rem">
+                        <a class="dropdown-item text-white" href="{% url 'all_images' %}">All Images</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item text-white" href="#">Landscapes</a>
+                        <a class="dropdown-item text-white" href="#">Architecture</a>
+                        <a class="dropdown-item text-white" href="#">Seasons</a>
+                        <a class="dropdown-item text-white" href="#">Food</a>
+                    </div>
+                </div>
+                <div class="col-4 nav-item dropup d-flex justify-content-center">
+                    <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
+                    <div class="dropdown-menu image-view-dropup border-dark" aria-labelledby="user-options">
+                        {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
+                                <a href="" class="dropdown-item text-white">Images</a>
+                                <a href="" class="dropdown-item text-white">Add Image Category</a>
+                                <a href="" class="dropdown-item text-white">Add Social Media</a>
+                            {% endif %}
+                                <a href="" class="dropdown-item text-white">Account</a>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item text-white">Logout</a>
+                        {% else %}
+                                <a href="{% url 'account_signup' %}" class="dropdown-item text-white">Register</a>
+                                <a href="{% url 'account_login' %}" class="dropdown-item text-white">Login</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
     </aside>
     
 {% endblock %}
