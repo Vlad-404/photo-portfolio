@@ -18,18 +18,15 @@
 <main class="container">
     <!-- Sorting buttons -->
     <div class="row justify-content-center mb-3 py-5 border-bottom">
+        <div class="col col-auto text-center">
+            <a href="" class="btn btn-lg btn-secondary categories-minwidth-button">All</a>
+        </div>
+        {% for category in categories %}
         <div class="col col-auto text-center mx-3">
-            <a href="" class="btn btn-lg btn-secondary">Landscapes</a>
+            <a href="" class="btn btn-lg btn-secondary categories-minwidth-button">{{ category.name }}</a>
         </div>
-        <div class="col col-auto text-center">
-            <a href="" class="btn btn-lg btn-secondary">Architecture</a>
-        </div>
-        <div class="col col-auto text-center">
-            <a href="" class="btn btn-lg btn-secondary">Seasons</a>
-        </div>
-        <div class="col col-auto text-center">
-            <a href="" class="btn btn-lg btn-secondary">Food</a>
-        </div>
+        {% endfor %}
+        
     </div>
 
     <!-- Image cards -->

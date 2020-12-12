@@ -1,9 +1,10 @@
 from django.shortcuts import render, get_object_or_404
 from .models import Images
-from home.models import SocialMedia
+from home.models import SocialMedia, categories
 
 """ Social media links for navbar """
 media_links = SocialMedia.objects.all()
+categories = categories.objects.all()
 
 
 # Create your views here.
@@ -13,6 +14,7 @@ def all_images(request):
     random_list = Images.objects.order_by('?')
     context = {
         'media_links': media_links,
+        'categories': categories,
         'page_title': 'Galleries',
         'random': random_list
     }

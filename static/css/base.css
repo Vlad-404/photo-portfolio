@@ -159,6 +159,11 @@ a {
 }
 
 /* GALLERY CSS */
+/* Sets minimum width for categories buttons */
+.categories-minwidth-button {
+    min-width: 10rem;
+}
+
 /* Restricts the image height so it doesn't break the visual appeal of the page */
 .restrict-image-height {
     max-height: 100vh;
