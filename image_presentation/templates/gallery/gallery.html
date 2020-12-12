@@ -7,6 +7,9 @@
 
 {% block content %}
 <!-- Header -->
+{% include 'includes/header-navbar.html' %}
+{% include 'includes/header-mobile.html' %}
+{% include 'includes/search-bar.html' %}
 <div class="container-fluid header-40vh contact-header-image p-0"></div>
 
 <!-- Galleries container -->
@@ -32,4 +35,7 @@
         </div>
     </div>
 </main>
+
+{% include 'includes/footer.html' %}
+
 {% endblock %}

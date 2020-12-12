@@ -12,7 +12,7 @@ def all_images(request):
     """ A view that randomises the images each time page is loaded """
     random_list = Images.objects.order_by('?')
     context = {
-        'image': media_links,
+        'media_links': media_links,
         'page_title': 'Galleries',
         'random': random_list
     }

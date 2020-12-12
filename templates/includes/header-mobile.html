@@ -1,0 +1,94 @@
+<!-- Collpsible sidebar for mobile devices -->
+<aside>
+        <button class="btn fixed-nav navbar-styling d-xl-none z-2000" type="button" data-toggle="collapse" data-target="#mobile-sidenav" aria-expanded="false" aria-controls="collapseExample">
+            <h2 class="text-white"><i class="fas fa-bars"></i>{% if grand_total %}  €{% endif %}</h2>
+        </button>
+        <div id="mobile-sidenav" class="collapse navbar-styling fixed-nav d-xl-none z-1050 shadow-text">
+            <div class="card card-body navbar-styling" style="padding-top: 4rem;">
+
+                <!-- Social network links -->
+                <div class="container">
+                    <div class="row">
+                        {% for social in media_links %}
+                        <div class="col">
+                            <a href="{{ social.site_url}}" class="nav-item text-center text-white"><h3><i class="{{ social.icon}}"></i></h3></a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="dropdown-divider"></div>
+
+                <!-- Page navigation -->
+                <ul class="nav flex-column montserrat">
+                    <li class="nav-item">
+                        <a class="nav-link active text-white" href="{% url 'home' %}">HOME</a>
+                    </li>
+                    <li class="nav-item">
+                        <div class="btn-group dropright bg-transparent">
+                            <button type="button" class="btn dropdown-toggle text-white shadow-text" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                GALLERIES
+                            </button>
+                            <div class="dropdown-menu navbar-styling">
+                                <a class="dropdown-item text-white" href="{% url 'all_images' %}">All Images</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item text-white" href="#">Landscapes</a>
+                                <a class="dropdown-item text-white" href="#">Architecture</a>
+                                <a class="dropdown-item text-white" href="#">Seasons</a>
+                                <a class="dropdown-item text-white" href="#">Food</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <button type="button" id="toggle-search-bar" class="btn bg-transparent text-white shadow-text" data-toggle="modal" data-target="#search-bar" onclick="hideMobileNavBar()">
+                            SEARCH
+                        </button>
+                    </li>
+
+                    <!-- Contact and account management -->
+                    <li class="nav-item">
+                        <div class="btn-group dropright bg-transparent">
+                            <button type="button" class="btn dropdown-toggle text-white shadow-text" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                MY PROFILE
+                            </button>
+                            <div class="dropdown-menu navbar-styling">
+                                {% if request.user.is_authenticated %}
+                                    {% if request.user.is_superuser %}
+                                        <a href="" class="dropdown-item text-white">Images</a>
+                                        <a href="" class="dropdown-item text-white">Add Image Category</a>
+                                        <a href="" class="dropdown-item text-white">Add Social Media</a>
+                                    {% endif %}
+                                    <a href="" class="dropdown-item text-white">My Profile</a>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item text-white">Logout</a>
+                                {% else %}
+                                    <a href="{% url 'account_signup' %}" class="dropdown-item text-white">Register</a>
+                                    <a href="{% url 'account_login' %}" class="dropdown-item text-white">Login</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="{% url 'home' %}#home-page-contact">CONTACT</a>
+                    </li>
+                </ul>
+                <!-- Shows the basket If there is something in it - for mobile sidenav -->
+                {% if grand_total %}
+                <div class="dropdown-divider"></div>
+
+                
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4 text-center text-white">
+                            <i class="fas fa-shopping-bag fa-lg"></i>:
+                        </div>
+                        <div class="col-8 text-center text-white">
+                            <p class="my-0">
+                                €{{ grand_total|floatformat:2 }}
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+        
+    </aside>

@@ -6,6 +6,11 @@
 {% endblock %}
 
 {% block content %}
+
+{% include 'includes/header-navbar.html' %}
+{% include 'includes/header-mobile.html' %}
+{% include 'includes/search-bar.html' %}
+
     <!-- Home page carousel -->
     <div id="home-page-carousel" class="carousel slide w-100" data-ride="carousel">
         <div class="carousel-inner">
@@ -90,6 +95,7 @@
                 <div class="col-xl-6">
                     <h2 class="montserrat text-uppercase shadow-text">Contact</h2>
                 </div>
+                <!-- Contact form -->
                 <div class="col-xl-6">
                     <form class="text-right">
                         <label for="contact-email" class="montserrat">Your Email:</label>
@@ -103,6 +109,8 @@
             </div>
         </div>
     </div>
+
+    {% include 'includes/footer.html' %}
 
 {% endblock %}
 
