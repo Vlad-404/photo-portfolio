@@ -203,3 +203,10 @@ a {
     bottom: 1rem;
     right: 3rem;
 }
+
+#hide-image-info {
+    position: fixed;
+    top: 1rem;
+    right: 2rem;
+    width: auto;
+}

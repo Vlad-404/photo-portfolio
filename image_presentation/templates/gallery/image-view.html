@@ -6,11 +6,16 @@
 {% endblock %}
 
 {% block content %}
+    <!-- Image container -->
     <div id="view-image-container" class="container p-0">
+        <!-- Icon that shows/hides info sidebar -->
+        <h2 id="hide-image-info" class="text-white shadow-text z-2000" onclick="hideInfoSidebar()"><i class="far fa-eye"></i></h2>
+        <!-- Image -->
         <img src="{{ image.imgurl }}" alt="{{ image.title }} image" id="image-view-container" class="card-image" style="z-index: -1;"> 
     </div>
 
-    <aside id="image-info-and-purchase" class="navbar-styling z-1050 p-3 shadow-text text-white montserrat">
+    <!-- Info sidebar with purchase options -->
+    <aside id="image-info-and-purchase" class="navbar-styling z-1050 p-3 pt-5 shadow-text text-white montserrat">
         <div class="container-fluid h-100 mx-0">
             <div class="row w-100">
                 <div class="col px-0">
@@ -27,7 +32,7 @@
                 <div class="col-4 nav-item d-flex justify-content-center">
                     <a href="{% url 'home' %}" class="text-white">HOME</a>
                 </div>
-                <div class="col-4 nav-item dropup d-flex justify-content-center">
+                <div class="col-4 nav-item dropup d-flex justify-content-center px-0">
                     <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Galleries</a>
                     <div class="dropdown-menu image-view-dropup border-dark top-075rem">
                         <a class="dropdown-item text-white" href="{% url 'all_images' %}">All Images</a>
@@ -38,7 +43,7 @@
                         <a class="dropdown-item text-white" href="#">Food</a>
                     </div>
                 </div>
-                <div class="col-4 nav-item dropup d-flex justify-content-center">
+                <div class="col-4 nav-item dropup d-flex justify-content-center px-0">
                     <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
                     <div class="dropdown-menu image-view-dropup border-dark" aria-labelledby="user-options">
                         {% if request.user.is_authenticated %}

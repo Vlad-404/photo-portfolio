@@ -10,12 +10,29 @@
 {% include 'includes/header-navbar.html' %}
 {% include 'includes/header-mobile.html' %}
 {% include 'includes/search-bar.html' %}
-<div class="container-fluid header-40vh contact-header-image p-0"></div>
+<div id="galleries-top" class="container-fluid header-40vh contact-header-image p-0"></div>
 
 <!-- Galleries container -->
 <h1 class="montserrat text-center shadow-text my-5">{{ page_title }}</h1>
 
 <main class="container">
+    <!-- Sorting buttons -->
+    <div class="row justify-content-center mb-3 py-5 border-bottom">
+        <div class="col col-auto text-center mx-3">
+            <a href="" class="btn btn-lg btn-secondary">Landscapes</a>
+        </div>
+        <div class="col col-auto text-center">
+            <a href="" class="btn btn-lg btn-secondary">Architecture</a>
+        </div>
+        <div class="col col-auto text-center">
+            <a href="" class="btn btn-lg btn-secondary">Seasons</a>
+        </div>
+        <div class="col col-auto text-center">
+            <a href="" class="btn btn-lg btn-secondary">Food</a>
+        </div>
+    </div>
+
+    <!-- Image cards -->
     <div class="row">
         <div class="col col-12 col-xl-4 col-md-6 col-sm-12 px-2">
             {% for images in random|slice:":5" %}
@@ -34,6 +51,7 @@
             {% endfor %}
         </div>
     </div>
+        <h4 class="text-center montserrat my-5">For more images, please select a <a href="#galleries-top">category</a></h4>
 </main>
 
 {% include 'includes/footer.html' %}
