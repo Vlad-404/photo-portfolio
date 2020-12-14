@@ -9,3 +9,8 @@ function hideInfoSidebar() {
     sidebar = document.getElementById("image-info-and-purchase");
     sidebar.classList.toggle("d-none");
 }
+
+// Function from Bootstrap that enables tooltips
+$(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+})

@@ -159,9 +159,10 @@ a {
 }
 
 /* GALLERY CSS */
-/* Sets minimum width for categories buttons */
-.categories-minwidth-button {
+/* Sets minimum size for categories buttons */
+.categories-buttons {
     min-width: 10rem;
+    min-height: 3rem;
 }
 
 /* Restricts the image height so it doesn't break the visual appeal of the page */
@@ -214,4 +215,11 @@ a {
     top: 1rem;
     right: 2rem;
     width: auto;
+}
+
+.message-container {
+    position: fixed;
+    top: 72px;
+    right: 15px;
+    z-index: 99999999999;
 }

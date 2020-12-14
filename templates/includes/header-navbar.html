@@ -60,10 +60,9 @@
                         <div class="dropdown-menu navbar-styling border-dark top-075rem">
                             <a class="dropdown-item text-white" href="{% url 'all_images' %}">All Images</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item text-white" href="#">Landscapes</a>
-                            <a class="dropdown-item text-white" href="#">Architecture</a>
-                            <a class="dropdown-item text-white" href="#">Seasons</a>
-                            <a class="dropdown-item text-white" href="#">Food</a>
+                            {% for category in categories %}
+                                <a class="dropdown-item text-white text-capitalize" href="#">{{ category.name }}</a>
+                            {% endfor %}
                         </div>
                     </li>
                     <li class="nav-item navbar-styling mheight-3-5">

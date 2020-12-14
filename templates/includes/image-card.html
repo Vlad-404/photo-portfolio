@@ -4,16 +4,18 @@
     </a>
     <div class="container-fluid navbar-styling px-5 card-comment align-items-center">
         <div class="row">
-            <div class="col-6 text-left p-0">{{ images.title }}</div>
-            <div class="col-6 text-right p-0">{{ images.rating }} / 5</div>
+            <div class="col-6 text-left p-0 border-bottom border-white">{{ images.title }}</div>
+            <div class="col-6 text-right p-0 border-bottom border-white">{{ images.rating }} / 5</div>
         </div>
         <div class="row">
             <div class="col-6 text-left p-0">{{ images.category }}</div>
             <div class="col-6 text-right p-0">€ {{ images.price }}</div>
         </div>
+        {% if request.user.is_superuser %}
         <div class="row">
             <div class="col-6 text-left p-0"><a href="" class="btn btn-info text-white">Edit</a></div>
             <div class="col-6 text-right p-0"><a href="" class="btn btn-danger text-white">Delete</a></div>
         </div>
+        {% endif %}
     </div>
 </div>

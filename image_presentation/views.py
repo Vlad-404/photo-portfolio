@@ -1,4 +1,6 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib import messages
+from django.db.models import Q
 from .models import Images
 from home.models import SocialMedia, categories
 
@@ -7,11 +9,24 @@ media_links = SocialMedia.objects.all()
 categories = categories.objects.all()
 
 
-# Create your views here.
 # Galleries display
 def all_images(request):
     """ A view that randomises the images each time page is loaded """
     random_list = Images.objects.order_by('?')
+    images = Images.objects.all()
+    query = None
+
+    """ This part handles the search query """
+    if request.GET:
+        if 'search' in request.GET:
+            query = request.GET['search']
+            if not query:
+                messages.error(request, "Your search query is empty. Please enter a search term if you wish to use search.")
+                return redirect(reverse('all_images'))
+
+            queries = Q(title__icontains=query) | Q(description__icontains=query)
+            random_list = images.filter(queries)
+
     context = {
         'media_links': media_links,
         'categories': categories,

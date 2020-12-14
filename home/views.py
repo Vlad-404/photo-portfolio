@@ -7,7 +7,7 @@ def index(request):
     media_links = SocialMedia.objects.all()
     category = categories.objects.all()
     context = {
-        'category': category,
+        'categories': category,
         'media_links': media_links
     }
 
