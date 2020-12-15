@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
+from django.db.models.functions import Lower
 from .models import Images
 from home.models import SocialMedia, categories
 
@@ -18,6 +19,27 @@ def all_images(request):
     category_sort = None
 
     if request.GET:
+        """ This part handles sorting by name, rating, price, panorama
+        or black and white images """
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                random_list = images.annotate(lower_name=Lower('name'))
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            random_list = images.order_by(sortkey)
+
+        """ This part displays only panorama images """
+        if 'panorama' in request.GET:
+            random_list = Images.objects.filter(panorama=True)
+
+        """ This part displays only black and white images """
+        if 'color' in request.GET:
+            random_list = Images.objects.filter(color=False)
+
         """ This part handles category sorting """
         if 'category' in request.GET:
             category_sort = request.GET['category']
