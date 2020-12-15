@@ -263,6 +263,16 @@ As the owner:
     * **What went wrong:** I didn't relate `categories` model with `Images` model before I loaded fixtures. This resulted in mismatch in key values of ID in `categories` model and raised an error
     * **Resolution:** With tutor support, I deleted all of the images in `Image` model and re-uploaded them
 
+* **Description:** No categories were showing in categories section of `index.html`
+    * **How I found it:** After fixing the bug with integrity error (see above)
+    * **What went wrong:** `for loop` in `index.html` template had `categories` as a reference instead of `category` (i.e. `categories.name` instead of `category.name`)
+    * **Resolution:** Changed `categories` to `category` in `for` loop
+
+* **Description:** If search query is empty, no message was displayed after page loaded
+    * **How I found it:** When clicking/tapping on a button in search form
+    * **What went wrong:** 
+    * **Resolution:**
+
 * **Description:** 
     * **How I found it:** 
     * **What went wrong:** 

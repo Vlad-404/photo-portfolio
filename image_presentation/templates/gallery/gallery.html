@@ -10,7 +10,6 @@
 
 <!-- Galleries container -->
 <h1 class="montserrat text-center text-uppercase shadow-text my-5">{{ page_title }}</h1>
-<div class="message-container">{{ message }}</div>
 
 <main class="container">
     <!-- Sorting buttons -->
@@ -25,7 +24,7 @@
                 {{ category.name }}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="{{category.name}}Drop1">
-                <a class="dropdown-item text-uppercase montserrat" href="{% url 'all_images' %}?category={{ category.name }}">All</a>
+                <a class="dropdown-item montserrat" href="{% url 'all_images' %}?category={{ category.name }}">All {{ category.name }}</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item montserrat" href="#">Sort by name(A-Z)</a>
                 <a class="dropdown-item montserrat" href="#">Sort by name(Z-A)</a>
@@ -49,7 +48,7 @@
             <div class="text-center my-5">{{ message }}</div>
         {% endfor %}
     {% endif %}
-
+    {{ category_sort }}
     <div class="row">
         <div class="col col-12 col-xl-4 col-md-6 col-sm-12 px-2">
             {% for images in random|slice:":5" %}

@@ -6,7 +6,7 @@ from home.models import SocialMedia, categories
 
 """ Social media links for navbar """
 media_links = SocialMedia.objects.all()
-categories = categories.objects.all()
+all_categories = categories.objects.all()
 
 
 # Galleries display
@@ -15,15 +15,15 @@ def all_images(request):
     random_list = Images.objects.order_by('?')
     images = Images.objects.all()
     query = None
-    # category = None
+    category_sort = None
 
-    """ This part handles the search query """
     if request.GET:
-        # if 'category' in request.GET:
-        #    sort_by_category = request.GET['category']
-        #    random_list = images.filter(category__name__in=categories)
-        #    sort_by_category = categories.objects.filter(name__in=categories)
+        """ This part handles category sorting """
+        if 'category' in request.GET:
+            category_sort = request.GET['category']
+            random_list = Images.objects.filter(category__name=category_sort)
 
+        """ This part handles the search query """
         if 'search' in request.GET:
             query = request.GET['search']
             if not query:
@@ -35,10 +35,10 @@ def all_images(request):
 
     context = {
         'media_links': media_links,
-        'categories': categories,
+        'categories': all_categories,
         'page_title': 'Galleries',
         'random': random_list,
-        # 'sort_by_category': sort_by_category,
+        'category_sort': category_sort,
     }
 
     return render(request, 'gallery/gallery.html', context)
