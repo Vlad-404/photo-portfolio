@@ -1,4 +1,5 @@
 from django.db import models
+from home.models import categories
 
 
 # Create your models here.
@@ -16,11 +17,12 @@ class Images(models.Model):
     description = models.TextField(
                             default=None
                             )
-    category = models.CharField(
-                            max_length=24,
+    category = models.ForeignKey(
+                            categories,
                             default=None,
-                            null=False,
-                            blank=False
+                            null=True,
+                            blank=True,
+                            on_delete=models.SET_NULL
                             )
     panorama = models.BooleanField(
                             null=False,

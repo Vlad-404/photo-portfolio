@@ -258,6 +258,11 @@ As the owner:
     * **What went wrong:** Probable cause was editing already existing model
     * **Resolution:** Added `deafult=None` to every field that hasn't got `default` value
 
+* **Description:** Couldn't migrate changes to `Images` model after adding a foreign key for `categories`
+    * **How I found it:** I got `django.db.utils.IntegrityError` while trying to apply migrations to `Image` model
+    * **What went wrong:** I didn't relate `categories` model with `Images` model before I loaded fixtures. This resulted in mismatch in key values of ID in `categories` model and raised an error
+    * **Resolution:** With tutor support, I deleted all of the images in `Image` model and re-uploaded them
+
 * **Description:** 
     * **How I found it:** 
     * **What went wrong:** 

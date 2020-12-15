@@ -1,10 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}
-    Photo portfolio
-{% endblock %}
-
 {% block content %}
 
 {% include 'includes/header-navbar.html' %}
@@ -41,7 +37,7 @@
             <!-- Links to galleries -->
             <div class="row">
                 <!-- Alternating image sections -->
-                {% for categories in category %}
+                {% for category in categories %}
                     <!-- For image on the left -->
                     {% if forloop.counter|divisibleby:2 %}
                         <div class="col-sm-12 text-right navbar-styling shadow-text mb-3 pl-0">
@@ -49,12 +45,12 @@
                                 <div class="row align-items-center text-white m-0">
                                     <div class="col-5 h-100 p-0">
                                         <a href="#">
-                                            <img src="{{ categories.image_url }}" alt="{{ categories.name }} image" class="img-fluid float-left">
+                                            <img src="{{ category.image_url }}" alt="{{ category.name }} image" class="img-fluid float-left">
                                         </a>
                                     </div>
                                     <div class="col-7 h-100">
                                         <a href="#" class="text-white">
-                                            <p class="responsive-font">{{ categories.name }}</p>
+                                            <p class="responsive-font">{{ category.name }}</p>
                                         </a>
                                     </div>
                                 </div>
@@ -67,12 +63,12 @@
                                 <div class="row align-items-center text-white m-0">
                                     <div class="col-7 h-100 text-left">
                                         <a href="#" class="text-white">
-                                            <p class="responsive-font">{{ categories.name }}</p>
+                                            <p class="responsive-font">{{ category.name }}</p>
                                         </a>
                                     </div>
                                     <div class="col-5 h-100 p-0">
                                         <a href="#">
-                                            <img src="{{ categories.image_url }}" alt="{{ categories.name }} image" class="img-fluid float-right">
+                                            <img src="{{ category.image_url }}" alt="{{ category.name }} image" class="img-fluid float-right">
                                         </a>
                                     </div>
                                 </div>
@@ -101,7 +97,7 @@
                         <label for="contact-email" class="montserrat">Your Email:</label>
                         <input type="email" class="form-control form-control-lg osans text-right mb-2" id="contact-email" placeholder="my-email@domain.com">
                         <label for="contact-message" class="mt-3 montserrat">Message:</label>
-                        <textarea id = "contact-message" class="form-control form-control-lg text-right osans mb-2" rows = "3" placeholder="Type in your message here..."></textarea>
+                        <textarea id="contact-message" class="form-control form-control-lg text-right osans mb-2" rows ="3" placeholder="Type in your message here..."></textarea>
                         
                         <input type="submit" value="Send" class="montserrat btn btn-lg btn-secondary">
                     </form>
@@ -109,6 +105,8 @@
             </div>
         </div>
     </div>
+
+    <p class="text-center"><a href="#home-page-carousel" class="mt-3 text-center text-muted montserrat">(Click here to go back to the top of the page)</a></p>
 
     {% include 'includes/footer.html' %}
 

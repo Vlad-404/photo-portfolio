@@ -1,10 +1,6 @@
 {% extends "base.html" %}
 {% load static %}
 
-{% block title %}
-    Gallery
-{% endblock %}
-
 {% block content %}
 <!-- Header -->
 {% include 'includes/header-navbar.html' %}
@@ -13,7 +9,7 @@
 <div id="galleries-top" class="container-fluid header-40vh contact-header-image p-0"></div>
 
 <!-- Galleries container -->
-<h1 class="montserrat text-center shadow-text my-5">{{ page_title }}</h1>
+<h1 class="montserrat text-center text-uppercase shadow-text my-5">{{ page_title }}</h1>
 <div class="message-container">{{ message }}</div>
 
 <main class="container">
@@ -29,7 +25,7 @@
                 {{ category.name }}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="{{category.name}}Drop1">
-                <a class="dropdown-item text-uppercase montserrat" href="#">All</a>
+                <a class="dropdown-item text-uppercase montserrat" href="{% url 'all_images' %}?category={{ category.name }}">All</a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item montserrat" href="#">Sort by name(A-Z)</a>
                 <a class="dropdown-item montserrat" href="#">Sort by name(Z-A)</a>
@@ -49,7 +45,9 @@
     <p class="montserrat text-center text-muted my-2">Click on any image to get more information and see purchase options (Each image will open in it's own window)</p>
 
     {% if messages %}
-    <div class="text-center my-5">{{ message }}</div>
+        {% for message in messages %}
+            <div class="text-center my-5">{{ message }}</div>
+        {% endfor %}
     {% endif %}
 
     <div class="row">

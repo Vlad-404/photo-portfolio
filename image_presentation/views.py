@@ -15,9 +15,15 @@ def all_images(request):
     random_list = Images.objects.order_by('?')
     images = Images.objects.all()
     query = None
+    # category = None
 
     """ This part handles the search query """
     if request.GET:
+        # if 'category' in request.GET:
+        #    sort_by_category = request.GET['category']
+        #    random_list = images.filter(category__name__in=categories)
+        #    sort_by_category = categories.objects.filter(name__in=categories)
+
         if 'search' in request.GET:
             query = request.GET['search']
             if not query:
@@ -31,7 +37,8 @@ def all_images(request):
         'media_links': media_links,
         'categories': categories,
         'page_title': 'Galleries',
-        'random': random_list
+        'random': random_list,
+        # 'sort_by_category': sort_by_category,
     }
 
     return render(request, 'gallery/gallery.html', context)

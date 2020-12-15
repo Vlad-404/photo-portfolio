@@ -216,10 +216,3 @@ a {
     right: 2rem;
     width: auto;
 }
-
-.message-container {
-    position: fixed;
-    top: 72px;
-    right: 15px;
-    z-index: 99999999999;
-}
