@@ -44,12 +44,12 @@
                             <div class="container-fluid w-100 p-0">
                                 <div class="row align-items-center text-white m-0">
                                     <div class="col-5 h-100 p-0">
-                                        <a href="#">
+                                        <a href="{% url 'all_images' %}?category={{ category.name }}">
                                             <img src="{{ category.image_url }}" alt="{{ category.name }} image" class="img-fluid float-left">
                                         </a>
                                     </div>
                                     <div class="col-7 h-100">
-                                        <a href="#" class="text-white">
+                                        <a href="{% url 'all_images' %}?category={{ category.name }}" class="text-white">
                                             <p class="responsive-font">{{ category.name }}</p>
                                         </a>
                                     </div>
@@ -62,12 +62,12 @@
                             <div class="container-fluid w-100 p-0">
                                 <div class="row align-items-center text-white m-0">
                                     <div class="col-7 h-100 text-left">
-                                        <a href="#" class="text-white">
+                                        <a href="{% url 'all_images' %}?category={{ category.name }}" class="text-white">
                                             <p class="responsive-font">{{ category.name }}</p>
                                         </a>
                                     </div>
                                     <div class="col-5 h-100 p-0">
-                                        <a href="#">
+                                        <a href="{% url 'all_images' %}?category={{ category.name }}">
                                             <img src="{{ category.image_url }}" alt="{{ category.name }} image" class="img-fluid float-right">
                                         </a>
                                     </div>

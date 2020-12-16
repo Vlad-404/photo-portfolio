@@ -8,8 +8,16 @@
 {% include 'includes/search-bar.html' %}
 <div id="galleries-top" class="container-fluid header-40vh contact-header-image p-0"></div>
 
-<!-- Galleries container -->
+<!-- Title -->
+{% if category_sort %}
+<h1 class="montserrat text-center shadow-text my-5">All {{ category_sort }}</h1>
+{% elif panorama %}
+<h1 class="montserrat text-center shadow-text my-5">All Panoramas</h1>
+{% elif color %}
+<h1 class="montserrat text-center shadow-text my-5">All Black And White Images</h1>
+{% else %}
 <h1 class="montserrat text-center text-uppercase shadow-text my-5">{{ page_title }}</h1>
+{% endif %}
 
 <main class="container">
     <!-- Category filtering buttons -->
@@ -34,17 +42,12 @@
                 <div class="dropdown-menu" aria-labelledby="{{category.name}}Drop1">
                     <a class="dropdown-item montserrat" href="{% url 'all_images' %}?category={{ category.name }}">All {{ category.name }}</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item montserrat" href="">Panoramas</a>
-                    <a class="dropdown-item montserrat" href="#">Black and White</a>
+                    <a class="dropdown-item montserrat" href="{% url 'all_images' %}?category_panorama={{ category.name }}">Panoramas</a>
+                    <a class="dropdown-item montserrat" href="{% url 'all_images' %}?category_color={{ category.name }}">Black and White</a>
                 </div>
             </div>
         {% endfor %}
     </div>
-
-    <!-- Title for the category -->
-    {% if category_sort %}
-        <h2 class="montserrat text-center text-capitalize shadow-text mb-5">All {{ category_sort }} Images</h2>
-    {% endif %}
 
     <!-- Sorting options -->
     <div class="row w-100 montserrat">
@@ -63,7 +66,7 @@
     <!-- Messages container -->
     {% if messages %}
         {% for message in messages %}
-            <div class="text-center my-5">{{ message }}</div>
+            <div class="text-center my-5 mx-auto w-50 text-white montserrat navbar-styling">{{ message }}</div>
         {% endfor %}
     {% endif %}
 

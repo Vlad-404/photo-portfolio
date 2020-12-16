@@ -19,8 +19,7 @@ def all_images(request):
     category_sort = None
 
     if request.GET:
-        """ This part handles sorting by name, rating, price, panorama
-        or black and white images """
+        """ This part handles sorting by name, rating and price """
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             if sortkey == 'name':
@@ -45,6 +44,36 @@ def all_images(request):
             category_sort = request.GET['category']
             random_list = Images.objects.filter(category__name=category_sort)
 
+        """ This part show all panoramas for selected category """
+        if 'category_panorama' in request.GET:
+            category_panorama = request.GET['category_panorama']
+            random_list = Images.objects.filter(
+                            category__name=category_panorama
+                            ).filter(
+                            panorama=True
+                            )
+
+        """ This part show all black and white images for selected category """
+        if 'category_color' in request.GET:
+            category_color = request.GET['category_color']
+            random_list = Images.objects.filter(
+                            category__name=category_color
+                            ).filter(
+                            color=False
+                            )
+
+        all_queries = ('panorama',
+                        'color',
+                        'category',
+                        'category_panorama',
+                        'category_color'
+                        )
+        if request.GET not in all_queries:
+            messages.info(
+                        request,
+                        "Sorry, there are no results for this query."
+                        )
+
         """ This part handles the search query """
         if 'search' in request.GET:
             query = request.GET['search']
@@ -52,7 +81,11 @@ def all_images(request):
                 messages.error(request, "Your search query is empty. Please enter a search term if you wish to use search.")
                 return redirect(reverse('all_images'))
 
-            queries = Q(title__icontains=query) | Q(description__icontains=query)
+            queries = Q(
+                title__icontains=query
+                ) | Q(
+                description__icontains=query
+                )
             random_list = images.filter(queries)
 
     context = {
@@ -74,6 +107,7 @@ def image_view(request, image_id):
 
     context = {
         'image': image,
+        'categories': all_categories,
         'page_title': 'More info'
     }
 

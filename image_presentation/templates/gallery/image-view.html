@@ -33,10 +33,9 @@
                     <div class="dropdown-menu image-view-dropup border-dark top-075rem">
                         <a class="dropdown-item text-white" href="{% url 'all_images' %}">All Images</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item text-white" href="#">Landscapes</a>
-                        <a class="dropdown-item text-white" href="#">Architecture</a>
-                        <a class="dropdown-item text-white" href="#">Seasons</a>
-                        <a class="dropdown-item text-white" href="#">Food</a>
+                        {% for category in categories %}
+                            <a class="dropdown-item text-white text-capitalize" href="{% url 'all_images' %}?category={{ category.name }}">{{ category.name }}</a>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="col-4 nav-item dropup d-flex justify-content-center px-0">
