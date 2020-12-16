@@ -62,13 +62,7 @@ def all_images(request):
                             color=False
                             )
 
-        all_queries = ('panorama',
-                        'color',
-                        'category',
-                        'category_panorama',
-                        'category_color'
-                        )
-        if request.GET not in all_queries:
+        if not random_list:
             messages.info(
                         request,
                         "Sorry, there are no results for this query."

@@ -22,7 +22,7 @@
 <main class="container">
     <!-- Category filtering buttons -->
     <div class="row justify-content-center mb-3 py-5">
-        <!-- All images -->
+        <!-- Button to select all images -->
         <button id="AllbtnGroup" type="button" class="btn btn-secondary dropdown-toggle categories-buttons text-center text-uppercase mx-3 mb-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             All
         </button>
@@ -71,24 +71,12 @@
     {% endif %}
 
     <!-- Image cards -->
-    <div class="row">
-        <div class="col col-12 col-xl-4 col-md-6 col-sm-12 px-2">
-            {% for images in random|slice:":5" %}
-                {% include 'includes/image-card.html' %}
-            {% endfor %}
-        </div>
-        <div class="col col-12 col-xl-4 col-md-6 col-sm-12 px-2">
-            {% for images in random|slice:"5:10" %}
-                {% include 'includes/image-card.html' %}
-            {% endfor %}
-        </div>
-    <!-- For medium and large screens, this column is hidden because it continues under 1st and breaks the visual appeal of the page -->
-        <div class="col col-12 col-xl-4 col-md-6 d-md-none d-lg-none d-xl-block px-2">
-            {% for images in random|slice:"10:15" %}
-                {% include 'includes/image-card.html' %}
-            {% endfor %}
-        </div>
-    </div>
+    <!-- code from Miles Rose @ medium.com (see readme for more details) -->
+    <div id="images-wrapper">
+        {% for images in random %}
+            {% include 'includes/image-card.html' %}
+        {% endfor %}
+   </div>
 
     <!-- Bottom page navigation -->
     <h4 class="text-center montserrat my-5">For more images, please select a <a href="#galleries-top" data-toggle="tooltip" data-placement="bottom" title="Brings you to the top of the page">category</a></h4>

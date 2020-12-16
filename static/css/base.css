@@ -5,6 +5,10 @@ html {
   scroll-behavior: smooth;
 }
 
+a {
+    text-decoration: none !important;
+}
+
 /* Basics (fonts, colours,...) */
 /* Open sans font */
 .osans {
@@ -33,6 +37,7 @@ html {
 }
 
 /* General formatting */
+/* Adds shadow to the text */
 .shadow-text {
     text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.75);
 }
@@ -40,10 +45,6 @@ html {
 /* Search bar shadow */
 .shadow-box {
     box-shadow: 0 0 20px 5px #fff;
-}
-
-a {
-    text-decoration: none !important;
 }
 
 .responsive-font {
@@ -138,6 +139,7 @@ a {
 .header-40vh {
     height: 40vh;
 }
+
 .contact-header-image {
     background: url('/media/mountains.jpg') no-repeat center center;
 }
@@ -170,6 +172,40 @@ a {
     max-height: 100vh;
     overflow: hidden;
 }
+/* Classes for image container in galleries - code from Miles Rose @ medium.com (see readme for more details) */
+#images-wrapper {    
+   line-height: 0;       
+    -webkit-column-count: 3;    
+    -webkit-column-gap: 0px;    
+    -moz-column-count: 3;
+    -moz-column-gap: 0px;
+     column-count: 3;    
+     column-gap: 0px;
+}  
+#images-wrapper:first-child {    
+   width: 100% !important;    
+   height: auto !important;  
+   max-height: 80vh; /* Added this because some images can look too big */
+}  
+/* I deleted the additional #images-wrapper as I used Bootstrap classes for styling */
+
+/* Media querries for gallery display - changed to Bootstrap breakpoints */
+@media (max-width: 1200px) {
+   #images-wrapper {
+   -moz-column-count:    2;
+   -webkit-column-count: 2;
+   column-count:         2;
+   }
+  }  
+@media (max-width: 768px) {
+   #images-wrapper {
+   -moz-column-count:    1;
+   -webkit-column-count: 1;
+    column-count:        1;
+   }
+  }
+/* One media querry was removed as it wasn't necessary */
+/* End code from Miles Rose */
 
 /* Comment for the image cards in galleries */
 .card-comment {
