@@ -268,10 +268,15 @@ As the owner:
     * **What went wrong:** `for loop` in `index.html` template had `categories` as a reference instead of `category` (i.e. `categories.name` instead of `category.name`)
     * **Resolution:** Changed `categories` to `category` in `for` loop
 
-* **Description:** If search query is empty, no message was displayed after page loaded
+* **Description:** If search query is empty, no message was displayed after page loaded and no results were displayed
     * **How I found it:** When clicking/tapping on a button in search form
     * **What went wrong:** 
     * **Resolution:**
+
+* **Description:** Issue with tooltips showing
+    * **How I found it:** AFter hovering over tooltiped item( i.e. icon to show/hide sidebar in image details page)
+    * **What went wrong:** Bootstrap issue?
+    * **Resolution:** 
 
 * **Description:** 
     * **How I found it:** 

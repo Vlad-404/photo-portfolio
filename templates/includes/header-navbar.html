@@ -34,7 +34,7 @@
                         <div class="dropdown-menu navbar-styling border-dark top-075rem" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
-                                    <a href="" class="dropdown-item text-white">Images</a>
+                                    <a href="{% url 'all_images' %}" class="dropdown-item text-white">Images</a>
                                     <a href="" class="dropdown-item text-white">Add Image Category</a>
                                     <a href="" class="dropdown-item text-white">Add Social Media</a>
                                 {% endif %}
