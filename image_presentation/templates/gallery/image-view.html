@@ -1,0 +1,117 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+    <!-- Image container -->
+    <div id="view-image-container" class="container p-0">
+        <!-- Icon that shows/hides info sidebar -->
+        <h2 id="hide-image-info" class="text-white shadow-text z-2000" data-toggle="tooltip" data-placement="left" title="Hide/Show sidebar" onclick="hideInfoSidebar()"><i class="far fa-eye"></i></h2>
+        <!-- Image -->
+        <img src="{{ image.imgurl }}" alt="{{ image.title }} image" id="image-view-container" class="card-image" style="z-index: -1;"> 
+    </div>
+
+    <!-- Info sidebar with purchase options -->
+    <aside id="image-info-and-purchase" class="navbar-styling z-1050 p-3 pt-5 shadow-text text-white montserrat">
+        <div class="container-fluid h-100 mx-0 pt-2 px-0">
+            <div class="row h-40 w-100 ml-0">
+                <div class="col px-0">
+                    <h3 class="montserrat text-uppercase">{{ image.title }}</h3>
+                    <div class="dropdown-divider"></div>
+                    <h6 class="montserrat text-uppercase">Description: </h6><p>{{ image.description }}</p>
+                    <h6 class="montserrat text-uppercase">Category: </h6><p class="text-capitalize">{{ image.category }}</p>
+                    <h6 class="montserrat text-uppercase">Rating: </h6><p class="text-capitalize">{{ image.rating }} /5</p>
+                    <h6 class="montserrat text-uppercase">Price: </h6><p>€ {{ image.price }}</p>
+                </div>
+            </div>
+
+            <!-- Purchasing options -->
+            <div class="row h-60 w-100 ml-0">
+                <form class="w-100" action="">
+                    <p class="montserrat text-uppercase border-bottom border-white">Purchasing options:</p>
+                    <div class="form-group row">
+                        <label for="quantity" class="col-8 col-form-label">Quantity(1-5):</label>
+                        <div class="col-4">
+                            <input type="number" id="quantity" name="quantity" class="form-control"  min="1" max="5">
+                            <!--<input type="number" id="quantity" name="quantity" min="1" max="5">-->
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="size" class="col-7 col-form-label">Size:</label>
+                        <div class="col-5">
+                            <select class="form-control" id="size" name="size">
+                                <option>Small</option>
+                                <option>Medium</option>
+                                <option>Large</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <button class="btn btn-info m-auto" type="submit">
+                            Add to Selection
+                        </button>
+                    </div>
+                </form>
+                <form class="w-100" action="">
+                    <div class="form-group row">
+                        <div class="col-3 mx-auto">Quantity</div>
+                        <div class="col-3 mx-auto">Size</div>
+                        <div class="col-3 mx-auto">Price</div>
+                    </div>
+                    <div class="form-group row">
+                        {% for items in basket %}
+                            <div class="col-3 mx-auto">{{ basket.quantity }}</div>
+                            <div class="col-3 mx-auto">{{ basket.size }}</div>
+                            <div class="col-3 mx-auto">{{ basket.total }}</div>
+                        {% endfor %}
+                    </div>
+                    <div class="dropdown-divider"></div>
+                    <div class="form-group row pl-3">
+                        <p class="col-4 montserrat text-uppercase">Total</p>
+                        <p class="col-8 montserrat text-uppercase text-right">Price €</p>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <button class="btn btn-primary m-auto" type="submit">
+                            Add to Basket
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- Footer with nav links -->
+            <div class="row image-details-navigation align-items-center border-top border-white">
+                <div class="col-4 nav-item d-flex justify-content-center">
+                    <a href="{% url 'home' %}" class="text-white">HOME</a>
+                </div>
+                <div class="col-4 nav-item dropup d-flex justify-content-center px-0">
+                    <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Galleries</a>
+                    <div class="dropdown-menu image-view-dropup border-dark top-075rem">
+                        <a class="dropdown-item text-white" href="{% url 'all_images' %}">All Images</a>
+                        <div class="dropdown-divider"></div>
+                        {% for category in categories %}
+                            <a class="dropdown-item text-white text-capitalize" href="{% url 'all_images' %}?category={{ category.name }}">{{ category.name }}</a>
+                        {% endfor %}
+                    </div>
+                </div>
+                <div class="col-4 nav-item dropup d-flex justify-content-center px-0">
+                    <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
+                    <div class="dropdown-menu image-view-dropup border-dark" aria-labelledby="user-options">
+                        {% if request.user.is_authenticated %}
+                            {% if request.user.is_superuser %}
+                                <a href="" class="dropdown-item text-white">Images</a>
+                                <a href="" class="dropdown-item text-white">Add Image Category</a>
+                                <a href="" class="dropdown-item text-white">Add Social Media</a>
+                            {% endif %}
+                                <a href="" class="dropdown-item text-white">Account</a>
+                                <a href="{% url 'account_logout' %}" class="dropdown-item text-white">Logout</a>
+                        {% else %}
+                                <a href="{% url 'account_signup' %}" class="dropdown-item text-white">Register</a>
+                                <a href="{% url 'account_login' %}" class="dropdown-item text-white">Login</a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+    
+{% endblock %}

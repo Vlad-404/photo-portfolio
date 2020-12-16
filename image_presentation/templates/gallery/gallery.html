@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<!-- Header -->
+{% include 'includes/header-navbar.html' %}
+{% include 'includes/header-mobile.html' %}
+{% include 'includes/search-bar.html' %}
+<div id="galleries-top" class="container-fluid header-40vh contact-header-image p-0"></div>
+
+<!-- Title -->
+{% if category_sort %}
+<h1 class="montserrat text-center shadow-text my-5">All {{ category_sort }}</h1>
+{% elif panorama %}
+<h1 class="montserrat text-center shadow-text my-5">All Panoramas</h1>
+{% elif color %}
+<h1 class="montserrat text-center shadow-text my-5">All Black And White Images</h1>
+{% else %}
+<h1 class="montserrat text-center text-uppercase shadow-text my-5">{{ page_title }}</h1>
+{% endif %}
+
+<main class="container">
+    <!-- Category filtering buttons -->
+    <div class="row justify-content-center mb-3 py-5">
+        <!-- All images -->
+        <button id="AllbtnGroup" type="button" class="btn btn-secondary dropdown-toggle categories-buttons text-center text-uppercase mx-3 mb-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            All
+        </button>
+        <div class="dropdown-menu" aria-labelledby="AllDrop1">
+            <a class="dropdown-item montserrat" href="{% url 'all_images' %}">All Images</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item montserrat" href="{% url 'all_images' %}?panorama={{ random.panorama }}">Panoramas</a>
+            <a class="dropdown-item montserrat" href="{% url 'all_images' %}?color={{ random.color }}">Black and White</a>
+        </div>
+
+        <!-- For each category -->
+        {% for category in categories %}
+            <div class="btn-group" role="group">
+                <button id="{{category.name}}btnGroup" type="button" class="btn btn-secondary dropdown-toggle categories-buttons text-center text-uppercase mx-3 mb-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                {{ category.name }}
+                </button>
+                <div class="dropdown-menu" aria-labelledby="{{category.name}}Drop1">
+                    <a class="dropdown-item montserrat" href="{% url 'all_images' %}?category={{ category.name }}">All {{ category.name }}</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item montserrat" href="{% url 'all_images' %}?category_panorama={{ category.name }}">Panoramas</a>
+                    <a class="dropdown-item montserrat" href="{% url 'all_images' %}?category_color={{ category.name }}">Black and White</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Sorting options -->
+    <div class="row w-100 montserrat">
+        <p class="mx-auto font-weight-bold mb-4">Sort Images by:</p>
+        <a href="" class="mx-auto text-dark mb-4">Name(A-Z)</a>
+        <a href="" class="mx-auto text-dark mb-4">Name(Z-A)</a>
+        <a href="" class="mx-auto text-dark mb-4">Price (€-€€)</a>
+        <a href="" class="mx-auto text-dark mb-4">Price (€€-€)</a>
+        <a href="" class="mx-auto text-dark mb-4">Rating (1-5)</a>
+        <a href="" class="mx-auto text-dark mb-4">Price (5-1)</a>
+    </div>
+    
+    <!-- Divider and info -->
+    <p class="montserrat border-top text-center text-muted mt-2 mb-4 pt-2">Click on any image to get more information and see purchase options (Each image will open in it's own window)</p>
+
+    <!-- Messages container -->
+    {% if messages %}
+        {% for message in messages %}
+            <div class="text-center my-5 mx-auto w-50 text-white montserrat navbar-styling">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    <!-- Image cards -->
+    <div class="row">
+        <div class="col col-12 col-xl-4 col-md-6 col-sm-12 px-2">
+            {% for images in random|slice:":5" %}
+                {% include 'includes/image-card.html' %}
+            {% endfor %}
+        </div>
+        <div class="col col-12 col-xl-4 col-md-6 col-sm-12 px-2">
+            {% for images in random|slice:"5:10" %}
+                {% include 'includes/image-card.html' %}
+            {% endfor %}
+        </div>
+    <!-- For medium and large screens, this column is hidden because it continues under 1st and breaks the visual appeal of the page -->
+        <div class="col col-12 col-xl-4 col-md-6 d-md-none d-lg-none d-xl-block px-2">
+            {% for images in random|slice:"10:15" %}
+                {% include 'includes/image-card.html' %}
+            {% endfor %}
+        </div>
+    </div>
+
+    <!-- Bottom page navigation -->
+    <h4 class="text-center montserrat my-5">For more images, please select a <a href="#galleries-top" data-toggle="tooltip" data-placement="bottom" title="Brings you to the top of the page">category</a></h4>
+    <p class="text-center"><a href="#galleries-top" class="mt-3 text-center text-muted montserrat">(Click here to go back to the top of the page)</a></p>
+
+</main>
+
+{% include 'includes/footer.html' %}
+
+{% endblock %}

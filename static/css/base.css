@@ -1,0 +1,218 @@
+/* Imported fonts: Black Ops One, Montserrat and Open Sans */
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Montserrat&family=Open+Sans:wght@300&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Basics (fonts, colours,...) */
+/* Open sans font */
+.osans {
+    font-family: 'Open Sans', sans-serif;
+}
+
+/* Black Ops one font for logo*/
+.logo-font {
+    font-family: 'Black Ops One', cursive;
+    text-transform: uppercase;
+    font-size: 3.5rem;
+}
+
+/* Montserrat font */
+.montserrat {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* from Bulma */
+.icon {
+    align-items: center;
+    display: inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/* General formatting */
+.shadow-text {
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 0.75);
+}
+
+/* Search bar shadow */
+.shadow-box {
+    box-shadow: 0 0 20px 5px #fff;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.responsive-font {
+    font-size: 4vw;
+}
+
+/* Navbars  */
+/* Gives navbars fixed position */
+.fixed-nav {
+    position: fixed;
+    left: 5vw;
+    top: 10vh;
+}
+
+/* Large screen navbar sizing */
+.large-nav {
+    min-width: 90vw;
+    z-index: 1000;
+}
+
+.navbar-styling {
+    background-color: #5F5F5F90;
+    color: #F2F2F2;
+}
+
+.mheight-3-5 {
+    min-height: 4rem;
+    padding-top: .75rem;
+}
+
+/* For large screen navbar and logo */
+.z-1050 {
+    z-index: 1050;
+}
+
+/* For mobile sidenav */
+.z-2000 {
+    z-index: 2000;
+}
+
+/* Removes overlapping of dropdown menu with navbar */
+.top-075rem {
+    top: .75rem !important;
+}
+
+.basket-fixed {
+    position: absolute;
+    left: 10rem;
+    /*
+    position: fixed;
+    left: 15vw;
+    top: 10vh;*/
+    z-index: 2050;
+}
+
+/* Welcome page carousel */
+.images-container {
+    min-height: 100vh;
+    background-size: cover;
+    color: #555;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.carousel-img-1 {
+    background: url('/media/church-day.jpg') no-repeat center center;
+
+}
+
+.carousel-img-2 {
+    background: url('/media/wien-night.jpg') no-repeat center center;
+}
+
+.carousel-img-3 {
+    background: url('/media/mountains.jpg') no-repeat center center;
+}
+
+/* Galleries */
+.galleries-background {
+    background: url('/media/lake.jpg') no-repeat center center fixed;
+}
+/* Adds spacing from top for galleries on home page */
+.galeries-top-margin {
+    padding-top: 25vh;
+}
+
+/* Adds top spacing for contact on home page */
+.contact-top-margin {
+    padding-top: 10vh;
+}
+
+/* Styling for the contact section image on the home page */
+.header-40vh {
+    height: 40vh;
+}
+.contact-header-image {
+    background: url('/media/mountains.jpg') no-repeat center center;
+}
+
+/* -------------------------------- Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+
+  .images-container {
+    min-height: 100vh;
+    background-size: 100% 100% !important;
+    color: #555;
+    font-family: 'Open Sans', sans-serif;
+  }
+}
+
+/* GALLERY CSS */
+/* Sets minimum size for categories buttons */
+.categories-buttons {
+    min-width: 10rem;
+    min-height: 3rem;
+}
+
+/* Restricts the image height so it doesn't break the visual appeal of the page */
+.restrict-image-height {
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+/* Comment for the image cards in galleries */
+.card-comment {
+    position: absolute;
+    bottom: 0;
+    min-height: 4rem;
+}
+
+#view-image-container {
+    height: 100vh;
+    max-width: 100vw;
+    overflow: auto;
+
+    background-color: #3C3C3C;
+}
+
+#image-view-container {
+    width: 100%;
+    min-width: 768px; /* I used pixels here to conform with bootstrap page breaks as I didn't want image to scale down beyond this point */
+}
+
+#image-info-and-purchase {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    min-width: 400px;
+    background-color: #3C3C3C90;
+}
+
+.image-view-dropup {
+    background-color: #4b4b4b;
+}
+
+.image-details-navigation {
+    position: fixed;
+    bottom: 1rem;
+    right: 3rem;
+}
+
+#hide-image-info {
+    position: fixed;
+    top: 1rem;
+    right: 2rem;
+    width: auto;
+}

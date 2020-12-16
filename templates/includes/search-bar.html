@@ -1,0 +1,22 @@
+<!-- Search bar -->
+    <div class="modal fade justify-content-center" id="search-bar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-transparent border-0">
+                <form method="GET" action="{% url 'all_images' %}">
+                    <div class="container-fluid w-100 p-0">
+                        <div class="row">
+                            <div class="col-10">
+                                <div class="form-group">
+                                    <input type="text" id="search" name="search" class="rounded border-secondary shadow-box form-control navbar-styling" aria-describedby="Search" placeholder="Search">
+                                    <small id="emailHelp" class="form-text text-white">Type in what you are looking for</small>
+                                </div>
+                            </div>
+                            <button class="btn p-0" type="submit" style="height: 3rem;">
+                                <h3 class="text-white"><i class="fas fa-search"></i></h3>
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>

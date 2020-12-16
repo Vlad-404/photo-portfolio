@@ -1,0 +1,79 @@
+<!-- Navbar for large screens -->
+    <header class="container fixed-nav large-nav shadow-text">
+        <div class="row">
+            <!-- Navigation bar with links -->
+            <div class="col col-8 d-none d-xl-block">
+                <ul class="nav">
+                    <!-- Shows the shopping bag if there's something in it -->
+                    {% if grand_total %}
+                        <li class="list-inline-item navbar-styling">
+                            <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="#">
+                                <div class="text-center text-white">
+                                    <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                                    <p class="my-0">
+                                        €{{ grand_total|floatformat:2 }}
+                                    </p>
+                                </div>
+                            </a>
+                        </li>
+                    {% endif %}
+
+                    <!-- Social network links -->
+                    {% for social in media_links %}
+                    <li class="nav-item navbar-styling mheight-3-5">
+                        <a class="nav-link text-white active" href="{{ social.site_url}}" target="_blank" rel="noopener"><i class="{{ social.icon }}"></i></a>
+                    </li>
+                    {% endfor %}
+
+                    <!-- Contact and account management -->
+                    <li class="nav-item navbar-styling mheight-3-5">
+                        <a class="nav-link text-white active text-uppercase montserrat" href="{% url 'home' %}#home-page-contact">Contact</a>
+                    </li>
+                    <li class="nav-item dropdown navbar-styling mheight-3-5">
+                        <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
+                        <div class="dropdown-menu navbar-styling border-dark top-075rem" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                    <a href="{% url 'all_images' %}" class="dropdown-item text-white">Images</a>
+                                    <a href="" class="dropdown-item text-white">Add Image Category</a>
+                                    <a href="" class="dropdown-item text-white">Add Social Media</a>
+                                {% endif %}
+                                    <a href="" class="dropdown-item text-white">Account</a>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item text-white">Logout</a>
+                            {% else %}
+                                    <a href="{% url 'account_signup' %}" class="dropdown-item text-white">Register</a>
+                                    <a href="{% url 'account_login' %}" class="dropdown-item text-white">Login</a>
+                            {% endif %}
+                        </div>
+                    </li>
+
+                    <!-- Page navigation -->
+                    <li class="nav-item navbar-styling mheight-3-5">
+                        <button type="button" class="btn bg-transparent text-white shadow-text montserrat" data-toggle="modal" data-target="#search-bar">
+                            SEARCH
+                        </button>
+                    </li>
+                    {% block sort %}
+                    {% endblock %}
+                    <li class="nav-item dropdown navbar-styling mheight-3-5">
+                        <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Galleries</a>
+                        <div class="dropdown-menu navbar-styling border-dark top-075rem">
+                            <a class="dropdown-item text-white" href="{% url 'all_images' %}">All Images</a>
+                            <div class="dropdown-divider"></div>
+                            {% for category in categories %}
+                                <a class="dropdown-item text-white text-capitalize" href="{% url 'all_images' %}?category={{ category.name }}">{{ category.name }}</a>
+                            {% endfor %}
+                        </div>
+                    </li>
+                    <li class="nav-item navbar-styling mheight-3-5">
+                        <a class="nav-link text-white active montserrat text-uppercase" href="{% url 'home' %}">Home</a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Logo -->
+            <div class="col text-right logo-font mheight-3-5 mr-3">
+                <a href="{% url 'home' %}"><h1 class="logo text-white">Vladimir Mijatovic</h1></a>
+            </div>
+        </div> 
+    </header>
