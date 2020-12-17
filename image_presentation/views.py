@@ -3,11 +3,11 @@ from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Images
-from home.models import SocialMedia, categories
+from home.models import SocialMedia, Categories
 
 """ Social media links for navbar """
 media_links = SocialMedia.objects.all()
-all_categories = categories.objects.all()
+all_categories = Categories.objects.all()
 
 
 # Galleries display

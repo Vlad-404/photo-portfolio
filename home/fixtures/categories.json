@@ -1,0 +1,38 @@
+[
+    {
+       "pk": 1,
+       "model": "home.category" ,
+       "fields": {
+           "name": "Landscapes",
+           "image_url": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1607002040/IMG_20181124_204424_la1pnz.jpg",
+           "image_id": "IMG_20181124_204424_la1pnz"
+       }
+    },
+    {
+       "pk": 2,
+       "model": "home.category" ,
+       "fields": {
+           "name": "Architecture",
+           "image_url": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1598659115/ip5puuoub18swxhrd7nw.jpg",
+           "image_id": "ip5puuoub18swxhrd7nw"
+       }
+    },
+    {
+       "pk": 3,
+       "model": "home.category" ,
+       "fields": {
+           "name": "Seasons",
+           "image_url": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1598656884/gyw7ttigjtdl0qhmnzru.jpg",
+           "image_id": "gyw7ttigjtdl0qhmnzru"
+       }
+    },
+    {
+       "pk": 4,
+       "model": "home.category" ,
+       "fields": {
+           "name": "Food",
+           "image_url": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1607002040/IMG_20181124_204424_la1pnz.jpg",
+           "image_id": "IMG_20181124_204424_la1pnz"
+       }
+    }
+]
