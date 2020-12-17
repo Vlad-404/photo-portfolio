@@ -1,4 +1,4 @@
-<div class="card restrict-image-height text-center text-white rounded-0 border-0">
+<div class="card restrict-image-height text-center text-white rounded-0 border-0 m-2">
     <a href="{% url 'image_view' images.id %}" target="_blank">
         <img class="card-img rounded-0 border-none" src="{{ images.imgurl }}" alt="{{ images.title }} image">
     </a>
@@ -8,7 +8,7 @@
                 <p class="border-bottom border-white mb-2">{{ images.title }}</p>
                 <p>{{ images.category }}</p>
             </div>
-            <div class="col-6 text-right">
+            <div class="col-6 text-right p-0">
                 <p class="border-bottom border-white mb-2">{{ images.rating }} / 5</p>
                 <p>€ {{ images.price }}</p>
             </div>

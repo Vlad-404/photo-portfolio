@@ -52,12 +52,12 @@
     <!-- Sorting options -->
     <div class="row w-100 montserrat">
         <p class="mx-auto font-weight-bold mb-4">Sort Images by:</p>
-        <a href="" class="mx-auto text-dark mb-4">Name(A-Z)</a>
-        <a href="" class="mx-auto text-dark mb-4">Name(Z-A)</a>
-        <a href="" class="mx-auto text-dark mb-4">Price (€-€€)</a>
-        <a href="" class="mx-auto text-dark mb-4">Price (€€-€)</a>
-        <a href="" class="mx-auto text-dark mb-4">Rating (1-5)</a>
-        <a href="" class="mx-auto text-dark mb-4">Price (5-1)</a>
+        <a href="{% url 'all_images' %}?sort=title&direction=asc" class="mx-auto text-dark mb-4">Name(A-Z)</a>
+        <a href="{% url 'all_images' %}?sort=title&direction=desc" class="mx-auto text-dark mb-4">Name(Z-A)</a>
+        <a href="{% url 'all_images' %}?sort=price&direction=asc" class="mx-auto text-dark mb-4">Price (€-€€)</a>
+        <a href="{% url 'all_images' %}?sort=price&direction=desc" class="mx-auto text-dark mb-4">Price (€€-€)</a>
+        <a href="{% url 'all_images' %}?sort=rating&direction=asc" class="mx-auto text-dark mb-4">Rating (1-5)</a>
+        <a href="{% url 'all_images' %}?sort=rating&direction=desc" class="mx-auto text-dark mb-4">Rating (5-1)</a>
     </div>
     
     <!-- Divider and info -->

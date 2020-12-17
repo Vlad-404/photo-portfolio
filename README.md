@@ -274,7 +274,7 @@ As the owner:
     * **Resolution:**
 
 * **Description:** Issue with tooltips showing
-    * **How I found it:** After hovering over tooltiped item( i.e. icon to show/hide sidebar in image details page)
+    * **How I found it:** After hovering over tooltiped item( i.e. icon to show/hide sidebar in image details page), tooltip didn't show
     * **What went wrong:** Bootstrap issue?
     * **Resolution:** I left it unresolved as there is no consistency to track it down and it wasn't a critical error
 
