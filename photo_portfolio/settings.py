@@ -26,7 +26,7 @@ SECRET_KEY = 'd)37@k=h7q_dblq02qyh*0qf#v7&u75628uc1skah=5^(x%hj@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'vlad404-photo-portfolio.herokuapp.com']
 
 
 # Application definition
