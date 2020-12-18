@@ -1,0 +1,29 @@
+[
+    {
+       "pk": 1,
+       "model": "home.socialmedia" ,
+       "fields": {
+           "name": "Twitter",
+           "site_url": "https://twitter.com/",
+           "icon": "fab fa-twitter"
+       }
+    },
+	{
+       "pk": 2,
+       "model": "home.socialmedia" ,
+       "fields": {
+           "name": "Instagram",
+           "site_url": "https://www.instagram.com/",
+           "icon": "fab fa-instagram"
+       }
+    },
+	{
+       "pk": 3,
+       "model": "home.socialmedia" ,
+       "fields": {
+           "name": "Facebook",
+           "site_url": "https://www.facebook.com/",
+           "icon": "fab fa-facebook-square"
+       }
+    }
+]

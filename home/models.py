@@ -2,7 +2,7 @@ from django.db import models
 
 
 # Create your models here.
-class categories(models.Model):
+class Categories(models.Model):
 
     class Meta:
         verbose_name_plural = 'Categories'

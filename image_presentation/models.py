@@ -1,5 +1,5 @@
 from django.db import models
-from home.models import categories
+from home.models import Categories
 
 
 # Create your models here.
@@ -18,7 +18,7 @@ class Images(models.Model):
                             default=None
                             )
     category = models.ForeignKey(
-                            categories,
+                            Categories,
                             default=None,
                             null=True,
                             blank=True,

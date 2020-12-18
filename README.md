@@ -274,9 +274,9 @@ As the owner:
     * **Resolution:**
 
 * **Description:** Issue with tooltips showing
-    * **How I found it:** AFter hovering over tooltiped item( i.e. icon to show/hide sidebar in image details page)
+    * **How I found it:** After hovering over tooltiped item( i.e. icon to show/hide sidebar in image details page), tooltip didn't show
     * **What went wrong:** Bootstrap issue?
-    * **Resolution:** 
+    * **Resolution:** I left it unresolved as there is no consistency to track it down and it wasn't a critical error
 
 * **Description:** 
     * **How I found it:** 
@@ -364,6 +364,7 @@ All of the images were made by me. I used various cameras to capture the images.
 
 - Big thanks to Nate Luebbe whos page served as an inspiration to my project. You can find his page here: [Nate Luebbe](https://www.nateluebbe.com/)
 - Sidenav for mobile devices used from w3schools: https://www.w3schools.com/howto/howto_js_sidenav.asp
+- Display for images in gallery was used from [medium.com](https://medium.com/@MilesOfRoses/css-image-gallery-for-pictures-with-different-aspect-ratios-a20ffecb75d5). Big thank you to [Miles Rose](http://milesrose.net) for sharing his gallery display code for free. Click on each link respectively to visit the author and see the original code
 
 [Backt to top](#photo-portfolio)
 

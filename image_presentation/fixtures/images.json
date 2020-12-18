@@ -1,39 +1,287 @@
 [
     {
-        "pkey": 1,
-        "model": "image_presentation.images",
-        "fields": {
-            "title": "Sunset",
-            "description": "Sun setting over the snow covered hills",
-            "category": "landscape",
-            "panorama": false,
-            "color": true,
-            "price": 12.99,
-            "rating": 4,
-            "imgurl": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1607345621/photo-portfolio/DSC_0140_iisobc.jpg",
-            "imgid": "DSC_0140_iisobc",
-            "image": "",
-            "notes": "When printing, pay attention to dark tones. Image can become too dark if light not adjusted",
-            "uploaded_by": "vladimir"
-        }
+       "pk": 1,
+       "model": "image_presentation.images",
+       "fields": {
+           "title": "Snowy Sunset",
+           "description": "Sunset in Swiss alps",
+           "category": "1",
+		   "panorama": "False",
+		   "color": "True",
+		   "price": "14.99",
+		   "rating": "4.00",
+		   "imgurl": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1607345621/photo-portfolio/DSC_0140_iisobc.jpg",
+		   "imgid": "DSC_0140_iisobc",
+		   "image": "",
+		   "notes": "Ernen, Schweiz",
+		   "uploaded_by": "Vladimir"
+		   
+       }
     },
-
-    {
-        "pkey": 2,
-        "model": "image_presentation.images",
-        "fields": {
-            "title": "St Mary's Church",
-            "description": "A black and white image of St. Marry's church in Limerick",
-            "category": "architecture",
-            "panorama": false,
-            "color": false,
-            "price": 10.99,
-            "rating": 3,
-            "imgurl": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1607345621/photo-portfolio/St.Marys_bw_pqfan2.jpg",
-            "imgid": "St.Marys_bw_pqfan2",
-            "image": "",
-            "notes": "Sharpnes can get too low after print",
-            "uploaded_by": "vladimir"
-        }
+	{
+       "pk": 2,
+       "model": "image_presentation.images",
+       "fields": {
+           "title": "Autumn in the Park",
+           "description": "Autumn scenery",
+           "category": "3",
+		   "panorama": "False",
+		   "color": "True",
+		   "price": "15.99",
+		   "rating": "4.00",
+		   "imgurl": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1607528754/photo-portfolio/seasons01_xate71.jpg",
+		   "imgid": "seasons01_xate71",
+		   "image": "",
+		   "notes": "Wien, Austria",
+		   "uploaded_by": "Vladimir"
+		   
+       }
+    },
+	{
+       "pk": 3,
+       "model": "image_presentation.images",
+       "fields": {
+           "title": "A Snowy Road",
+           "description": "Snowy road that leads to a village tucked in the Swiss alps",
+           "category": "3",
+		   "panorama": "False",
+		   "color": "True",
+		   "price": "14.99",
+		   "rating": "4.00",
+		   "imgurl": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1607530103/photo-portfolio/seasons002_pvkwo2.jpg",
+		   "imgid": "seasons002_pvkwo2",
+		   "image": "",
+		   "notes": "Bellwald, Schweiz",
+		   "uploaded_by": "Vladimir"
+		   
+       }
+    },
+	{
+       "pk": 4,
+       "model": "image_presentation.images",
+       "fields": {
+           "title": "Hundertwasser House",
+           "description": "Hundertwasser House in Plochingen, Germany",
+           "category": "2",
+		   "panorama": "False",
+		   "color": "True",
+		   "price": "12.99",
+		   "rating": "3.00",
+		   "imgurl": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1607531954/photo-portfolio/architecture001_ww84za.jpg",
+		   "imgid": "architecture001_ww84za",
+		   "image": "",
+		   "notes": "Plochingen, Germany",
+		   "uploaded_by": "Vladimir"
+		   
+       }
+    },
+	{
+       "pk": 5,
+       "model": "image_presentation.images",
+       "fields": {
+           "title": "Night scenery",
+           "description": "A night scenery",
+           "category": "2",
+		   "panorama": "False",
+		   "color": "True",
+		   "price": "14.99",
+		   "rating": "4.00",
+		   "imgurl": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1607532220/photo-portfolio/architecture002_jbaxoy.jpg",
+		   "imgid": "architecture002_jbaxoy",
+		   "image": "",
+		   "notes": "Sombor, Serbia",
+		   "uploaded_by": "Vladimir"
+		   
+       }
+    },
+	{
+       "pk": 6,
+       "model": "image_presentation.images",
+       "fields": {
+           "title": "Sforzesco Castle",
+           "description": "Panorama of interior yard",
+           "category": "2",
+		   "panorama": "True",
+		   "color": "True",
+		   "price": "17.99",
+		   "rating": "3.00",
+		   "imgurl": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1607532804/photo-portfolio/architecture003_bz3oid.jpg",
+		   "imgid": "architecture003_bz3oid",
+		   "image": "",
+		   "notes": "Milano, Italy",
+		   "uploaded_by": "Vladimir"
+		   
+       }
+    },
+	{
+       "pk": 7,
+       "model": "image_presentation.images",
+       "fields": {
+           "title": "Downhill",
+           "description": "A street in Cork",
+           "category": "1",
+		   "panorama": "False",
+		   "color": "True",
+		   "price": "11.99",
+		   "rating": "3.00",
+		   "imgurl": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1607534102/photo-portfolio/landscapes001_faogds.jpg",
+		   "imgid": "landscapes001_faogds",
+		   "image": "",
+		   "notes": "Cork, Ireland",
+		   "uploaded_by": "Vladimir"
+		   
+       }
+    },
+	{
+       "pk": 8,
+       "model": "image_presentation.images",
+       "fields": {
+           "title": "Lake panorama",
+           "description": "Not all panoramas are horizontal",
+           "category": "1",
+		   "panorama": "True",
+		   "color": "True",
+		   "price": "20.99",
+		   "rating": "4.00",
+		   "imgurl": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1607534433/photo-portfolio/landscapes003-vertical-lake_ewvpax.jpg",
+		   "imgid": "landscapes003-vertical-lake_ewvpax",
+		   "image": "",
+		   "notes": "Limerick county, Ireland",
+		   "uploaded_by": "Vladimir"
+		   
+       }
+    },
+	{
+       "pk": 9,
+       "model": "image_presentation.images",
+       "fields": {
+           "title": "Melon cake",
+           "description": "A slice of delicious melon cake",
+           "category": "4",
+		   "panorama": "False",
+		   "color": "True",
+		   "price": "13.99",
+		   "rating": "4.00",
+		   "imgurl": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1607534985/photo-portfolio/food001-melon-cake_ckifx8.jpg",
+		   "imgid": "food001-melon-cake_ckifx8",
+		   "image": "",
+		   "notes": "Tokyo, Japan",
+		   "uploaded_by": "Vladimir"
+		   
+       }
+    },
+	{
+       "pk": 10,
+       "model": "image_presentation.images",
+       "fields": {
+           "title": "Golden Forest",
+           "description": "Forest of golden trees",
+           "category": "3",
+		   "panorama": "False",
+		   "color": "True",
+		   "price": "18.99",
+		   "rating": "5.00",
+		   "imgurl": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1607535602/photo-portfolio/seasons003-golden-forest_j2qwcb.jpg",
+		   "imgid": "seasons003-golden-forest_j2qwcb",
+		   "image": "",
+		   "notes": "Doroslovo, Serbia",
+		   "uploaded_by": "Vladimir"
+		   
+       }
+    },
+	{
+       "pk": 11,
+       "model": "image_presentation.images",
+       "fields": {
+           "title": "Anticipating Christmas",
+           "description": "Anticipating Christmas",
+           "category": "3",
+		   "panorama": "False",
+		   "color": "True",
+		   "price": "13.99",
+		   "rating": "4.00",
+		   "imgurl": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1607536035/photo-portfolio/seasons004-christmas-arriving_pu8yju.jpg",
+		   "imgid": "seasons004-christmas-arriving_pu8yju",
+		   "image": "",
+		   "notes": "Cork, Ireland",
+		   "uploaded_by": "Vladimir"
+		   
+       }
+    },
+	{
+       "pk": 12,
+       "model": "image_presentation.images",
+       "fields": {
+           "title": "Poppies",
+           "description": "Poppy field",
+           "category": "1",
+		   "panorama": "False",
+		   "color": "True",
+		   "price": "11.99",
+		   "rating": "4.00",
+		   "imgurl": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1607536296/photo-portfolio/landscapes004-poppys_onetkj.jpg",
+		   "imgid": "landscapes004-poppys_onetkj",
+		   "image": "",
+		   "notes": "Erdut, Croatia",
+		   "uploaded_by": "Vladimir"
+		   
+       }
+    },
+	{
+       "pk": 13,
+       "model": "image_presentation.images",
+       "fields": {
+           "title": "St. Marry's church",
+           "description": "St. Marry's church in Limerick at night",
+           "category": "2",
+		   "panorama": "False",
+		   "color": "False",
+		   "price": "10.99",
+		   "rating": "3.00",
+		   "imgurl": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1607345621/photo-portfolio/St.Marys_bw_pqfan2.jpg",
+		   "imgid": "St.Marys_bw_pqfan2",
+		   "image": "",
+		   "notes": "Limerick, Ireland",
+		   "uploaded_by": "Vladimir"
+		   
+       }
+    },
+	{
+       "pk": 14,
+       "model": "image_presentation.images",
+       "fields": {
+           "title": "Blooming Pear",
+           "description": "Pear tree in bloom",
+           "category": "3",
+		   "panorama": "False",
+		   "color": "True",
+		   "price": "13.99",
+		   "rating": "4.00",
+		   "imgurl": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1607536610/photo-portfolio/seasons005-blooming-tree-white_rrv9wb.jpg",
+		   "imgid": "seasons005-blooming-tree-white_rrv9wb",
+		   "image": "",
+		   "notes": "Cork, Ireland",
+		   "uploaded_by": "Vladimir"
+		   
+       }
+    },
+	{
+       "pk": 15,
+       "model": "image_presentation.images",
+       "fields": {
+           "title": "Spring in Schweiz",
+           "description": "A small creek in Swiss alps",
+           "category": "1",
+		   "panorama": "False",
+		   "color": "True",
+		   "price": "14.99",
+		   "rating": "4.00",
+		   "imgurl": "https://res.cloudinary.com/drtxn8d5t/image/upload/v1607537073/photo-portfolio/landscapes005-swiss-mountains_cf3irn.jpg",
+		   "imgid": "landscapes005-swiss-mountains_cf3irn",
+		   "image": "",
+		   "notes": "Ernen, Schweiz",
+		   "uploaded_by": "Vladimir"
+		   
+       }
     }
 ]
