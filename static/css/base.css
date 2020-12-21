@@ -109,21 +109,21 @@ a {
 }
 
 .carousel-img-1 {
-    background: url('/media/church-day.jpg') no-repeat center center;
+    background: url('https://res.cloudinary.com/drtxn8d5t/image/upload/v1608569175/photo-portfolio/display-images/DSC_0961-1920_nyzvhk.jpg') no-repeat center center;
 
 }
 
 .carousel-img-2 {
-    background: url('/media/wien-night.jpg') no-repeat center center;
+    background: url('https://res.cloudinary.com/drtxn8d5t/image/upload/v1608569186/photo-portfolio/display-images/DSC_0565-1920_yaf5fo.jpg') no-repeat center center;
 }
 
 .carousel-img-3 {
-    background: url('/media/mountains.jpg') no-repeat center center;
+    background: url('https://res.cloudinary.com/drtxn8d5t/image/upload/v1608569196/photo-portfolio/display-images/DSC_0671-min_vl9cul.jpg') no-repeat center center;
 }
 
 /* Galleries */
 .galleries-background {
-    background: url('/media/lake.jpg') no-repeat center center fixed;
+    background: url('https://res.cloudinary.com/drtxn8d5t/image/upload/v1608569385/photo-portfolio/display-images/DSC_0335-min_gwa3yp.jpg') no-repeat center center fixed;
 }
 /* Adds spacing from top for galleries on home page */
 .galeries-top-margin {
@@ -141,7 +141,7 @@ a {
 }
 
 .contact-header-image {
-    background: url('/media/mountains.jpg') no-repeat center center;
+    background: url('https://res.cloudinary.com/drtxn8d5t/image/upload/v1608569196/photo-portfolio/display-images/DSC_0671-min_vl9cul.jpg') no-repeat center center;
 }
 
 /* -------------------------------- Media Queries */
