@@ -232,6 +232,7 @@ a {
     right: 0;
     top: 0;
     height: 100vh;
+    min-height: 700px;
     min-width: 400px;
     background-color: #3C3C3C90;
 }

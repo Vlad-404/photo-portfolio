@@ -4,8 +4,8 @@
 {% block content %}
     <!-- Image container -->
     <div id="view-image-container" class="container p-0">
-        <!-- Icon that shows/hides info sidebar -->
-        <a href="{% url 'all_images' %}" id="back-to-all-images"><h2 class="text-white shadow-text z-2000" data-toggle="tooltip" data-placement="right" title="Go back to all images"><i class="fas fa-arrow-alt-circle-left"></i></h2></a>
+        <!-- Icon that goeas back to all images -->
+        <a href="{% url 'all_images' %}" id="back-to-all-images"><h2 class="text-white shadow-text z-2000" data-toggle="tooltip" data-placement="right" title="Back to all images"><i class="fas fa-arrow-alt-circle-left"></i></h2></a>
         <!-- Icon that shows/hides info sidebar -->
         <h2 id="hide-image-info" class="text-white shadow-text z-2000" data-toggle="tooltip" data-placement="left" title="Hide/Show sidebar" onclick="hideInfoSidebar()"><i class="far fa-eye"></i></h2>
         <!-- Image -->
@@ -13,7 +13,7 @@
     </div>
 
     <!-- Info sidebar with purchase options -->
-    <aside id="image-info-and-purchase" class="navbar-styling z-1050 p-3 pt-5 shadow-text text-white montserrat">
+    <aside id="image-info-and-purchase" class="navbar-styling z-1050 p-3 pt-5 pr-5 shadow-text text-white montserrat">
         <div class="container-fluid h-100 mx-0 pt-2 px-0">
             <div class="row h-40 w-100 ml-0">
                 <div class="col px-0">
@@ -34,14 +34,13 @@
                         <label for="quantity" class="col-8 col-form-label">Quantity(1-5):</label>
                         <div class="col-4">
                             <input type="number" id="quantity" name="quantity" class="form-control"  min="1" max="5">
-                            <!--<input type="number" id="quantity" name="quantity" min="1" max="5">-->
                         </div>
                     </div>
                     <div class="form-group row">
                         <label for="size" class="col-7 col-form-label">Size:</label>
                         <div class="col-5">
                             <select class="form-control" id="size" name="size">
-                                <option>Small</option>
+                                <option value="price_s">Small</option>
                                 <option>Medium</option>
                                 <option>Large</option>
                             </select>
@@ -49,35 +48,11 @@
                     </div>
                     <div class="form-group row">
                         <button class="btn btn-info m-auto" type="submit">
-                            Add to Selection
-                        </button>
-                    </div>
-                </form>
-                <form class="w-100" action="">
-                    <div class="form-group row">
-                        <div class="col-3 mx-auto">Quantity</div>
-                        <div class="col-3 mx-auto">Size</div>
-                        <div class="col-3 mx-auto">Price</div>
-                    </div>
-                    <div class="form-group row">
-                        {% for items in basket %}
-                            <div class="col-3 mx-auto">{{ basket.quantity }}</div>
-                            <div class="col-3 mx-auto">{{ basket.size }}</div>
-                            <div class="col-3 mx-auto">{{ basket.total }}</div>
-                        {% endfor %}
-                    </div>
-                    <div class="dropdown-divider"></div>
-                    <div class="form-group row pl-3">
-                        <p class="col-4 montserrat text-uppercase">Total</p>
-                        <p class="col-8 montserrat text-uppercase text-right">Price €</p>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <button class="btn btn-primary m-auto" type="submit">
                             Add to Basket
                         </button>
                     </div>
                 </form>
+                
             </div>
             
             <!-- Footer with nav links -->

@@ -5,7 +5,7 @@ from django.db.models.functions import Lower
 from .models import Images
 from home.models import SocialMedia, Categories
 
-""" Social media links for navbar """
+""" Social media links and categories """
 media_links = SocialMedia.objects.all()
 all_categories = Categories.objects.all()
 

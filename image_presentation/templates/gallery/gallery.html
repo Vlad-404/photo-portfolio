@@ -78,6 +78,27 @@
         {% endfor %}
    </div>
 
+   <!-- Modal that initiates image deletion -->
+   <div id="image-delete" class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title text-center text-danger">ATTENTION!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure you want to delete image: {{ image.title }}?</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger mx-auto">Yes</button>
+                    <button type="button" class="btn btn-primary mx-auto" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Bottom page navigation -->
     <h4 class="text-center montserrat my-5">For more images, please select a <a href="#galleries-top" data-toggle="tooltip" data-placement="bottom" title="Brings you to the top of the page">category</a></h4>
     <p class="text-center"><a href="#galleries-top" class="mt-3 text-center text-muted montserrat">(Click here to go back to the top of the page)</a></p>
