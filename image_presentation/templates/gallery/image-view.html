@@ -5,6 +5,8 @@
     <!-- Image container -->
     <div id="view-image-container" class="container p-0">
         <!-- Icon that shows/hides info sidebar -->
+        <a href="{% url 'all_images' %}" id="back-to-all-images"><h2 class="text-white shadow-text z-2000" data-toggle="tooltip" data-placement="right" title="Go back to all images"><i class="fas fa-arrow-alt-circle-left"></i></h2></a>
+        <!-- Icon that shows/hides info sidebar -->
         <h2 id="hide-image-info" class="text-white shadow-text z-2000" data-toggle="tooltip" data-placement="left" title="Hide/Show sidebar" onclick="hideInfoSidebar()"><i class="far fa-eye"></i></h2>
         <!-- Image -->
         <img src="{{ image.imgurl }}" alt="{{ image.title }} image" id="image-view-container" class="card-image" style="z-index: -1;"> 
@@ -98,7 +100,7 @@
                     <div class="dropdown-menu image-view-dropup border-dark" aria-labelledby="user-options">
                         {% if request.user.is_authenticated %}
                             {% if request.user.is_superuser %}
-                                <a href="" class="dropdown-item text-white">Images</a>
+                                <a href="{% url 'all_images' %}" class="dropdown-item text-white">Images</a>
                                 <a href="" class="dropdown-item text-white">Add Image Category</a>
                                 <a href="" class="dropdown-item text-white">Add Social Media</a>
                             {% endif %}

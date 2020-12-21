@@ -252,3 +252,10 @@ a {
     right: 2rem;
     width: auto;
 }
+
+#back-to-all-images {
+    position: fixed;
+    top: 1rem;
+    left: 2rem;
+    width: auto;
+}
