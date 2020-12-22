@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse
 from home.models import SocialMedia, Categories
 
 """ Social media links and categories """
@@ -17,17 +17,32 @@ def view_cart(request):
     return render(request, 'cart/cart.html', context)
 
 
-def add_to_cart(request, image_id):
+def add_to_cart(request, images_id):
     """ Add a number of specific image to the cart """
 
     quantity = int(request.POST.get('quantity'))
     redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
 
-    if image_id in list(cart.keys()):
-        cart[image_id] += quantity
+    if images_id in list(cart.keys()):
+        cart[images_id] += quantity
     else:
-        cart[image_id] = quantity
+        cart[images_id] = quantity
 
     request.session['cart'] = cart
     return redirect(redirect_url)
+
+
+def adjust_cart(request):
+    """ Update quantity of images """
+
+    quantity = int(request.POST.get('quantity'))
+    cart = request.session.get('cart', {})
+
+    # if quantity > 0:
+    #     cart[images_id] = quantity
+    # else:
+    #     cart.pop[images_id]
+
+    request.session['cart'] = cart
+    return redirect(reverse('view_cart'))

@@ -269,3 +269,8 @@ a {
 .cart-restrict-imageheight {
     max-height: 20rem;
 }
+
+.update-link,
+.remove-item {
+    cursor: pointer;
+}
