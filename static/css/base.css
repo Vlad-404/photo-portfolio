@@ -264,3 +264,8 @@ a {
     left: 2rem;
     width: auto;
 }
+
+/* CART CSS */
+.cart-restrict-imageheight {
+    max-height: 20rem;
+}

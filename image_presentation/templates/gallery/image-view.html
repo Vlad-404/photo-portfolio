@@ -37,6 +37,7 @@
                             <input type="number" id="id_img_{{ image.id }}" name="quantity" class="form-control"  min="1" max="5" data-image_id="{{ image.id }}">
                         </div>
                     </div>
+                    <!-- Left for future implementations 
                     <div class="form-group row">
                         <label for="size" class="col-7 col-form-label">Size:</label>
                         <div class="col-5">
@@ -46,23 +47,27 @@
                                 <option>Large</option>
                             </select>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="form-group row">
                         <button class="btn btn-info m-auto" type="submit">
-                            Add to Basket
+                            Add to Cart
                         </button>
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </form>
-                
             </div>
-            
+                        
             <!-- Footer with nav links -->
             <div class="row image-details-navigation align-items-center border-top border-white">
-                <div class="col-4 nav-item d-flex justify-content-center">
+                {% if grand_total %}
+                    <div class="col-3 nav-item d-flex justify-content-center">
+                        <a href="{% url 'view_cart' %}" class="text-white">VIEW <i class="fas fa-shopping-cart"></i></a>
+                    </div>
+                {% endif %}
+                <div class="{% if grand_total %}col-3{% else %}col-4{% endif %} nav-item d-flex justify-content-center">
                     <a href="{% url 'home' %}" class="text-white">HOME</a>
                 </div>
-                <div class="col-4 nav-item dropup d-flex justify-content-center px-0">
+                <div class="{% if grand_total %}col-3{% else %}col-4{% endif %} nav-item dropup d-flex justify-content-center px-0">
                     <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Galleries</a>
                     <div class="dropdown-menu image-view-dropup border-dark top-075rem">
                         <a class="dropdown-item text-white" href="{% url 'all_images' %}">All Images</a>
@@ -72,7 +77,7 @@
                         {% endfor %}
                     </div>
                 </div>
-                <div class="col-4 nav-item dropup d-flex justify-content-center px-0">
+                <div class="{% if grand_total %}col-3{% else %}col-4{% endif %} nav-item dropup d-flex justify-content-center px-0">
                     <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
                     <div class="dropdown-menu image-view-dropup border-dark" aria-labelledby="user-options">
                         {% if request.user.is_authenticated %}

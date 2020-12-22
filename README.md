@@ -145,7 +145,8 @@ As every project encounters issues during it's development, I have decided to ad
 * ...
 
 ## Features Left to Implement
-...
+
+* Using different price for different size was dropped from the project and left for future implementations. Reason for this is time limitation.
 
 [Backt to top](#photo-portfolio)
 
