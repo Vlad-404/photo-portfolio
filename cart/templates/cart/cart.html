@@ -25,6 +25,9 @@
     <div class="row">
         <div class="col {% if not cart_items %}text-center{% endif %}">
             {% if cart_items %}
+                <div class="table-responsive rounded">
+                    {{ cart_items }}
+                </div>
             {% else %}
                 <p class="lead my-5 text-center montserrat">Your cart is empty</p>
                 <a href="{% url 'all_images' %}" class="btn btn-secondary rounded-1 btn-lg">

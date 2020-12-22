@@ -1,5 +1,7 @@
 from decimal import Decimal
 from django.conf import settings
+from django.shortcuts import get_object_or_404
+from image_presentation.models import Images
 
 
 def cart_contents(request):
@@ -7,6 +9,17 @@ def cart_contents(request):
     cart_items = []
     total = 0
     images_count = 0
+    cart = request.session.get('cart', {})
+
+    for image_id, quantity in cart.items():
+        image = get_object_or_404(Images, pk=image_id)
+        total += quantity * image.price
+        images_count += quantity
+        cart_items.append({
+            'image_id': image_id,
+            'quantity': quantity,
+            'image': image
+        })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
         delivery = total * Decimal(settings.STANDARD_DELIVERY_PERCENTAGE / 100)
