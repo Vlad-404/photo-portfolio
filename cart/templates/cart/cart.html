@@ -26,7 +26,76 @@
         <div class="col {% if not cart_items %}text-center{% endif %}">
             {% if cart_items %}
                 <div class="table-responsive rounded">
-                    {{ cart_items }}
+                    <table class="table table-sm table-borderless osans">
+                        <thead class="text-black">
+                            <tr>
+                                <th scope="col">Image Info:</th>
+                                <th scope="col"></th>
+                                <th scope="col">Price:</th>
+                                <th scope="col">Quantity:</th>
+                                <th scope="col">Subtotal:</th>
+                            </tr>
+                        </thead>
+
+                        {% for item in cart_items %}
+                            <tr>
+                                <td class="p-3 w-25">
+                                    <img src="{{ item.images.imgurl }}" alt="{{item.images.title}} image" class="img-fluid rounded">
+                                </td>
+                                <td class="py-3">
+                                    <p class="my-0"><strong>{{ item.images.title }}</strong></p>
+                                    <p class="my-0 small text-muted">PID:</p>
+                                </td>
+                                <td class="py-3">
+                                    <p class="my-0">€ {{ item.images.price }}</p>
+                                </td>
+                                <td class="py-3">
+                                    <p class="my-0">{{ item.quantity }}</p>
+                                </td>
+                                <td class="py-3">
+                                    <p class="my-0">€ {{ item.images.price }}</p>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                        
+                        <tr>
+                            <td colspan="5" class="pt-5 text-right">
+                                <h6><strong>Cart Total: €{{ total|floatformat:2 }}</strong></h6>
+                                <h6>Delivery: €{{ delivery|floatformat:2 }}</h6>
+                                <h4 class="mt-4"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+                {% if grand_total > free_delivery_threshold %}
+                    <div class="row w-100">
+                        <div class="col-12 alert alert-info">
+                            <h5 class="montserrat text-center my-3">Congratulations! You get a free delivery.</h5>
+                        </div>
+                    </div>
+                {% else %}
+                    <div class="row w-100">
+                        <div class="col-12 alert alert-warning">
+                            <h5 class="montserrat text-center my-3">You can get a free delivery if you add € {{ free_delivery_delta }} to your order...</h5>
+                        </div>
+                    </div>
+                {% endif %}
+                
+                <div class="container-fluid">
+                    <div class="row w-100 align-content-center">
+                        <a href="{% url 'all_images' %}" class="btn btn-secondary rounded-0 btn-lg mx-auto montserrat">
+                            <span class="icon">
+                                <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="text-uppercase">Keep Adding Images</span>
+                        </a>
+                        <a href="" class="btn btn-secondary rounded-0 btn-lg mx-auto montserrat">
+                            <span class="text-uppercase">Secure Checkout</span>
+                            <span class="icon">
+                                <i class="fas fa-lock"></i>
+                            </span>
+                        </a>
+                    </div>
                 </div>
             {% else %}
                 <p class="lead my-5 text-center montserrat">Your cart is empty</p>

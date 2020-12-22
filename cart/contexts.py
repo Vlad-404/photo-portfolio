@@ -12,13 +12,13 @@ def cart_contents(request):
     cart = request.session.get('cart', {})
 
     for image_id, quantity in cart.items():
-        image = get_object_or_404(Images, pk=image_id)
-        total += quantity * image.price
+        images = get_object_or_404(Images, pk=image_id)
+        total += quantity * images.price
         images_count += quantity
         cart_items.append({
             'image_id': image_id,
             'quantity': quantity,
-            'image': image
+            'images': images
         })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:
