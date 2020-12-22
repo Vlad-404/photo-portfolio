@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% include 'includes/header-navbar.html' %}
+{% include 'includes/header-mobile.html' %}
+{% include 'includes/search-bar.html' %}
+
+<!-- Header image -->
+<div class="container-fluid header-40vh contact-header-image p-0"></div>
+
+<!-- Cart items -->
+<main class="container mb-2">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="montserrat text-center shadow-text mt-5 mb-3">Your Shopping Cart</h2>
+        </div>
+    </div>
+    <div class="row w-100">
+        <div class="col-12 navbar-styling">
+            <h5 class="montserrat text-center shadow-text my-3">Remember that you get free delivery on orders over € {{ free_delivery_threshold }}!</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col {% if not cart_items %}text-center{% endif %}">
+            {% if cart_items %}
+            {% else %}
+                <p class="lead my-5 text-center montserrat">Your cart is empty</p>
+                <a href="{% url 'all_images' %}" class="btn btn-secondary rounded-1 btn-lg">
+                    <p class="mx-auto my-auto">Back to All Images</p>
+                </a>
+            {% endif %}
+        </div>
+    </div>
+</main>
+
+
+{% include 'includes/footer.html' %}
+
+{% endblock %}

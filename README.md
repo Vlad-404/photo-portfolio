@@ -278,6 +278,11 @@ As the owner:
     * **What went wrong:** Bootstrap issue?
     * **Resolution:** I left it unresolved as there is no consistency to track it down and it wasn't a critical error
 
+* **Description:** Couldn't start server in Gitpod
+    * **How I found it:** By typing `python3 manage.py runserver` in terminal
+    * **What went wrong:** After moving environmental variables to a separate file (`env.py`), syntax for database link in `settings.py` was incorrect
+    * **Resolution:** Changed `env.get` to `os.getenv`
+
 * **Description:** 
     * **How I found it:** 
     * **What went wrong:** 
