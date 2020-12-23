@@ -5,18 +5,19 @@
             <div class="col col-8 d-none d-xl-block">
                 <ul class="nav">
                     <!-- Shows the shopping bag if there's something in it -->
-                    <!-- if grand total -->
+                    {% if grand_total %}
                         <li class="list-inline-item navbar-styling">
                             <a class="{% if grand_total %}text-info font-weight-bold{% else %}text-black{% endif %} nav-link" href="{% url 'view_cart' %}">
                                 <div class="text-center text-white">
-                                    <div><i class="fas fa-shopping-bag fa-lg"></i></div>
+                                    <div><i class="fas fa-shopping-cart"></i></div>
                                     <p class="my-0">
                                         €{{ grand_total|floatformat:2 }}
                                     </p>
                                 </div>
                             </a>
                         </li>
-                    <!-- endif -->
+                    {% endif %}
+                    
                     <!-- Social network links -->
                     {% for social in media_links %}
                     <li class="nav-item navbar-styling mheight-3-5">

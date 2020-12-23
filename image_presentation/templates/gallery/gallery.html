@@ -23,7 +23,7 @@
     <!-- Category filtering buttons -->
     <div class="row justify-content-center mb-3 py-5">
         <!-- Button to select all images -->
-        <button id="AllbtnGroup" type="button" class="btn btn-secondary dropdown-toggle categories-buttons text-center text-uppercase mx-3 mb-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <button id="AllbtnGroup" type="button" class="btn btn-secondary dropdown-toggle categories-buttons text-center text-uppercase mx-3 mb-3 montserrat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             All
         </button>
         <div class="dropdown-menu" aria-labelledby="AllDrop1">
@@ -36,7 +36,7 @@
         <!-- For each category -->
         {% for category in categories %}
             <div class="btn-group" role="group">
-                <button id="{{category.name}}btnGroup" type="button" class="btn btn-secondary dropdown-toggle categories-buttons text-center text-uppercase mx-3 mb-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button id="{{category.name}}btnGroup" type="button" class="btn btn-secondary dropdown-toggle categories-buttons text-center text-uppercase mx-3 mb-3 montserrat" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 {{ category.name }}
                 </button>
                 <div class="dropdown-menu" aria-labelledby="{{category.name}}Drop1">

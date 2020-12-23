@@ -31,12 +31,37 @@
                 <form class="w-100" action="{% url 'add_to_cart' image.id %}" method="POST">
                     {% csrf_token %}
                     <p class="montserrat text-uppercase border-bottom border-white">Purchasing options:</p>
-                    <div class="form-group row">
-                        <label for="quantity" class="col-8 col-form-label">Quantity(1-5):</label>
-                        <div class="col-4">
-                            <input type="number" id="id_img_{{ image.id }}" name="quantity" class="form-control"  min="1" max="5" data-image_id="{{ image.id }}">
+                    <div class="input-group row">
+                        <!-- Label -->
+                        <label for="quantity" class="col-6 col-form-label">Quantity(1-5):</label>
+
+                        <!-- Minus icon for lowering the quantity -->
+                        <div class="input-group-prepend navbar-styling">
+                            <button class="decrement-qty btn rounded-1" 
+                                data-item_id="{{ image.id }}" id="decrement-qty_{{ image.id }}">
+                                <span class="icon text-white">
+                                    <i class="fas fa-minus"></i>
+                                </span>
+                            </button>
+                        </div>
+
+                        <!-- Input field -->
+                        <input class="form-control qty_input" type="number" 
+                                id="id_qty_{{ image.id }}" 
+                                name="quantity" value="1" min="1" max="5" 
+                                data-item_id="{{ image.id }}">
+
+                        <!-- Plus icon for adding to the quantity -->
+                        <div class="input-group-append navbar-styling">
+                            <button class="increment-qty btn rounded-1"
+                                data-item_id="{{ image.id }}" id="increment-qty_{{ image.id }}">
+                                <span class="icon text-white">
+                                    <i class="fas fa-plus"></i>
+                                </span>
+                            </button>
                         </div>
                     </div>
+                    <!-- Left for future implementations 
                     <div class="form-group row">
                         <label for="size" class="col-7 col-form-label">Size:</label>
                         <div class="col-5">
@@ -46,23 +71,27 @@
                                 <option>Large</option>
                             </select>
                         </div>
-                    </div>
-                    <div class="form-group row">
+                    </div> -->
+                    <div class="form-group row mt-5">
                         <button class="btn btn-info m-auto" type="submit">
-                            Add to Basket
+                            Add to Cart
                         </button>
                     </div>
                     <input type="hidden" name="redirect_url" value="{{ request.path }}">
                 </form>
-                
             </div>
-            
+                        
             <!-- Footer with nav links -->
             <div class="row image-details-navigation align-items-center border-top border-white">
-                <div class="col-4 nav-item d-flex justify-content-center">
+                {% if grand_total %}
+                    <div class="col-3 nav-item d-flex justify-content-center">
+                        <a href="{% url 'view_cart' %}" class="text-white">VIEW <i class="fas fa-shopping-cart"></i></a>
+                    </div>
+                {% endif %}
+                <div class="{% if grand_total %}col-3{% else %}col-4{% endif %} nav-item d-flex justify-content-center">
                     <a href="{% url 'home' %}" class="text-white">HOME</a>
                 </div>
-                <div class="col-4 nav-item dropup d-flex justify-content-center px-0">
+                <div class="{% if grand_total %}col-3{% else %}col-4{% endif %} nav-item dropup d-flex justify-content-center px-0">
                     <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Galleries</a>
                     <div class="dropdown-menu image-view-dropup border-dark top-075rem">
                         <a class="dropdown-item text-white" href="{% url 'all_images' %}">All Images</a>
@@ -72,7 +101,7 @@
                         {% endfor %}
                     </div>
                 </div>
-                <div class="col-4 nav-item dropup d-flex justify-content-center px-0">
+                <div class="{% if grand_total %}col-3{% else %}col-4{% endif %} nav-item dropup d-flex justify-content-center px-0">
                     <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
                     <div class="dropdown-menu image-view-dropup border-dark" aria-labelledby="user-options">
                         {% if request.user.is_authenticated %}
@@ -93,4 +122,9 @@
         </div>
     </aside>
     
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    {% include 'gallery/includes/quantity_input_script.html' %}
 {% endblock %}

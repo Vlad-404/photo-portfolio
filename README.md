@@ -20,8 +20,8 @@ Contents:
     * [User stories Testing](#user-stories-testing)
 * [Deployment](#deployment)
 * [Credits](#credits)
-    * [Content](#content)
-    * [Acknowledgments and thank you's](#acknowledgments-and-thank-you's)
+    * Content
+    * Acknowledgments and thank you's
 * [Disclaimer](#disclaimer)
 
 # UX 
@@ -145,7 +145,8 @@ As every project encounters issues during it's development, I have decided to ad
 * ...
 
 ## Features Left to Implement
-...
+
+* Using different price for different size was dropped from the project and left for future implementations. Reason for this is time limitation.
 
 [Backt to top](#photo-portfolio)
 
@@ -365,11 +366,12 @@ If GitHub asks you to authorize the Heroku app in any of the steps above, do so,
 ## Content
 All of the images were made by me. I used various cameras to capture the images. Even if I was carefull not to include any logos, business names or faces, if you find anything related to yourself, and you don't want it contained in my photos, please contact me on vmijat21@gmail.com and explain the situation. I will be glad to answer and correct if there are any issues you find with my photos.
 
-## Acknowledgments and Thank-Yous
+## Acknowledgments and Thank You's
 
 - Big thanks to Nate Luebbe whos page served as an inspiration to my project. You can find his page here: [Nate Luebbe](https://www.nateluebbe.com/)
 - Sidenav for mobile devices used from w3schools: https://www.w3schools.com/howto/howto_js_sidenav.asp
 - Display for images in gallery was used from [medium.com](https://medium.com/@MilesOfRoses/css-image-gallery-for-pictures-with-different-aspect-ratios-a20ffecb75d5). Big thank you to [Miles Rose](http://milesrose.net) for sharing his gallery display code for free. Click on each link respectively to visit the author and see the original code
+- Code from `quantity_input_script.html` for `+` and `-` buttons in image preview used from [Chris Zielinski](https://github.com/ckz8780) from [Code Institute](https://codeinstitute.net/).
 
 [Backt to top](#photo-portfolio)
 

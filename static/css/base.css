@@ -5,6 +5,10 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
 a {
     text-decoration: none !important;
 }
@@ -259,4 +263,14 @@ a {
     top: 1rem;
     left: 2rem;
     width: auto;
+}
+
+/* CART CSS */
+.cart-restrict-imageheight {
+    max-height: 20rem;
+}
+
+.update-link,
+.remove-item {
+    cursor: pointer;
 }
