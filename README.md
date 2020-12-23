@@ -284,6 +284,11 @@ As the owner:
     * **What went wrong:** After moving environmental variables to a separate file (`env.py`), syntax for database link in `settings.py` was incorrect
     * **Resolution:** Changed `env.get` to `os.getenv`
 
+* **Description:** Deployed page gave 500 error when adding to cart
+    * **How I found it:** While testing the functionality on Heroku's deployed page
+    * **What went wrong:** In `image-view` template, wrong variable was passed on
+    * **Resolution:** Changed passing variable from `image_id` to `image.id` in `image-view.html`
+
 * **Description:** 
     * **How I found it:** 
     * **What went wrong:** 
