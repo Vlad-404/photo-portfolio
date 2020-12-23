@@ -19,7 +19,7 @@
     </div>
     <div class="row w-100">
         <div class="col-12 navbar-styling">
-            <h5 class="montserrat text-center shadow-text my-3">Remember that you get free delivery on orders over € {{ free_delivery_threshold }}!</h5>
+            <h5 class="montserrat text-center shadow-text my-3">You get free delivery on orders over € {{ free_delivery_threshold }}!</h5>
         </div>
     </div>
     <div class="row">
@@ -30,7 +30,7 @@
                         <thead class="text-black">
                             <tr>
                                 <th scope="col">Image Info:</th>
-                                <th scope="col"></th>
+                                <th scope="col">Title:</th>
                                 <th scope="col">Price:</th>
                                 <th scope="col">Quantity:</th>
                                 <th scope="col">Subtotal:</th>
@@ -50,8 +50,9 @@
                                     <p class="my-0">€ {{ item.images.price }}</p>
                                 </td>
                                 <td class="py-3">
-                                    <form class="form update-form" method="POST" action="">
+                                    <form class="form update-form" method="POST" action="{% url 'adjust_cart' item.images.id %}">
                                         {% csrf_token %}
+                                        {{ item.item_id }}
                                         <div class="form-group">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
@@ -158,8 +159,9 @@
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
-        var url = `/bag/remove/${itemId}`;
+        var url = `/cart/remove/${itemId}`;
         var data = {'csrfmiddlewaretoken': csrfToken};
+        console.log(itemId)
 
         $.post(url, data)
          .done(function() {
