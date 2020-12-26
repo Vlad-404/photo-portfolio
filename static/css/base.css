@@ -226,9 +226,8 @@ a {
     background-color: #3C3C3C;
 }
 
-#image-view-container {
-    object-fit: cover;
-    height: 100vh;
+#full-size-image-container {
+    max-height: auto;
     width: 100%;
     min-width: 768px; /* I used pixels here to conform with bootstrap page breaks as I didn't want image to scale down beyond this point */
 }

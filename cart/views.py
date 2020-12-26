@@ -33,28 +33,28 @@ def add_to_cart(request, image_id):
     return redirect(redirect_url)
 
 
-def adjust_cart(request, item_id):
+def adjust_cart(request, image_id):
     """Adjust the quantity of the specific image added to cart"""
-
-    # image = get_object_or_404(Images, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     cart = request.session.get('cart', {})
 
     if quantity > 0:
-        cart[item_id] = quantity
+        cart[image_id] = quantity
+        if quantity > 5:
+            quantity = 5
     else:
-        cart.pop(item_id)
+        cart.pop(image_id)
 
     request.session['cart'] = cart
-    print(item_id)
+
     return redirect(reverse('view_cart'))
 
 
-def remove_from_cart(request, item_id):
+def remove_from_cart(request, image_id):
     """ Removes the item from shopping cart """
     try:
         cart = request.session.get('cart', {})
-        cart.pop(item_id)
+        cart.pop(image_id)
 
         request.session['cart'] = cart
         return HttpResponse(status=200)

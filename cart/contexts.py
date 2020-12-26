@@ -13,12 +13,14 @@ def cart_contents(request):
 
     for image_id, quantity in cart.items():
         images = get_object_or_404(Images, pk=image_id)
+        subtotal = quantity * images.price
         total += quantity * images.price
         images_count += quantity
         cart_items.append({
             'image_id': image_id,
             'quantity': quantity,
-            'images': images
+            'images': images,
+            'subtotal': subtotal,
         })
 
     if total < settings.FREE_DELIVERY_THRESHOLD:

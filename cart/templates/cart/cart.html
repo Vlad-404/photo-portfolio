@@ -19,7 +19,7 @@
     </div>
     <div class="row w-100">
         <div class="col-12 navbar-styling">
-            <h5 class="montserrat text-center shadow-text my-3">You get free delivery on orders over € {{ free_delivery_threshold }}!</h5>
+            <h5 class="montserrat text-center shadow-text my-3">You can get a free delivery on orders over € {{ free_delivery_threshold }}!</h5>
         </div>
     </div>
     <div class="row">
@@ -50,14 +50,13 @@
                                     <p class="my-0">€ {{ item.images.price }}</p>
                                 </td>
                                 <td class="py-3">
-                                    <form class="form update-form" method="POST" action="{% url 'adjust_cart' item.images.id %}">
+                                    <form class="form update-form" method="POST" action="{% url 'adjust_cart' item.image_id %}">
                                         {% csrf_token %}
-                                        {{ item.item_id }}
                                         <div class="form-group">
                                             <div class="input-group">
                                                 <div class="input-group-prepend">
                                                     <button class="decrement-qty btn btn-sm btn-secondary rounded-1" 
-                                                        data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                        data-item_id="{{ item.image_id }}" id="decrement-qty_{{ item.image_id }}">
                                                         <span>
                                                             <i class="fas fa-minus fa-sm"></i>
                                                         </span>
@@ -65,27 +64,25 @@
                                                 </div>
                                                 <input class="form-control form-control-sm qty_input" type="number"
                                                     name="quantity" value="{{ item.quantity }}" min="1" max="5"
-                                                    data-item_id="{{ item.item_id }}"
-                                                    id="id_qty_{{ item.item_id }}">
+                                                    data-item_id="{{ item.image_id }}"
+                                                    id="id_qty_{{ item.image_id }}">
                                                 <div class="input-group-append">
                                                     <button class="increment-qty btn btn-sm btn-secondary rounded-1"
-                                                        data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                        data-item_id="{{ item.image_id }}" id="increment-qty_{{ item.image_id }}">
                                                         <span>
                                                             <i class="fas fa-plus fa-sm"></i>
                                                         </span>
                                                     </button>
                                                 </div>
-                                                {% if item.product.has_sizes %}
-                                                    <input type="hidden" name="product_size" value="{{ item.size }}">
-                                                {% endif %}
                                             </div>
                                         </div>
+                                        <!-- Buttons for adjusting the quantity and removing the item -->
+                                        <button type="submit" class="btn btn-info update-link osans mt-2">Update</button>
+                                        <a href="" class="btn btn-danger remove-item float-right mt-2" id="remove_{{ item.image_id }}">Remove</a>
                                     </form>
-                                    <a href="" class="btn btn-info update-link osans mt-2">Update</a>
-                                    <a href="" class="btn btn-danger remove-item float-right mt-2" id="remove_{{ image.image_id }}">Remove</a>
                                 </td>
                                 <td class="py-3">
-                                    <p class="my-0">€ {{ item.images.price }}</p>
+                                    <p class="my-0"><strong>€ {{ item.subtotal }}</strong></p>
                                 </td>
                             </tr>
                         {% endfor %}
@@ -94,7 +91,7 @@
                             <td colspan="5" class="pt-5 text-right">
                                 <h6><strong>Cart Total: €{{ total|floatformat:2 }}</strong></h6>
                                 <h6>Delivery: €{{ delivery|floatformat:2 }}</h6>
-                                <h4 class="mt-4"><strong>Grand Total: €{{ grand_total|floatformat:2 }}</strong></h4>
+                                <h4 class="mt-4 montserrat"><strong>Grand Total: € {{ grand_total|floatformat:2 }}</strong></h4>
                             </td>
                         </tr>
                     </table>
@@ -159,9 +156,8 @@
     $('.remove-item').click(function(e) {
         var csrfToken = "{{ csrf_token }}";
         var itemId = $(this).attr('id').split('remove_')[1];
-        var url = `/cart/remove/${itemId}`;
+        var url = `/cart/remove/${itemId}/`;
         var data = {'csrfmiddlewaretoken': csrfToken};
-        console.log(itemId)
 
         $.post(url, data)
          .done(function() {
