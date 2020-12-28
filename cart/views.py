@@ -1,5 +1,8 @@
 from django.shortcuts import render, redirect, reverse, HttpResponse
 from home.models import SocialMedia, Categories
+from django.contrib import messages
+
+from image_presentation.models import Images
 
 """ Social media links and categories """
 media_links = SocialMedia.objects.all()
@@ -20,17 +23,19 @@ def view_cart(request):
 def add_to_cart(request, image_id):
     """ Add a number of specific image to the cart """
 
+    image = Images.objects.get(pk=image_id)
     quantity = int(request.POST.get('quantity'))
-    redirect_url = request.POST.get('redirect_url')
+    # redirect_url = request.POST.get('redirect_url')
     cart = request.session.get('cart', {})
 
     if image_id in list(cart.keys()):
         cart[image_id] += quantity
     else:
         cart[image_id] = quantity
+        messages.success(request, f'You have successfully added {image.title} image to your cart')
 
     request.session['cart'] = cart
-    return redirect(redirect_url)
+    return redirect('all_images')
 
 
 def adjust_cart(request, image_id):

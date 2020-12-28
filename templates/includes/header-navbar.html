@@ -75,5 +75,13 @@
             <div class="col text-right logo-font mheight-3-5 mr-3">
                 <a href="{% url 'home' %}"><h1 class="logo text-white">Vladimir Mijatovic</h1></a>
             </div>
-        </div> 
+        </div>
+        <div class="row">
+            <div class="col d-none d-xl-block">
+                <!-- <div>{% include 'includes/toasts/toast_success.html' %}</div> -->
+                {% for message in messages  %}
+                    <div> include 'includes/toasts/toast_success.html' </div>
+                {% endfor %}
+            </div>
+        </div>
     </header>

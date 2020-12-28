@@ -69,6 +69,7 @@ a {
     z-index: 1000;
 }
 
+/* Adds gray background with transparency with white text */
 .navbar-styling {
     background-color: #5F5F5F90;
     color: #F2F2F2;
@@ -176,6 +177,16 @@ a {
     max-height: 100vh;
     overflow: hidden;
 }
+
+/* Bootstrap toasts */
+.custom-toast {
+    overflow: visible;
+}
+
+.toast-capper {
+    height: 2px;
+}
+
 /* Classes for image container in galleries - code from Miles Rose @ medium.com (see readme for more details) */
 #images-wrapper {    
    line-height: 0;       
@@ -218,6 +229,8 @@ a {
     min-height: 4rem;
 }
 
+/* MORE INFO/FULL SIZE IMAGE */
+/* Default container for more info page */
 #view-image-container {
     height: 100vh;
     max-width: 100vw;
@@ -226,12 +239,14 @@ a {
     background-color: #3C3C3C;
 }
 
+/* Container that makes the image fill container it is in */
 #full-size-image-container {
     max-height: auto;
     width: 100%;
     min-width: 768px; /* I used pixels here to conform with bootstrap page breaks as I didn't want image to scale down beyond this point */
 }
 
+/* Sidebar with image info and purchase options */
 #image-info-and-purchase {
     position: fixed;
     right: 0;
@@ -242,16 +257,19 @@ a {
     background-color: #3C3C3C90;
 }
 
+/* Background styling for drop ups in botom navigation pannel */
 .image-view-dropup {
     background-color: #4b4b4b;
 }
 
+/* Makes bottom navigation be fixed to the bottom of the screen */
 .image-details-navigation {
     position: fixed;
     bottom: 1rem;
     right: 3rem;
 }
 
+/* Positioning for icon that hides the sidebar */
 #hide-image-info {
     position: fixed;
     top: 1rem;
@@ -259,6 +277,7 @@ a {
     width: auto;
 }
 
+/* Positions the icon that goes bck to all images */
 #back-to-all-images {
     position: fixed;
     top: 1rem;
