@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'home',
     'image_presentation',
     'cart',
+    'checkout',
 
     # other
     'storages',
