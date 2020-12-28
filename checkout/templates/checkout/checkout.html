@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extracss %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% include 'includes/header-navbar.html' %}
+{% include 'includes/header-mobile.html' %}
+{% include 'includes/search-bar.html' %}
+
+<!-- Header image -->
+<div class="container-fluid header-40vh contact-header-image p-0"></div>
+
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="mb-4">{{ page_title }}</h2>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <p class="text-muted">Please fill out the form below to complete your order</p>
+        </div>
+    </div>
+</div>
+
+{% include 'includes/footer.html' %}
+
+{% endblock %}
+
+{% block postloadjs %}
+    {{ block.super }}
+    {% include 'gallery/includes/quantity_input_script.html' %}
+
+<script type="text/javascript">
+    // Update quantity on click
+    $('.update-link').click(function(e) {
+        var form = $(this).prev('.update-form');
+        form.submit();
+    })
+
+    // Remove item and reload on click
+    $('.remove-item').click(function(e) {
+        var csrfToken = "{{ csrf_token }}";
+        var itemId = $(this).attr('id').split('remove_')[1];
+        var url = `/cart/remove/${itemId}/`;
+        var data = {'csrfmiddlewaretoken': csrfToken};
+
+        $.post(url, data)
+         .done(function() {
+             location.reload();
+         });
+    })
+
+    // Shows toasts
+    $('.toast').toast('show');
+</script>
+{% endblock %}
