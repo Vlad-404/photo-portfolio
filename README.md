@@ -289,6 +289,11 @@ As the owner:
     * **What went wrong:** In `image-view` template, wrong variable was passed on
     * **Resolution:** Changed passing variable from `image_id` to `image.id` in `image-view.html`
 
+* **Description:** Quantity for items in cart would not update after adjusting and clicking/tapping on *Update*
+    * **How I found it:** While trying to modify the quantity in cart
+    * **What went wrong:** JavaScript didn't initialize the `adjust_cart` function
+    * **Resolution:** Moved `anchor` link inside the form and converted it to `button` with `type="submit"`
+
 * **Description:** 
     * **How I found it:** 
     * **What went wrong:** 

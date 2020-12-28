@@ -10,7 +10,7 @@
             </div>
             <div class="col-6 text-right p-0">
                 <p class="border-bottom border-white mb-2">{{ images.rating }} / 5</p>
-                <p data-toggle="tooltip" data-placement="bottom" title="Price is for the small image">€ {{ images.price }}</p>
+                <p>€ {{ images.price }}</p>
             </div>
         </div>
         {% if request.user.is_superuser %}
