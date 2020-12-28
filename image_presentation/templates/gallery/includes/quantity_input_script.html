@@ -31,7 +31,10 @@
        var currentValue = parseInt($(closestInput).val());
        $(closestInput).val(currentValue + 1);
        var itemId = $(this).data('item_id');
+       // var quantity = currentValue;
        handleEnableDisable(itemId);
+       var quantity = parseInt($(closestInput).val());
+       console.log(quantity);
     });
 
     // Decrement quantity
@@ -42,6 +45,8 @@
        $(closestInput).val(currentValue - 1);
        var itemId = $(this).data('item_id');
        handleEnableDisable(itemId);
+       var quantity = parseInt($(closestInput).val());
+       console.log(quantity)
     });
     
 </script>
