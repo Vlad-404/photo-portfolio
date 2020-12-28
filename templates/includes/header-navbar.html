@@ -76,11 +76,23 @@
                 <a href="{% url 'home' %}"><h1 class="logo text-white">Vladimir Mijatovic</h1></a>
             </div>
         </div>
+
+        <!-- Toast area -->
         <div class="row">
-            <div class="col d-none d-xl-block">
+            <div class="col">
                 <!-- <div>{% include 'includes/toasts/toast_success.html' %}</div> -->
                 {% for message in messages  %}
-                    <div> include 'includes/toasts/toast_success.html' </div>
+                    {% with message.level as level %}
+                        {% if level == 40 %}
+                        <div>{% include 'includes/toasts/toast_error.html' %}</div>
+                        {% elif level == 30 %}
+                            <div>{% include 'includes/toasts/toast_warning.html' %}</div>
+                        {% elif level == 25 %}
+                            <div>{% include 'includes/toasts/toast_success.html' %}</div>
+                        {% else %}
+                            <div>{% include 'includes/toasts/toast_info.html' %}</div>
+                        {% endif %}
+                    {% endwith %}
                 {% endfor %}
             </div>
         </div>

@@ -55,7 +55,7 @@ a {
     font-size: 4vw;
 }
 
-/* Navbars  */
+/* NAVBARS  */
 /* Gives navbars fixed position */
 .fixed-nav {
     position: fixed;
@@ -103,6 +103,14 @@ a {
     left: 15vw;
     top: 10vh;*/
     z-index: 2050;
+}
+
+/* TOASTS */
+/* Limits the height of the toast */
+.cart-notification-wrapper {
+    max-height: 20vh;
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
 /* Welcome page carousel */
