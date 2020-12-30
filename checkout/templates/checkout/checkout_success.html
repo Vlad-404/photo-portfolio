@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extracss %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% include 'includes/header-navbar.html' %}
+{% include 'includes/header-mobile.html' %}
+{% include 'includes/search-bar.html' %}
+
+<!-- Header image -->
+<div class="container-fluid header-40vh contact-header-image p-0"></div>
+
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="mb-4 montserrat">{{ page_title }}</h2>
+            <hr>
+            <p class="montserrat">You can find the order details below. An email was also sent to <strong>{{ order.email }}</strong> with order information.</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-lg-7">
+
+        </div>
+    </div>
+    <div class="row w-100 align-content-center">
+        <a href="{% url 'all_images' %}" class="btn btn-secondary btn-lg mx-auto my-3 montserrat">
+            <span class="icon">
+                <i class="fas fa-chevron-left"></i>
+            </span>
+            <span class="text-uppercase montserrat">Back to Gallery</span>
+        </a>
+    </div>
+</div>
+
+{% include 'includes/footer.html' %}
+
+{% endblock %}

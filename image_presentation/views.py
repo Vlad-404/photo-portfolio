@@ -72,7 +72,8 @@ def all_images(request):
         if 'search' in request.GET:
             query = request.GET['search']
             if not query:
-                messages.error(request, "Your search query is empty. Please enter a search term if you wish to use search.")
+                messages.error(request, "Your search query is empty. \
+                    Please enter a search term if you wish to use search.")
                 return redirect(reverse('all_images'))
 
             queries = Q(
