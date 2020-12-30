@@ -50,6 +50,9 @@ form.addEventListener('submit', function(ev) {
     // Prevents multiple submitions
     card.update({ 'disabled': true});
     $('#submit-button').attr('disabled', true);
+    // Triggers a loading screen animation
+    $('#payment-form').fadeToggle(100);
+    $('#loading-overlay').fadeToggle(100);
     // This function calls Stripe to confirm payment and gives it the required details
     stripe.confirmCardPayment(clientSecret, {
         payment_method: {
@@ -69,6 +72,9 @@ form.addEventListener('submit', function(ev) {
             $(errorDiv).html(html);
             card.update({ 'disabled': false});
             $('#submit-button').attr('disabled', false);
+            // Triggers a loading screen animation
+            $('#payment-form').fadeToggle(100);
+            $('#loading-overlay').fadeToggle(100);
         } else {
         // ...or, submits if the payment is successfull
             if (result.paymentIntent.status === 'succeeded') {
