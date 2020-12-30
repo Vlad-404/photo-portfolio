@@ -25,7 +25,7 @@ var style = {
 var card = elements.create('card', {style: style});
 card.mount('#card-element');
 
-// Handling of errors with Stripe
+// Handling of errors in Stripe
 card.addEventListener('change', function (event) {
     var errorDiv = document.getElementById('card-errors');
     if (event.error) {
@@ -45,66 +45,88 @@ card.addEventListener('change', function (event) {
 var form = document.getElementById('payment-form');
 
 form.addEventListener('submit', function(ev) {
-    // Prevents deafult card behaviour
+    // Prevents form from submitting,...
     ev.preventDefault();
-    // Prevents multiple submitions
+    // ...prevents multiple submitions and...
     card.update({ 'disabled': true});
     $('#submit-button').attr('disabled', true);
-    // Triggers a loading screen animation
+    // ...triggers a loading screen animation
     $('#payment-form').fadeToggle(100);
     $('#loading-overlay').fadeToggle(100);
+
+    // Checks if the save form info is checked or not
+    var saveInfo = Boolean($('#id-save-info').attr('checked'));
+    // Gets the csrf token
+    var csrfToken = $('input[name="csrfmiddlewaretoken"]').val();
+    // Creates object to pass it into the new view which can't go into the payment intent
+    var postData = {
+        'csrfmiddlewaretoken': csrfToken,
+        'client_secret': clientSecret,
+        'save_info': saveInfo,
+    };
+    // Returns the url where this data is used
+    var url = '/checkout/cache_checkout_data/';
+
+    $.post(url, postData).done(function () {
     // This function calls Stripe to confirm payment and gives it the required details
-    stripe.confirmCardPayment(clientSecret, {
-        payment_method: {
-            card: card,
-            billing_details: {
+        stripe.confirmCardPayment(clientSecret, {
+            // For payment...
+            payment_method: {
+                card: card,
+                billing_details: {
+                    name: $.trim(form.full_name.value),
+                    phone: $.trim(form.phone_number.value),
+                    email: $.trim(form.email.value),
+                    address:{
+                        line1: $.trim(form.street_address1.value),
+                        line2: $.trim(form.street_address2.value),
+                        city: $.trim(form.town_or_city.value),
+                        country: $.trim(form.country.value),
+                        state: $.trim(form.county.value),
+                    }
+                }
+            },
+            // ...for shipping
+            shipping: {
                 name: $.trim(form.full_name.value),
                 phone: $.trim(form.phone_number.value),
-                email: $.trim(form.email.value),
-                address:{
+                address: {
                     line1: $.trim(form.street_address1.value),
                     line2: $.trim(form.street_address2.value),
                     city: $.trim(form.town_or_city.value),
                     country: $.trim(form.country.value),
+                    postal_code: $.trim(form.postcode.value),
                     state: $.trim(form.county.value),
+                }
+            },
+        }).then(function(result) {
+            // Displays an error if something is wrong...
+            if (result.error) {
+                // Targets the div for messages and displays the message in the div
+                var errorDiv = document.getElementById('card-errors');
+                var html = `
+                    <span class="icon" role="alert">
+                    <i class="fas fa-times"></i>
+                    </span>
+                    <span>${result.error.message}</span>`;
+                // Gives the user option to fix the error
+                $(errorDiv).html(html);
+                // Triggers a loading screen animation and after it's finished, lets user to fix the error(s)
+                $('#payment-form').fadeToggle(100);
+                $('#loading-overlay').fadeToggle(100);
+                card.update({ 'disabled': false});
+                $('#submit-button').attr('disabled', false);
+            } else {
+            // ...or, submits the form if the payment is successfull
+                if (result.paymentIntent.status === 'succeeded') {
+                    form.submit();
+                }
             }
-        },
-        shipping: {
-            name: $.trim(form.full_name.value),
-            phone: $.trim(form.phone_number.value),
-            address: {
-                line1: $.trim(form.street_address1.value),
-                line2: $.trim(form.street_address2.value),
-                city: $.trim(form.town_or_city.value),
-                country: $.trim(form.country.value),
-                postal_code: $.trim(form.postcode.value),
-                state: $.trim(form.county.value),
-            }
-        },
-    }).then(function(result) {
-        // Displays an error if something is wrong...
-        if (result.error) {
-            // Targets the div for messages and provides content
-            var errorDiv = document.getElementById('card-errors');
-            var html = `
-                <span class="icon" role="alert">
-                <i class="fas fa-times"></i>
-                </span>
-                <span>${result.error.message}</span>`;
-            // Gives the user option to fix the error
-            $(errorDiv).html(html);
-            card.update({ 'disabled': false});
-            $('#submit-button').attr('disabled', false);
-            // Triggers a loading screen animation
-            $('#payment-form').fadeToggle(100);
-            $('#loading-overlay').fadeToggle(100);
-        } else {
-        // ...or, submits if the payment is successfull
-            if (result.paymentIntent.status === 'succeeded') {
-                form.submit();
-            }
-        }
-    });
+        });
+    }).fail(function () {
+        // If there's an error with posting the data to the view, reloads the page without charging the user(see code above)
+        location.reload();
+    })
 });
 
 
