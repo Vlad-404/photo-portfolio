@@ -73,7 +73,13 @@ def checkout(request):
         order_form = OrderForm(form_data)
         # If it's valid...
         if order_form.is_valid():
-            order = order_form.save()
+            order = order_form.save(commit=False)
+            # gets the pid from Stripe payment intent
+            pid = request.POST.get('client_secret').split('_secret')[0]
+            order.stripe_pid = pid
+            # adds the cart to the model for future use(purchase history)
+            order.original_cart = json.dumps(cart)
+            order.save()
             # iterates through cart items and takes item_id and item_data
             for item_id, item_data in cart.items():
                 # creates the order and saves it
