@@ -35,8 +35,8 @@ class Order(models.Model):
                             )
     postcode = models.CharField(
                             max_length=20,
-                            null=True,
-                            blank=True
+                            null=False,
+                            blank=False
                             )
     town_or_city = models.CharField(
                             max_length=40,

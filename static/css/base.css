@@ -302,3 +302,7 @@ a {
 .remove-item {
     cursor: pointer;
 }
+
+#order-confirmation-wrapper {
+    max-width: 700px;
+}

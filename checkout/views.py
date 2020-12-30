@@ -142,5 +142,7 @@ def checkout_success(request, order_number):
         'page_title': 'Thank you!',
         'order': order,
     }
+    messages.success(request,
+                         f'Your purchase was successfull!')
 
     return render(request, template, context)
