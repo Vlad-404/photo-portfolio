@@ -1,9 +1,8 @@
 from django.shortcuts import render, redirect, reverse
 from django.contrib import messages
-<<<<<<< HEAD
-=======
+
 from django.conf import settings
->>>>>>> 0a0d9c695a10f1b9bc806458fe9701e685b0e93a
+
 from home.models import Categories, SocialMedia
 
 from .forms import OrderForm
