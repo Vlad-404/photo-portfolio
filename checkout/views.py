@@ -1,5 +1,6 @@
 # Basic imports
-from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.shortcuts import render, redirect, reverse, get_object_or_404, HttpResponse
+from django.views.decorators.http import  require_POST
 from django.contrib import messages
 from django.conf import settings
 
@@ -13,12 +14,38 @@ from .models import Order, OrderLineItem
 from cart.contexts import cart_contents
 
 import stripe
+import json
 
 # Defines variables for navbars and footer
 media_links = SocialMedia.objects.all()
 all_categories = Categories.objects.all()
 
 
+# Saves the info if customer selected to save the form info
+@require_POST
+def cache_checkout_data(request):
+    try:
+        # Stores the payment intent ID
+        pid = request.POST.get('client_secret').split('_secret')[0]
+        # Sets up Stripe with the secret key so we can modify payment intent
+        stripe.api_key = settings.STRIPE_SECRET_KEY
+        # Now we modify the metadata
+        stripe.PaymentIntent.modify(pid, metadata={
+                # Gets the cart content and dumps it as json file
+                'cart': json.dumps(request.session.get('cart', {})),
+                # Gets the info if user wants to save form info or not
+                'save_info': request.POST.get('save_info'),
+                'username': request.user,
+            })
+        return HttpResponse(status=200)
+    except Exception as e:
+        # In case of bad request, displays an error
+        messages.error(request, 'Sorry, your payment cannot be \
+            processed right now. Please try again later.')
+        return HttpResponse(content=e, status=400)
+
+
+# Handles the payment process
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
