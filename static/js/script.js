@@ -14,3 +14,6 @@ function hideInfoSidebar() {
 $(function () {
   $('[data-toggle="tooltip"]').tooltip()
 })
+
+// Shows toast messages
+$('.toast').toast('show');

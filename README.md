@@ -245,56 +245,73 @@ As the owner:
 **List of bugs found:**
 
 * **Description:** text in the top navbar wouldn't align to the midle of the container horizontally
+    * **Bug ID:** #001
     * **How I found it:** after adding a class of ``align-items-center`` text wouldn't align 
     * **What went wrong:** ``row`` class didn't have the same height as the parent ``container``
     * **Resolution:** added class of ``.mheight-3-5`` to the ``row`` container which equalized both containers in height
 
 * **Description:** Carousel on the home page sometimes just stops changing the images
+    * **Bug ID:** #002
     * **How I found it:** While editing code on the home page
     * **What went wrong:** Bootstrap code(?)
     * **Resolution:** Lowered the time needed for images to change (still not resolved)
 
 * **Description:** While trying to migrate `images` model, django refused and threw an error
+    * **Bug ID:** #003
     * **How I found it:** While trying to `makemigrations` with images model, _"You are trying to add a non-nullable field 'category' to images without a default"_ error, and wouldn't make any migrations
     * **What went wrong:** Probable cause was editing already existing model
     * **Resolution:** Added `deafult=None` to every field that hasn't got `default` value
 
 * **Description:** Couldn't migrate changes to `Images` model after adding a foreign key for `categories`
+    * **Bug ID:** #004
     * **How I found it:** I got `django.db.utils.IntegrityError` while trying to apply migrations to `Image` model
     * **What went wrong:** I didn't relate `categories` model with `Images` model before I loaded fixtures. This resulted in mismatch in key values of ID in `categories` model and raised an error
     * **Resolution:** With tutor support, I deleted all of the images in `Image` model and re-uploaded them
 
 * **Description:** No categories were showing in categories section of `index.html`
+    * **Bug ID:** #005
     * **How I found it:** After fixing the bug with integrity error (see above)
     * **What went wrong:** `for loop` in `index.html` template had `categories` as a reference instead of `category` (i.e. `categories.name` instead of `category.name`)
     * **Resolution:** Changed `categories` to `category` in `for` loop
 
 * **Description:** If search query is empty, no message was displayed after page loaded and no results were displayed
+    * **Bug ID:** #006
     * **How I found it:** When clicking/tapping on a button in search form
     * **What went wrong:** 
     * **Resolution:**
 
 * **Description:** Issue with tooltips showing
+    * **Bug ID:** #007
     * **How I found it:** After hovering over tooltiped item( i.e. icon to show/hide sidebar in image details page), tooltip didn't show
     * **What went wrong:** Bootstrap issue?
     * **Resolution:** I left it unresolved as there is no consistency to track it down and it wasn't a critical error
 
 * **Description:** Couldn't start server in Gitpod
+    * **Bug ID:** #008
     * **How I found it:** By typing `python3 manage.py runserver` in terminal
     * **What went wrong:** After moving environmental variables to a separate file (`env.py`), syntax for database link in `settings.py` was incorrect
     * **Resolution:** Changed `env.get` to `os.getenv`
 
 * **Description:** Deployed page gave 500 error when adding to cart
+    * **Bug ID:** #009
     * **How I found it:** While testing the functionality on Heroku's deployed page
     * **What went wrong:** In `image-view` template, wrong variable was passed on
     * **Resolution:** Changed passing variable from `image_id` to `image.id` in `image-view.html`
 
 * **Description:** Quantity for items in cart would not update after adjusting and clicking/tapping on *Update*
+    * **Bug ID:** #010
     * **How I found it:** While trying to modify the quantity in cart
     * **What went wrong:** JavaScript didn't initialize the `adjust_cart` function
     * **Resolution:** Moved `anchor` link inside the form and converted it to `button` with `type="submit"`
 
+* **Description:** No payment intent was sent to Stripe after filling in delivery details
+    * **Bug ID:** #011 in relation to #010
+    * **How I found it:** While submiting a payment intent and monitoring events and logs on Stripe side
+    * **What went wrong:** Forms that were submiting the payment intent were using environmental variables stored in Gitpod settings(from previous project) instead of env.py file. This also affected any other form submission as `SECRET_KEY` was invalid(related to BID#010)
+    * **Resolution:** Deleted environmental varibles in Gitpod settings
+
 * **Description:** 
+    * **Bug ID:** #012
     * **How I found it:** 
     * **What went wrong:** 
     * **Resolution:**
