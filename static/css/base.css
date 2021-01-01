@@ -285,7 +285,7 @@ a {
     width: auto;
 }
 
-/* Positions the icon that goes bck to all images */
+/* Positions the icon that goes back to all images */
 #back-to-all-images {
     position: fixed;
     top: 1rem;
@@ -305,4 +305,14 @@ a {
 
 #order-confirmation-wrapper {
     max-width: 700px;
+}
+
+select,
+select option {
+    color: #000;
+}
+
+select:invalid,
+select option[value=""] {
+    color: #aab7c4 !important;
 }

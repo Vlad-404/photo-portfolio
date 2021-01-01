@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block extracss %}
+    <link rel="stylesheet" href="{% static 'profiles/css/profiles.css' %}">
+{% endblock %}
+
+{% block content %}
+
+{% include 'includes/header-navbar.html' %}
+{% include 'includes/header-mobile.html' %}
+{% include 'includes/search-bar.html' %}
+
+<!-- Header image -->
+<div class="container-fluid header-40vh contact-header-image p-0"></div>
+
+<div class="overlay"></div>
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="mb-4 montserrat">{{ page_title }}</h2>
+            <hr>
+        </div>
+    </div>
+
+{% include 'includes/footer.html' %}
+
+{% endblock %}
