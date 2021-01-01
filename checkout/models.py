@@ -4,6 +4,8 @@ from django.db import models
 from django.db.models import Sum
 from django.conf import settings
 
+from django_countries.fields import CountryField
+
 from image_presentation.models import Images
 
 
@@ -28,8 +30,9 @@ class Order(models.Model):
                             null=False,
                             blank=False
                             )
-    country = models.CharField(
-                            max_length=40,
+    country = CountryField(
+                            blank_label='Country *',
+                            max_length=20,
                             null=False,
                             blank=False
                             )
@@ -37,7 +40,7 @@ class Order(models.Model):
                             max_length=20,
                             null=False,
                             blank=False,
-                            default=00000
+                            default=''
                             )
     town_or_city = models.CharField(
                             max_length=40,
