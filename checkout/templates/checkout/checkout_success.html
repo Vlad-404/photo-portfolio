@@ -192,12 +192,21 @@
         </div>
     </div>
     <div class="row w-100 align-content-center">
-        <a href="{% url 'all_images' %}" class="btn btn-secondary btn-lg mx-auto my-3 montserrat">
-            <span class="icon">
-                <i class="fas fa-chevron-left"></i>
-            </span>
-            <span class="text-uppercase montserrat">Back to Gallery</span>
-        </a>
+        {% if from_profile %}
+            <a href="{% url 'profile' %}" class="btn btn-secondary btn-lg mx-auto my-3 montserrat">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="text-uppercase montserrat">Back to Profile</span>
+            </a>
+        {% else %}
+            <a href="{% url 'all_images' %}" class="btn btn-secondary btn-lg mx-auto my-3 montserrat">
+                <span class="icon">
+                    <i class="fas fa-chevron-left"></i>
+                </span>
+                <span class="text-uppercase montserrat">Back to Gallery</span>
+            </a>
+        {% endif %}
     </div>
 </div>
 

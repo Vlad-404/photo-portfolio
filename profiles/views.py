@@ -4,7 +4,8 @@ from django.contrib import messages
 # Imports models from other apps
 from home.models import Categories, SocialMedia
 from .models import UserProfile
-from.forms import UserProfileForm
+from .forms import UserProfileForm
+from checkout.models import Order
 
 
 # Defines variables for navbars and footer
@@ -34,6 +35,28 @@ def profile(request):
         'form': form,
         'orders': orders,
         'on_profile_page': True,
+    }
+
+    return render(request, template, context)
+
+
+def order_history(request, order_number):
+    order = get_object_or_404(Order, order_number=order_number)
+
+    messages.info(
+        request,
+        (
+        f'This a confirmation for your previous order number: {order_number}'
+        'A confirmation email was sent on the order date.'
+        ))
+
+    template = 'checkout/checkout_success.html'
+    context = {
+        'page_title': 'Order History',
+        'media_links': media_links,
+        'categories': all_categories,
+        'order': order,
+        'from_profile': True,
     }
 
     return render(request, template, context)
