@@ -38,7 +38,7 @@
                                     <a href="" class="dropdown-item text-white">Add Image Category</a>
                                     <a href="" class="dropdown-item text-white">Add Social Media</a>
                                 {% endif %}
-                                    <a href="" class="dropdown-item text-white">Account</a>
+                                    <a href="{% url 'profile' %}" class="dropdown-item text-white">My Account</a>
                                     <a href="{% url 'account_logout' %}" class="dropdown-item text-white">Logout</a>
                             {% else %}
                                     <a href="{% url 'account_signup' %}" class="dropdown-item text-white">Register</a>

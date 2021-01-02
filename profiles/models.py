@@ -52,7 +52,7 @@ class UserProfile(models.Model):
                                 )
 
     def __str__(self):
-        return self.user.name
+        return self.user.username
 
 
 # Create or update user profile
