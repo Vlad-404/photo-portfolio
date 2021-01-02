@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+{% include 'includes/header-navbar.html' %}
+{% include 'includes/header-mobile.html' %}
+{% include 'includes/search-bar.html' %}
+
+<!-- Header image -->
+<div class="container-fluid header-40vh contact-header-image p-0"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <hr>
+            <h2 class="mb-4 montserrat">{{ page_title }}</h2>
+            <hr>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-12 col-md-6">
+            <form method="POST" action="{% url 'add_image' }" class="form mb-2" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form | crispy }}
+                <div class="text-right">
+                    <a href="{% url 'all_images' %}" class="btn btn-secondary montserrat">Cancel</a>
+                    <button class="btn btn-secondary montserrat" type="submit">Add Image</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% include 'includes/footer.html' %}
+
+{% endblock %}
