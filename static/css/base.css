@@ -239,6 +239,36 @@ a {
     min-height: 4rem;
 }
 
+/* Upload image widget */
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Upload image button covers the whole container and is invisible so users
+   can only see our custom button while preserving the functionality */
+.btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Setting the checkbox color for image upload button */
+.custom-checkbox .custom-control-label::before {
+    border-color: #dc3545; /* Same as Bootstrap danger color */
+}
+
+/* Applying the same color to checked state */
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+
 /* MORE INFO/FULL SIZE IMAGE */
 /* Default container for more info page */
 #view-image-container {
@@ -264,6 +294,7 @@ a {
     height: 100vh;
     min-height: 700px;
     min-width: 400px;
+    max-width: 30vw;
     background-color: #3C3C3C90;
 }
 
