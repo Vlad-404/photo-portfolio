@@ -2,10 +2,13 @@
 
 {% load i18n %}
 
-{% block head_title %}{% trans "Account Inactive" %}{% endblock %}
+{% block page_title %}Account Inactive{% endblock %}
 
-{% block content %}
-<h1>{% trans "Account Inactive" %}</h1>
+{% block inner_content %}
 
 <p>{% trans "This account is inactive." %}</p>
+
+<a class="btn btn-lg btn-secondary rounded-1 secondaryAction montserrat my-3" href="{% url 'home' %}">
+    Home Page
+</a>
 {% endblock %}

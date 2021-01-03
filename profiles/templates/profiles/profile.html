@@ -24,6 +24,66 @@
         </div>
     </div>
 
+    <div class="row">
+        <div class="col-12 col-lg-6">
+            <p class="text-muted montserrat">Default Delivery Information:</p>
+            <form class="mt-3 mb-5" action="{% url 'profile' %}" method="POST" id="profile-update-form">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <button class="btn btn-lg btn-secondary montserrat mx-auto">
+                    Update Information
+                </button>
+            </form>
+        </div>
+        <div class="col-12 col-lg-6">
+            <p class="text-muted montserrat">Order History:</p>
+            <div class="order-history table-responsive">
+                <table class="table table-sm table-borderless">
+                    <thead>
+                        <tr>
+                            <th>Order Number</th>
+                            <th>Date</th>
+                            <th>Items</th>
+                            <th>Order Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for order in orders %}
+                            <tr>
+                                <td>
+                                    <a href="{% url 'order_history' order.order_number %}" 
+                                       title="{{ order.order_number }}">
+                                       {{ order.order_number|truncatechars:6 }}
+                                    </a>
+                                </td>
+                                <td>{{ order.date }}</td>
+                                <td>
+                                    <ul class="list-unstyled">
+                                        {% for item in order.lineitems.all %}
+                                            <li class="small">
+                                                {{ item.image.title }} x {{ item.quantity }}
+                                            </li>
+                                        {% endfor %}
+                                    </ul>
+                                </td>
+                                <td>€ {{ order.grand_total }}</td>
+                            </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
+                <a href="{% url 'all_images' %}" class="btn btn-secondary btn-lg mx-auto my-3 montserrat mx-auto">
+                    <span class="icon">
+                        <i class="fas fa-chevron-left"></i>
+                    </span>
+                    <span class="montserrat">Back to Galleries</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
 {% include 'includes/footer.html' %}
 
 {% endblock %}

@@ -48,8 +48,8 @@ class Images(models.Model):
                             )
     imgurl = models.URLField(
                             max_length=1024,
-                            null=False,
-                            blank=False,
+                            null=True,
+                            blank=True,
                             default=None
                             )
     imgid = models.CharField(
@@ -59,6 +59,7 @@ class Images(models.Model):
                             default=None
                             )
     image = models.ImageField(
+                            upload_to='purchasable/',
                             null=True,
                             blank=True,
                             default=None

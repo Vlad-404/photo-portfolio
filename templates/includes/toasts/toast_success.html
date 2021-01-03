@@ -15,7 +15,7 @@
                 {% endif %}
             </div>
         </div>
-        {% if grand_total %}
+        {% if grand_total and not on_profile_page %}
             <p class=" image-view-dropup text-white montserrat py-1">Your Cart({{ images_count }})</p>
             <div class="cart-notification-wrapper">
                 {% for item in cart_items %}

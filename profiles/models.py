@@ -18,23 +18,6 @@ class UserProfile(models.Model):
                                 null=True,
                                 blank=True,
                                 )
-    default_country = CountryField(
-                                blank_label='Country *',
-                                max_length=20,
-                                null=True,
-                                blank=True
-                                )
-    default_postcode = models.CharField(
-                                max_length=20,
-                                null=True,
-                                blank=True,
-                                default=''
-                                )
-    default_town_or_city = models.CharField(
-                                max_length=40,
-                                null=True,
-                                blank=True
-                                )
     default_street_address1 = models.CharField(
                                 max_length=80,
                                 null=True,
@@ -50,9 +33,26 @@ class UserProfile(models.Model):
                                 null=True,
                                 blank=True
                                 )
+    default_town_or_city = models.CharField(
+                                max_length=40,
+                                null=True,
+                                blank=True
+                                )
+    default_postcode = models.CharField(
+                                max_length=20,
+                                null=True,
+                                blank=True,
+                                default=''
+                                )
+    default_country = CountryField(
+                                blank_label='Country',
+                                max_length=20,
+                                null=True,
+                                blank=True
+                                )
 
     def __str__(self):
-        return self.user.name
+        return self.user.username
 
 
 # Create or update user profile

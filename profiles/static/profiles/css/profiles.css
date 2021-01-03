@@ -1,0 +1,8 @@
+.order-history {
+    height: 360px; /* this alignes order history height with profile form and making them the same height */
+    overflow: auto;
+}
+
+#id_default_country option:first-child {
+    color: #aab7c4;     /* same color as bootstrap text-muted */
+}

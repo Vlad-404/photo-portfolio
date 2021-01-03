@@ -3,23 +3,26 @@ from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 from .models import Images
-from home.models import SocialMedia, Categories
 
-""" Social media links and categories """
+# Outside models import
+from home.models import SocialMedia, Categories
+from .forms import ImageForm
+
+# Social media links and categories
 media_links = SocialMedia.objects.all()
 all_categories = Categories.objects.all()
 
 
 # Galleries display
 def all_images(request):
-    """ A view that randomises the images each time page is loaded """
+    # A view that randomises the images each time page is loaded
     random_list = Images.objects.order_by('?')
     images = Images.objects.all()
     query = None
     category_sort = None
 
     if request.GET:
-        """ This part handles sorting by name, rating and price """
+        # This part handles sorting by name, rating and price
         if 'sort' in request.GET:
             sortkey = request.GET['sort']
             if sortkey == 'name':
@@ -31,20 +34,20 @@ def all_images(request):
                     sortkey = f'-{sortkey}'
             random_list = images.order_by(sortkey)
 
-        """ This part displays only panorama images """
+        # This part displays only panorama images
         if 'panorama' in request.GET:
             random_list = Images.objects.filter(panorama=True)
 
-        """ This part displays only black and white images """
+        # This part displays only black and white images
         if 'color' in request.GET:
             random_list = Images.objects.filter(color=False)
 
-        """ This part handles category sorting """
+        # This part handles category sorting
         if 'category' in request.GET:
             category_sort = request.GET['category']
             random_list = Images.objects.filter(category__name=category_sort)
 
-        """ This part show all panoramas for selected category """
+        # This part show all panoramas for selected category
         if 'category_panorama' in request.GET:
             category_panorama = request.GET['category_panorama']
             random_list = Images.objects.filter(
@@ -53,7 +56,7 @@ def all_images(request):
                             panorama=True
                             )
 
-        """ This part show all black and white images for selected category """
+        # This part show all black and white images for selected category
         if 'category_color' in request.GET:
             category_color = request.GET['category_color']
             random_list = Images.objects.filter(
@@ -68,7 +71,7 @@ def all_images(request):
                         "Sorry, there are no results for this query."
                         )
 
-        """ This part handles the search query """
+        # This part handles the search query
         if 'search' in request.GET:
             query = request.GET['search']
             if not query:
@@ -95,9 +98,8 @@ def all_images(request):
 
 
 # More info for selected image
-# def image_view(request, image_id):
 def image_view(request, image_id):
-    """ A view to show individual image details with purchasing options"""
+    # A view to show individual image details with purchasing options
     image = get_object_or_404(Images, pk=image_id)
 
     context = {
@@ -107,3 +109,30 @@ def image_view(request, image_id):
     }
 
     return render(request, 'gallery/image-view.html', context)
+
+
+# Add image to the store
+def add_image(request):
+    if request.method == 'POST':
+        form = ImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Image added successfully!')
+            return redirect(reverse('add_image'))
+        else:
+            messages.error(
+                request,
+                'Unable to add image. Please check if the form is valid.'
+                )
+    else:
+        form = ImageForm()
+
+    template = 'gallery/add_image.html'
+    context = {
+        'media_links': media_links,
+        'categories': all_categories,
+        'page_title': 'Upload Image',
+        'form': form,
+    }
+
+    return render(request, template, context)

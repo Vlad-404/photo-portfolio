@@ -1,6 +1,10 @@
 <div class="card restrict-image-height text-center text-white rounded-0 border-0 m-2">
     <a href="{% url 'image_view' images.id %}">
-        <img class="card-img rounded-0 border-none" src="{{ images.imgurl }}" alt="{{ images.title }} image">
+        {% if images.imgurl == None %}
+            <img class="card-img rounded-0 border-none" src="{{ images.image.url }}" alt="{{ images.title }} image">
+        {% else %}
+            <img class="card-img rounded-0 border-none" src="{{ images.imgurl }}" alt="{{ images.title }} image">
+        {% endif %}
     </a>
     <div class="container-fluid navbar-styling px-5 card-comment align-items-center">
         <div class="row">

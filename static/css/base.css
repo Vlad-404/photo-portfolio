@@ -51,6 +51,22 @@ a {
     box-shadow: 0 0 20px 5px #fff;
 }
 
+/* -------------------------------- Media Queries */
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 80%;
+  }
+
+  .images-container {
+    min-height: 100vh;
+    background-size: 100% 100% !important;
+    color: #555;
+    font-family: 'Open Sans', sans-serif;
+  }
+}
+
 .responsive-font {
     font-size: 4vw;
 }
@@ -105,7 +121,7 @@ a {
     z-index: 2050;
 }
 
-/* TOASTS */
+/* TOAST MESSAGES */
 /* Limits the height of the toast */
 .cart-notification-wrapper {
     max-height: 20vh;
@@ -113,6 +129,7 @@ a {
     overflow-y: auto;
 }
 
+/* HOME PAGE */
 /* Welcome page carousel */
 .images-container {
     min-height: 100vh;
@@ -157,21 +174,6 @@ a {
     background: url('https://res.cloudinary.com/drtxn8d5t/image/upload/v1608569196/photo-portfolio/display-images/DSC_0671-min_vl9cul.jpg') no-repeat center center;
 }
 
-/* -------------------------------- Media Queries */
-
-/* Slightly larger container on xl screens */
-@media (min-width: 1200px) {
-  .container {
-    max-width: 80%;
-  }
-
-  .images-container {
-    min-height: 100vh;
-    background-size: 100% 100% !important;
-    color: #555;
-    font-family: 'Open Sans', sans-serif;
-  }
-}
 
 /* GALLERY CSS */
 /* Sets minimum size for categories buttons */
@@ -315,4 +317,21 @@ select option {
 select:invalid,
 select option[value=""] {
     color: #aab7c4 !important;
+}
+
+/* ALLAUTH FORMATTING */
+/* All paragraphs for allauth */
+.allauth-form-inner-content {
+    margin-top: 1.5rem;   /* same as mt-4 from Bootstrap */
+    color: #6c757d;     /* same color as Bootstrap secondary  */
+}
+
+/* Hides the labels on everything except remember me checkbox */
+.allauth-form-inner-content label:not([for='id_remember']) {
+    display: none;
+}
+
+/* Sets the placeholder text color as rest of the site */
+.allauth-form-inner-content {
+    color: #aab7c4;
 }

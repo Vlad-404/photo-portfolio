@@ -34,11 +34,11 @@
                         <div class="dropdown-menu navbar-styling border-dark top-075rem" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
-                                    <a href="{% url 'all_images' %}" class="dropdown-item text-white">Images</a>
+                                    <a href="{% url 'add_image' %}" class="dropdown-item text-white">Add Image</a>
                                     <a href="" class="dropdown-item text-white">Add Image Category</a>
                                     <a href="" class="dropdown-item text-white">Add Social Media</a>
                                 {% endif %}
-                                    <a href="" class="dropdown-item text-white">Account</a>
+                                    <a href="{% url 'profile' %}" class="dropdown-item text-white">My Account</a>
                                     <a href="{% url 'account_logout' %}" class="dropdown-item text-white">Logout</a>
                             {% else %}
                                     <a href="{% url 'account_signup' %}" class="dropdown-item text-white">Register</a>
@@ -80,7 +80,6 @@
         <!-- Toast area -->
         <div class="row">
             <div class="col">
-                <!-- <div>{% include 'includes/toasts/toast_success.html' %}</div> -->
                 {% for message in messages  %}
                     {% with message.level as level %}
                         {% if level == 40 %}

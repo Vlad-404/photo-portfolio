@@ -128,8 +128,3 @@ form.addEventListener('submit', function(ev) {
         location.reload();
     })
 });
-
-
-// document.addEventListener('DOMContentLoaded', function() {
-//     alert("JavaScript is working");
-// }, false);
