@@ -9,7 +9,11 @@
         <!-- Icon that shows/hides info sidebar -->
         <h2 id="hide-image-info" class="text-white shadow-text z-2000" data-toggle="tooltip" data-placement="left" title="Hide/Show sidebar" onclick="hideInfoSidebar()"><i class="far fa-eye"></i></h2>
         <!-- Image -->
-        <img src="{{ image.imgurl }}" alt="{{ image.title }} image" id="full-size-image-container" class="card-image" style="z-index: -1;"> 
+        {% if images.image.url == 0 %}
+            <img src="{{ image.image.url }}" alt="{{ image.title }} image" id="full-size-image-container" class="card-image" style="z-index: -1;">
+        {% else %}
+            <img src="{{ image.imgurl }}" alt="{{ image.title }} image" id="full-size-image-container" class="card-image" style="z-index: -1;"> 
+        {% endif %}
     </div>
 
     <!-- Info sidebar with purchase options -->

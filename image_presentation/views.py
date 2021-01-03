@@ -98,9 +98,8 @@ def all_images(request):
 
 
 # More info for selected image
-# def image_view(request, image_id):
 def image_view(request, image_id):
-    """ A view to show individual image details with purchasing options"""
+    # A view to show individual image details with purchasing options
     image = get_object_or_404(Images, pk=image_id)
 
     context = {
@@ -114,7 +113,20 @@ def image_view(request, image_id):
 
 # Add image to the store
 def add_image(request):
-    form = ImageForm()
+    if request.method == 'POST':
+        form = ImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Image added successfully!')
+            return redirect(reverse('add_image'))
+        else:
+            messages.error(
+                request,
+                'Unable to add image. Please check if the form is valid.'
+                )
+    else:
+        form = ImageForm()
+
     template = 'gallery/add_image.html'
     context = {
         'media_links': media_links,
