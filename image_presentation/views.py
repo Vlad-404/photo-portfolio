@@ -113,19 +113,19 @@ def image_view(request, image_id):
 
 # Add image to the store
 def add_image(request):
-    # if request.method == 'POST':
-    #     form = ImageForm(request.POST, request.FILES)
-    #     if form.is_valid():
-    #         form.save()
-    #         messages.success(request, 'Image added successfully!')
-    #         return redirect(reverse('add_image'))
-    #     else:
-    #         messages.error(
-    #             request,
-    #             'Unable to add image. Please check if the form is valid.'
-    #             )
-    # else:
-    form = ImageForm()
+    if request.method == 'POST':
+        form = ImageForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Image added successfully!')
+            return redirect('all_images')
+        else:
+            messages.error(
+                request,
+                'Unable to add image. Please check if the form is valid.'
+                )
+    else:
+        form = ImageForm()
 
     template = 'gallery/add_image.html'
     context = {
@@ -133,6 +133,37 @@ def add_image(request):
         'categories': all_categories,
         'page_title': 'Upload Image',
         'form': form,
+    }
+
+    return render(request, template, context)
+
+
+# Edits the image
+def edit_image(request, image_id):
+    image = get_object_or_404(Images, pk=image_id)
+    if request.method == 'POST':
+        form = ImageForm(request.POST, request.FILES, instance=image)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Image edited successfully!')
+            # return redirect(reverse('image_view', args=[image.id]))
+            return redirect('all_images')
+        else:
+            messages.error(
+                request,
+                'Unable to edit image. Please check if the form is valid.'
+                )
+    else:
+        form = ImageForm(instance=image)
+        messages.info(request, f'You are editing {image.title} ')
+
+    template = 'gallery/edit_image.html'
+    context = {
+        'media_links': media_links,
+        'categories': all_categories,
+        'page_title': 'Edit Image',
+        'form': form,
+        'image': image
     }
 
     return render(request, template, context)

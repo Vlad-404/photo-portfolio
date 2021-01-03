@@ -9,7 +9,7 @@
         <!-- Icon that shows/hides info sidebar -->
         <h2 id="hide-image-info" class="text-white shadow-text z-2000" data-toggle="tooltip" data-placement="left" title="Hide/Show sidebar" onclick="hideInfoSidebar()"><i class="far fa-eye"></i></h2>
         <!-- Image -->
-        {% if images.imgurl == None %}
+        {% if image.imgurl == None %}
             <img src="{{ image.image.url }}" alt="{{ image.title }} image" id="full-size-image-container" class="card-image" style="z-index: -1;">
         {% else %}
             <img src="{{ image.imgurl }}" alt="{{ image.title }} image" id="full-size-image-container" class="card-image" style="z-index: -1;"> 
@@ -27,6 +27,10 @@
                     <h6 class="montserrat text-uppercase">Category: </h6><p class="text-capitalize">{{ image.category }}</p>
                     <h6 class="montserrat text-uppercase">Rating: </h6><p class="text-capitalize">{{ image.rating }} /5</p>
                     <h6 class="montserrat text-uppercase">Price: </h6><p>€ {{ image.price }}</p>
+                    {% if request.user.is_superuser %}
+                    <h6 class="montserrat text-uppercase">Uploaded by: </h6><p>{{ image.uploaded_by }}</p>
+                    <h6 class="montserrat text-uppercase">Notes: </h6><p>{{ image.notes }}</p>
+                    {% endif %}
                 </div>
             </div>
 
