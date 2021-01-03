@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 
 # Imports models from other apps
 from home.models import Categories, SocialMedia
@@ -14,6 +15,7 @@ all_categories = Categories.objects.all()
 
 
 # Displays the user's profile
+@login_required
 def profile(request):
     profile = get_object_or_404(UserProfile, user=request.user)
 
@@ -45,6 +47,7 @@ def profile(request):
     return render(request, template, context)
 
 
+@login_required
 def order_history(request, order_number):
     order = get_object_or_404(Order, order_number=order_number)
 
