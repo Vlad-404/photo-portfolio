@@ -310,8 +310,14 @@ As the owner:
     * **What went wrong:** Forms that were submiting the payment intent were using environmental variables stored in Gitpod settings(from previous project) instead of env.py file. This also affected any other form submission as `SECRET_KEY` was invalid(related to BID#010)
     * **Resolution:** Deleted environmental varibles in Gitpod settings
 
-* **Description:** 
+* **Description:** Could not upload an image through template
     * **Bug ID:** #012
+    * **How I found it:** While trying to add image through `add_image.html` template
+    * **What went wrong:** Missing `%` in href for form in `add_image.html` template resulted in browser not properly encoding the page and throwing 400 error
+    * **Resolution:** Added `%` to `action="{% url 'add_image' }"`
+
+* **Description:** 
+    * **Bug ID:** #013
     * **How I found it:** 
     * **What went wrong:** 
     * **Resolution:**

@@ -113,19 +113,19 @@ def image_view(request, image_id):
 
 # Add image to the store
 def add_image(request):
-    if request.method == 'POST':
-        form = ImageForm(request.POST, request.FILES)
-        if form.is_valid():
-            form.save()
-            messages.success(request, 'Image added successfully!')
-            return redirect(reverse('add_image'))
-        else:
-            messages.error(
-                request,
-                'Unable to add image. Please check if the form is valid.'
-                )
-    else:
-        form = ImageForm()
+    # if request.method == 'POST':
+    #     form = ImageForm(request.POST, request.FILES)
+    #     if form.is_valid():
+    #         form.save()
+    #         messages.success(request, 'Image added successfully!')
+    #         return redirect(reverse('add_image'))
+    #     else:
+    #         messages.error(
+    #             request,
+    #             'Unable to add image. Please check if the form is valid.'
+    #             )
+    # else:
+    form = ImageForm()
 
     template = 'gallery/add_image.html'
     context = {

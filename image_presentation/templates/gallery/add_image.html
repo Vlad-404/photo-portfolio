@@ -21,12 +21,12 @@
 
     <div class="row">
         <div class="col-12 col-md-6">
-            <form method="POST" action="{% url 'add_image' }" class="form mb-2" enctype="multipart/form-data">
+            <form method="POST" action="{% url 'add_image' %}" class="form mb-2" enctype="multipart/form-data">
                 {% csrf_token %}
                 {{ form | crispy }}
                 <div class="text-right">
                     <a href="{% url 'all_images' %}" class="btn btn-secondary montserrat">Cancel</a>
-                    <button class="btn btn-secondary montserrat" type="submit">Add Image</button>
+                    <button class="btn btn-secondary montserrat" type="submit" value="Upload">Add Image</button>
                 </div>
             </form>
         </div>
