@@ -2,9 +2,11 @@ from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Images
+
+import cloudinary
 
 # Outside models import
+from .models import Images
 from home.models import SocialMedia, Categories
 from .forms import ImageForm
 
@@ -115,6 +117,8 @@ def image_view(request, image_id):
 def add_image(request):
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
+        # image_url = form.image.url
+        # print(image_url)
         if form.is_valid():
             form.save()
             messages.success(request, 'Image added successfully!')
@@ -167,3 +171,15 @@ def edit_image(request, image_id):
     }
 
     return render(request, template, context)
+
+
+# Deletes the image
+def delete_image(request, image_id):
+    image = get_object_or_404(Images, pk=image_id)
+    image.delete()
+    # Deletes the image on Cloudinary
+    cloudinary.uploader.destroy('image.imgid')
+    # And displays the message
+    messages.success(request, f'You have deleted {image.title} image')
+
+    return redirect(reverse('all_images'))

@@ -85,10 +85,11 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <p>Are you sure you want to delete image: {{ images.title }}?</p>
+                    <p>Are you sure you want to delete image?</p>
+                    <p class="modal-imageid"></p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger mx-auto">Yes</button>
+                    <a href="" class="btn btn-danger mx-auto">Yes</a>
                     <button type="button" class="btn btn-primary mx-auto" data-dismiss="modal">Cancel</button>
                 </div>
             </div>
@@ -107,6 +108,7 @@
 
 {% block postloadjs %}
     <script type="text/javascript">
+        // Shows toasts
         $('.toast').toast('show');
     </script>
 {% endblock %}

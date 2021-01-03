@@ -30,6 +30,8 @@
                     {% if request.user.is_superuser %}
                     <h6 class="montserrat text-uppercase">Uploaded by: </h6><p>{{ image.uploaded_by }}</p>
                     <h6 class="montserrat text-uppercase">Notes: </h6><p>{{ image.notes }}</p>
+                    <a href="{% url 'edit_image' image.id %}" class="btn btn-info text-white">Edit</a>
+                    <a href="{% url 'delete_image' image.id %}" class="btn btn-danger text-white float-right">Delete</a>
                     {% endif %}
                 </div>
             </div>
