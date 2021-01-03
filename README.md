@@ -307,7 +307,7 @@ As the owner:
 * **Description:** No payment intent was sent to Stripe after filling in delivery details
     * **Bug ID:** #011 in relation to #010
     * **How I found it:** While submiting a payment intent and monitoring events and logs on Stripe side
-    * **What went wrong:** Forms that were submiting the payment intent were using environmental variables stored in Gitpod settings(from previous project) instead of env.py file. This also affected any other form submission as `SECRET_KEY` was invalid(related to BID#010)
+    * **What went wrong:** Forms that were submiting the payment intent were using environmental variables stored in Gitpod settings(from previous project) instead of `env.py` file. This also affected any other form submission as `SECRET_KEY` was invalid(related to BID#010)
     * **Resolution:** Deleted environmental varibles in Gitpod settings
 
 * **Description:** Could not upload an image through template

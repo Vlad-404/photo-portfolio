@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
@@ -113,8 +114,18 @@ def image_view(request, image_id):
     return render(request, 'gallery/image-view.html', context)
 
 
+# Checks if user is logged in
+@login_required
 # Add image to the store
 def add_image(request):
+    # Restricts the page access if user is not a superuser
+    if not request.user.is_superuser:
+        messages.error(
+                request,
+                'Sorry, only page administrators can do that.'
+                )
+        return redirect(reverse, ('home'))
+
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
         # image_url = form.image.url
@@ -143,7 +154,16 @@ def add_image(request):
 
 
 # Edits the image
+@login_required
 def edit_image(request, image_id):
+    # Restricts the page access if user is not a superuser
+    if not request.user.is_superuser:
+        messages.error(
+                request,
+                'Sorry, only page administrators can do that.'
+                )
+        return redirect(reverse, ('home'))
+
     image = get_object_or_404(Images, pk=image_id)
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES, instance=image)
@@ -173,8 +193,17 @@ def edit_image(request, image_id):
     return render(request, template, context)
 
 
+@login_required
 # Deletes the image
 def delete_image(request, image_id):
+    # Restricts the page access if user is not a superuser
+    if not request.user.is_superuser:
+        messages.error(
+                request,
+                'Sorry, only page administrators can do that.'
+                )
+        return redirect(reverse, ('home'))
+
     image = get_object_or_404(Images, pk=image_id)
     image.delete()
     # Deletes the image on Cloudinary
