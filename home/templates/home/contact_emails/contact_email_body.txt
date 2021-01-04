@@ -1,0 +1,11 @@
+You have a new message from {{ contact_name }},
+
+This is the message {{ contact_name }} sent:
+
+{{ contact_message }}
+
+Contacts email is: {{ contact_email }}
+
+Sent as a user message from Photo Portfolio page.
+
+Regards

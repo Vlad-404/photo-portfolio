@@ -3,134 +3,139 @@
 
 {% block content %}
     <!-- Image container -->
-    <div id="view-image-container" class="container p-0">
+    <div id="view-image-container" class="container-fluid p-0">
         <!-- Icon that goeas back to all images -->
-        <a href="{% url 'all_images' %}" id="back-to-all-images"><h2 class="text-white shadow-text z-2000" data-toggle="tooltip" data-placement="right" title="Back to all images"><i class="fas fa-arrow-alt-circle-left"></i></h2></a>
+        <a href="{% url 'all_images' %}" id="back-to-all-images"><h2 class="text-white shadow-text z-2000" data-toggle="tooltip" data-placement="right" title="Back to all images"><i class="fas fa-arrow-alt-circle-left glow"></i></h2></a>
         <!-- Icon that shows/hides info sidebar -->
-        <h2 id="hide-image-info" class="text-white shadow-text z-2000" data-toggle="tooltip" data-placement="left" title="Hide/Show sidebar" onclick="hideInfoSidebar()"><i class="far fa-eye"></i></h2>
+        <h2 id="hide-image-info" class="text-white shadow-text z-2000" data-toggle="tooltip" data-placement="left" title="Hide/Show sidebar" onclick="hideInfoSidebar()"><i class="far fa-eye glow"></i></h2>
         <!-- Image -->
         {% if image.imgurl == None %}
-            <img src="{{ image.image.url }}" alt="{{ image.title }} image" id="full-size-image-container" class="card-image" style="z-index: -1;">
+            <img src="{{ image.image.url }}" alt="{{ image.title }} image" id="full-size-image-container" style="z-index: -1;">
         {% else %}
-            <img src="{{ image.imgurl }}" alt="{{ image.title }} image" id="full-size-image-container" class="card-image" style="z-index: -1;"> 
+            <img src="{{ image.imgurl }}" alt="{{ image.title }} image" id="full-size-image-container" style="z-index: -1 cursor-zoom;"> 
         {% endif %}
-    </div>
 
-    <!-- Info sidebar with purchase options -->
-    <aside id="image-info-and-purchase" class="navbar-styling z-1050 p-3 pt-5 pr-5 text-white montserrat">
-        <div class="container-fluid h-100 mx-0 pt-2 px-0">
-            <div class="row h-40 w-100 ml-0 mb-5">
-                <div class="col px-0">
-                    <h3 class="montserrat text-uppercase shadow-text">{{ image.title }}</h3>
-                    <div class="dropdown-divider"></div>
-                    <h6 class="montserrat text-uppercase shadow-text">Description: </h6><p>{{ image.description }}</p>
-                    <h6 class="montserrat text-uppercase shadow-text">Category: </h6><p class="text-capitalize">{{ image.category }}</p>
-                    <h6 class="montserrat text-uppercase shadow-text">Rating: </h6><p class="text-capitalize">{{ image.rating }} /5</p>
-                    <h6 class="montserrat text-uppercase shadow-text">Price: </h6><p>€ {{ image.price }}</p>
-                    {% if request.user.is_superuser %}
-                    <h6 class="montserrat text-uppercase shadow-text">Uploaded by: </h6><p>{{ image.uploaded_by }}</p>
-                    <h6 class="montserrat text-uppercase">Notes: </h6><p class="bg-light text-dark p-2">{{ image.notes }}</p>
-                    <a href="{% url 'edit_image' image.id %}" class="btn btn-info text-white shadow-text">Edit</a>
-                    <a href="{% url 'delete_image' image.id %}" class="btn btn-danger text-white float-right shadow-text">Delete</a>
-                    {% endif %}
-                </div>
-            </div>
-
-            <!-- Purchasing options -->
-            <div class="row h-60 w-100 ml-0">
-                <form class="w-100" action="{% url 'add_to_cart' image.id %}" method="POST">
-                    {% csrf_token %}
-                    <p class="montserrat text-uppercase border-bottom border-white">Purchasing options:</p>
-                    <div class="input-group row">
-                        <!-- Label -->
-                        <label for="quantity" class="col-6 col-form-label">Quantity(1-5):</label>
-
-                        <!-- Minus icon for lowering the quantity -->
-                        <div class="input-group-prepend navbar-styling">
-                            <button class="decrement-qty btn rounded-1" 
-                                data-item_id="{{ image.id }}" id="decrement-qty_{{ image.id }}">
-                                <span class="icon text-white">
-                                    <i class="fas fa-minus"></i>
-                                </span>
-                            </button>
-                        </div>
-
-                        <!-- Input field -->
-                        <input class="form-control qty_input" type="number" 
-                                id="id_qty_{{ image.id }}" 
-                                name="quantity" value="1" min="1" max="5" 
-                                data-item_id="{{ image.id }}">
-
-                        <!-- Plus icon for adding to the quantity -->
-                        <div class="input-group-append navbar-styling">
-                            <button class="increment-qty btn rounded-1"
-                                data-item_id="{{ image.id }}" id="increment-qty_{{ image.id }}">
-                                <span class="icon text-white">
-                                    <i class="fas fa-plus"></i>
-                                </span>
-                            </button>
-                        </div>
-                    </div>
-                    <!-- Left for future implementations 
-                    <div class="form-group row">
-                        <label for="size" class="col-7 col-form-label">Size:</label>
-                        <div class="col-5">
-                            <select class="form-control" id="size" name="size">
-                                <option value="price_s">Small</option>
-                                <option>Medium</option>
-                                <option>Large</option>
-                            </select>
-                        </div>
-                    </div> -->
-                    <div class="form-group row mt-5">
-                        <button class="btn btn-info m-auto" type="submit">
-                            Add to Cart
-                        </button>
-                    </div>
-                    <input type="hidden" name="redirect_url" value="{{ request.path }}">
-                </form>
-            </div>
-                        
-            <!-- Footer with nav links -->
-            <div class="row image-details-navigation align-items-center border-top border-white">
-                {% if grand_total %}
-                    <div class="col-3 nav-item d-flex justify-content-center">
-                        <a href="{% url 'view_cart' %}" class="text-white">VIEW <i class="fas fa-shopping-cart"></i></a>
-                    </div>
-                {% endif %}
-                <div class="{% if grand_total %}col-3{% else %}col-4{% endif %} nav-item d-flex justify-content-center">
-                    <a href="{% url 'home' %}" class="text-white">HOME</a>
-                </div>
-                <div class="{% if grand_total %}col-3{% else %}col-4{% endif %} nav-item dropup d-flex justify-content-center px-0">
-                    <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Galleries</a>
-                    <div class="dropdown-menu image-view-dropup border-dark top-075rem">
-                        <a class="dropdown-item text-white" href="{% url 'all_images' %}">All Images</a>
+        <!-- Info sidebar with purchase options -->
+        <aside id="image-info-and-purchase" class="navbar-styling z-1050 p-3 pt-5 pr-5 text-white montserrat float-right">
+            <div class="container-fluid h-100 mx-0 pt-2 px-0">
+                <div class="row h-40 w-100 ml-0 mb-5">
+                    <div class="col px-0">
+                        <h3 class="montserrat text-uppercase shadow-text">{{ image.title }}</h3>
                         <div class="dropdown-divider"></div>
-                        {% for category in categories %}
-                            <a class="dropdown-item text-white text-capitalize" href="{% url 'all_images' %}?category={{ category.name }}">{{ category.name }}</a>
-                        {% endfor %}
-                    </div>
-                </div>
-                <div class="{% if grand_total %}col-3{% else %}col-4{% endif %} nav-item dropup d-flex justify-content-center px-0">
-                    <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
-                    <div class="dropdown-menu image-view-dropup border-dark" aria-labelledby="user-options">
-                        {% if request.user.is_authenticated %}
-                            {% if request.user.is_superuser %}
-                                <a href="{% url 'all_images' %}" class="dropdown-item text-white">Images</a>
-                                <a href="" class="dropdown-item text-white">Add Image Category</a>
-                                <a href="" class="dropdown-item text-white">Add Social Media</a>
-                            {% endif %}
-                                <a href="" class="dropdown-item text-white">Account</a>
-                                <a href="{% url 'account_logout' %}" class="dropdown-item text-white">Logout</a>
-                        {% else %}
-                                <a href="{% url 'account_signup' %}" class="dropdown-item text-white">Register</a>
-                                <a href="{% url 'account_login' %}" class="dropdown-item text-white">Login</a>
+                        <h6 class="montserrat text-uppercase shadow-text">Description: </h6><p>{{ image.description }}</p>
+                        <h6 class="montserrat text-uppercase shadow-text">Category: </h6><p class="text-capitalize">{{ image.category }}</p>
+                        <h6 class="montserrat text-uppercase shadow-text">Rating: </h6><p class="text-capitalize">{{ image.rating }} /5</p>
+                        <h6 class="montserrat text-uppercase shadow-text">Price: </h6><p>€ {{ image.price }}</p>
+                        {% if request.user.is_superuser %}
+                        <h6 class="montserrat text-uppercase shadow-text">Uploaded by: </h6><p>{{ image.uploaded_by }}</p>
+                        <h6 class="montserrat text-uppercase">Notes: </h6><p class="bg-light text-dark p-2">{{ image.notes }}</p>
+                        <a href="{% url 'edit_image' image.id %}" class="btn btn-info text-white shadow-text">Edit</a>
+                        <a href="{% url 'delete_image' image.id %}" class="btn btn-danger text-white float-right shadow-text">Delete</a>
                         {% endif %}
                     </div>
                 </div>
+
+                <!-- Purchasing options -->
+                <div class="row h-60 w-100 ml-0">
+                    <form class="w-100" action="{% url 'add_to_cart' image.id %}" method="POST">
+                        {% csrf_token %}
+                        <p class="montserrat text-uppercase border-bottom border-white">Purchasing options:</p>
+                        <div class="input-group row">
+                            <!-- Label -->
+                            <label for="quantity" class="col-6 col-form-label">Quantity(1-5):</label>
+
+                            <!-- Minus icon for lowering the quantity -->
+                            <div class="input-group-prepend navbar-styling">
+                                <button class="decrement-qty btn rounded-1" 
+                                    data-item_id="{{ image.id }}" id="decrement-qty_{{ image.id }}">
+                                    <span class="icon text-white">
+                                        <i class="fas fa-minus"></i>
+                                    </span>
+                                </button>
+                            </div>
+
+                            <!-- Input field -->
+                            <input class="form-control qty_input" type="number" 
+                                    id="id_qty_{{ image.id }}" 
+                                    name="quantity" value="1" min="1" max="5" 
+                                    data-item_id="{{ image.id }}">
+
+                            <!-- Plus icon for adding to the quantity -->
+                            <div class="input-group-append navbar-styling">
+                                <button class="increment-qty btn rounded-1"
+                                    data-item_id="{{ image.id }}" id="increment-qty_{{ image.id }}">
+                                    <span class="icon text-white">
+                                        <i class="fas fa-plus"></i>
+                                    </span>
+                                </button>
+                            </div>
+                        </div>
+                        <!-- Left for future implementations 
+                        <div class="form-group row">
+                            <label for="size" class="col-7 col-form-label">Size:</label>
+                            <div class="col-5">
+                                <select class="form-control" id="size" name="size">
+                                    <option value="price_s">Small</option>
+                                    <option>Medium</option>
+                                    <option>Large</option>
+                                </select>
+                            </div>
+                        </div> -->
+                        <div class="form-group row mt-5">
+                            <button class="btn btn-info m-auto" type="submit">
+                                Add to Cart
+                            </button>
+                        </div>
+                        <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                    </form>
+                </div>
+
+                <!-- Footer with nav links -->
+                <div class="row d-flex align-items-center justify-content-center border-top border-white mt-3">
+                    {% if grand_total %}
+                        <!-- Shopping cart link -->
+                        <a href="{% url 'view_cart' %}" class="nav-link text-white my-auto mx-2"><i class="fas fa-shopping-cart"></i></a>
+                    {% endif %}
+
+                    <!-- Home page link -->
+                    <a href="{% url 'home' %}" class="nav-link text-white my-auto mx-1">HOME</a>
+
+                    <!-- Link for galleries -->
+                    <div class="nav-item dropup">
+                        <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Galleries</a>
+                        <div class="dropdown-menu image-view-dropup border-dark top-075rem">
+                            <a class="dropdown-item text-white" href="{% url 'all_images' %}">All Images</a>
+                            <div class="dropdown-divider"></div>
+                            {% for category in categories %}
+                                <a class="dropdown-item text-white text-capitalize" href="{% url 'all_images' %}?category={{ category.name }}">{{ category.name }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <!-- Link to access account -->
+                    <div class="nav-item dropup">
+                        <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
+                        <div class="dropdown-menu image-view-dropup border-dark" aria-labelledby="user-options">
+                            {% if request.user.is_authenticated %}
+                                {% if request.user.is_superuser %}
+                                    <a href="{% url 'all_images' %}" class="dropdown-item text-white">Images</a>
+                                    <a href="" class="dropdown-item text-white">Add Image Category</a>
+                                    <a href="" class="dropdown-item text-white">Add Social Media</a>
+                                {% endif %}
+                                    <a href="" class="dropdown-item text-white">Account</a>
+                                    <a href="{% url 'account_logout' %}" class="dropdown-item text-white">Logout</a>
+                            {% else %}
+                                    <a href="{% url 'account_signup' %}" class="dropdown-item text-white">Register</a>
+                                    <a href="{% url 'account_login' %}" class="dropdown-item text-white">Login</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
-    </aside>
+        </aside>
+    </div>
+
+    
     
 {% endblock %}
 
