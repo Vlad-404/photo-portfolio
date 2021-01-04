@@ -111,14 +111,8 @@ a {
     top: .75rem !important;
 }
 
-.basket-fixed {
-    position: absolute;
-    left: 10rem;
-    /*
-    position: fixed;
-    left: 15vw;
-    top: 10vh;*/
-    z-index: 2050;
+.navbar-mobile-max-width {
+    max-width: 50vw;
 }
 
 /* TOAST MESSAGES */
