@@ -260,10 +260,6 @@ a {
     background-color: #3C3C3C90;
 }
 
-.cursor-zoom {
-    cursor: zoom-in;
-}
-
 /* Background styling for drop ups in botom navigation pannel */
 .image-view-dropup {
     background-color: #4b4b4b;
@@ -283,6 +279,19 @@ a {
     top: 1rem;
     left: 2rem;
     width: auto;
+}
+
+/* Glow animation to get users attention */
+@keyframes glowing {
+    0%   {color: #fff; text-shadow: 0 0 20px 5px #4b4b4b;}
+    50%  {color: #4b4b4b; text-shadow: 0 0 20px 5px #fff;}
+    100% {color: #fff; text-shadow: 0 0 20px 5px #4b4b4b;}
+}
+
+.glow {
+    animation-name: glowing;
+    animation-duration: 3s;
+    animation-iteration-count: 3;
 }
 
 /* CART CSS */
