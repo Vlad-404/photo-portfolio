@@ -22,7 +22,7 @@
                     <div class="row">
                         <div class="col-3 my-1">
                             {% if item.images.imgurl == None %}
-                                <img src="{{ item.image.url }}" alt="{{ item.images.title }} image" class="w-100">
+                                <img src="{{ item.images.image.url }}" alt="{{ item.images.title }} image" class="w-100">
                             {% else %}
                                 <img src="{{ item.images.imgurl }}" alt="{{ item.images.title }} image" class="w-100">
                             {% endif %}

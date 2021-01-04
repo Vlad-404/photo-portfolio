@@ -73,7 +73,7 @@ def remove_from_cart(request, image_id):
                          f'You have removed "{image.title}" from your cart')
 
         request.session['cart'] = cart
-        return HttpResponse(status=200)
+        return redirect(reverse('view_cart'))
 
     except Exception as e:
         messages.error(request, f'Error removing image: {e}')

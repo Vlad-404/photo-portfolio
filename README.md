@@ -330,11 +330,17 @@ As the owner:
     * **What went wrong:** Jquery that shows toast was not loading. It was present as `block postloadjs` in cart app which explains why it was displaying messages only there
     * **Resolution:** Moved `<script src="{% static 'js/script.js' %}"></script>` from `<head>` to bottom of the body
 
-* **Description:** 
+* **Description:** Removing image from cart sometimes took multiple times to succeed
     * **Bug ID:** #015
+    * **How I found it:** While testing the functionality for mobile screens
+    * **What went wrong:** Javascript was causing the issue
+    * **Resolution:** Removed the Javascript at the bottom of the `cart.html` template
+
+* **Description:** 
+    * **Bug ID:** #016
     * **How I found it:** 
     * **What went wrong:** 
-    * **Resolution:** 
+    * **Resolution:**
 
 [Backt to top](#photo-portfolio)
 
