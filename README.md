@@ -342,8 +342,14 @@ As the owner:
     * **What went wrong:** There was no handler that handled situations where there was no result from the search term
     * **Resolution:** Added `if` statement in `image_presentation.views.all_images` under "`if 'search' in request.GET:`"
 
-* **Description:** 
+* **Description:** 500 error on Heroku(deployed) page
     * **Bug ID:** #017
+    * **How I found it:** While testing the deplyed page on Heroku, I tried accessing all images and got 500 error
+    * **What went wrong:** Config vars on Heroku didn't had the same name as in Gitpod
+    * **Resolution:** Changed the names of config vars on Heroku to match ones in Gitpod
+
+* **Description:** 
+    * **Bug ID:** #018
     * **How I found it:** 
     * **What went wrong:** 
     * **Resolution:**

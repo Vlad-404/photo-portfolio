@@ -15,5 +15,11 @@
                 <div class="badge badge-info px-3 rounded-pill font-weight-normal montserrat">€ {{ images.price }}</div>
             </div>
         </div>
+        {% if request.user.is_superuser %}
+            <div class="row d-flex justify-content-between p-4">
+                <a href="{% url 'edit_image' images.id %}" class="btn btn-info text-white montserrat">Edit</a>
+                <a href="{% url 'delete_image' images.id %}" class="btn btn-danger text-white montserrat text-right">Delete</a>
+            </div>
+        {% endif %}
     </div>
 </div>
