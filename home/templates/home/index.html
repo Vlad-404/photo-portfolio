@@ -93,11 +93,14 @@
                 </div>
                 <!-- Contact form -->
                 <div class="col-xl-6">
-                    <form class="text-right">
+                    <form class="text-right" action="{% url 'home' %}" method="POST" id="contact-form">
+                        {% csrf_token %}
+                        <label for="contact-name" class="montserrat">Your Name:</label>
+                        <input type="text" class="form-control form-control-lg osans text-right mb-2" id="contact-name" name="contact-name" required>
                         <label for="contact-email" class="montserrat">Your Email:</label>
-                        <input type="email" class="form-control form-control-lg osans text-right mb-2" id="contact-email" placeholder="my-email@domain.com">
+                        <input type="email" class="form-control form-control-lg osans text-right mb-2" id="contact-email" name="contact-email" placeholder="my-email@domain.com" required>
                         <label for="contact-message" class="mt-3 montserrat">Message:</label>
-                        <textarea id="contact-message" class="form-control form-control-lg text-right osans mb-2" rows ="3" placeholder="Type in your message here..."></textarea>
+                        <textarea id="contact-message" name="contact-message" class="form-control form-control-lg text-right osans mb-2" rows ="3" placeholder="Type in your message here..." required></textarea>
                         
                         <input type="submit" value="Send" class="montserrat btn btn-lg btn-secondary">
                     </form>
