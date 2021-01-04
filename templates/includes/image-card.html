@@ -1,10 +1,10 @@
 <div class="col-xl-4 col-lg-6 col-md-12 mb-4">
     <div class="navbar-styling shadow-sm">
-        <a href="{% url 'image_view' images.id %}" class="image-card-height">
+        <a href="{% url 'image_view' images.id %}">
             {% if images.imgurl == None %}
-                <img class="card-img rounded-0 border-none img-fluid card-img-top" src="{{ images.image.url }}" alt="{{ images.title }} image" >
+                <img class="card-img rounded-0 border-none img-fluid card-img-top image-card-height" src="{{ images.image.url }}" alt="{{ images.title }} image" >
             {% else %}
-                <img class="card-img rounded-0 border-none img-fluid card-img-top" src="{{ images.imgurl }}" alt="{{ images.title }} image">
+                <img class="card-img rounded-0 border-none img-fluid card-img-top image-card-height" src="{{ images.imgurl }}" alt="{{ images.title }} image">
             {% endif %}
         </a>
         <div class="p-4">

@@ -178,6 +178,8 @@ a {
 
 .image-card-height {
     height: 20rem;
+    width: 100%;
+    object-fit: cover
 }
 
 /* Restricts the image height so it doesn't break the visual appeal of the page */
