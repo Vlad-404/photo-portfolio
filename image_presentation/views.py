@@ -1,10 +1,13 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
-from .models import Images
+
+import cloudinary
 
 # Outside models import
+from .models import Images
 from home.models import SocialMedia, Categories
 from .forms import ImageForm
 
@@ -111,14 +114,26 @@ def image_view(request, image_id):
     return render(request, 'gallery/image-view.html', context)
 
 
+# Checks if user is logged in
+@login_required
 # Add image to the store
 def add_image(request):
+    # Restricts the page access if user is not a superuser
+    if not request.user.is_superuser:
+        messages.error(
+                request,
+                'Sorry, only page administrators can do that.'
+                )
+        return redirect(reverse, ('home'))
+
     if request.method == 'POST':
         form = ImageForm(request.POST, request.FILES)
+        # image_url = form.image.url
+        # print(image_url)
         if form.is_valid():
             form.save()
             messages.success(request, 'Image added successfully!')
-            return redirect(reverse('add_image'))
+            return redirect('all_images')
         else:
             messages.error(
                 request,
@@ -136,3 +151,63 @@ def add_image(request):
     }
 
     return render(request, template, context)
+
+
+# Edits the image
+@login_required
+def edit_image(request, image_id):
+    # Restricts the page access if user is not a superuser
+    if not request.user.is_superuser:
+        messages.error(
+                request,
+                'Sorry, only page administrators can do that.'
+                )
+        return redirect(reverse, ('home'))
+
+    image = get_object_or_404(Images, pk=image_id)
+    if request.method == 'POST':
+        form = ImageForm(request.POST, request.FILES, instance=image)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Image edited successfully!')
+            return redirect('all_images')
+        else:
+            messages.error(
+                request,
+                'Unable to edit image. Please check if the form is valid.'
+                )
+    else:
+        form = ImageForm(instance=image)
+        messages.info(request, f'You are editing {image.title} ')
+
+    template = 'gallery/edit_image.html'
+    context = {
+        'media_links': media_links,
+        'categories': all_categories,
+        'page_title': 'Edit Image',
+        'form': form,
+        'image': image
+    }
+
+    return render(request, template, context)
+
+
+@login_required
+# Deletes the image
+def delete_image(request, image_id):
+    # Restricts the page access if user is not a superuser
+    if not request.user.is_superuser:
+        messages.error(
+                request,
+                'Sorry, only page administrators can do that.'
+                )
+        return redirect(reverse, ('home'))
+
+    image = get_object_or_404(Images, pk=image_id)
+    image.delete()
+    # Deletes the image on Cloudinary
+    # cloudinary.uploader.destroy('image.imgid')
+    # And displays the message
+    messages.success(request, f'You have deleted {image.title} image')
+
+    return redirect(reverse('all_images'))

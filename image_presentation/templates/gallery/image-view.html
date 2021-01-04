@@ -9,7 +9,7 @@
         <!-- Icon that shows/hides info sidebar -->
         <h2 id="hide-image-info" class="text-white shadow-text z-2000" data-toggle="tooltip" data-placement="left" title="Hide/Show sidebar" onclick="hideInfoSidebar()"><i class="far fa-eye"></i></h2>
         <!-- Image -->
-        {% if images.image.url == 0 %}
+        {% if image.imgurl == None %}
             <img src="{{ image.image.url }}" alt="{{ image.title }} image" id="full-size-image-container" class="card-image" style="z-index: -1;">
         {% else %}
             <img src="{{ image.imgurl }}" alt="{{ image.title }} image" id="full-size-image-container" class="card-image" style="z-index: -1;"> 
@@ -17,16 +17,22 @@
     </div>
 
     <!-- Info sidebar with purchase options -->
-    <aside id="image-info-and-purchase" class="navbar-styling z-1050 p-3 pt-5 pr-5 shadow-text text-white montserrat">
+    <aside id="image-info-and-purchase" class="navbar-styling z-1050 p-3 pt-5 pr-5 text-white montserrat">
         <div class="container-fluid h-100 mx-0 pt-2 px-0">
-            <div class="row h-40 w-100 ml-0">
+            <div class="row h-40 w-100 ml-0 mb-5">
                 <div class="col px-0">
-                    <h3 class="montserrat text-uppercase">{{ image.title }}</h3>
+                    <h3 class="montserrat text-uppercase shadow-text">{{ image.title }}</h3>
                     <div class="dropdown-divider"></div>
-                    <h6 class="montserrat text-uppercase">Description: </h6><p>{{ image.description }}</p>
-                    <h6 class="montserrat text-uppercase">Category: </h6><p class="text-capitalize">{{ image.category }}</p>
-                    <h6 class="montserrat text-uppercase">Rating: </h6><p class="text-capitalize">{{ image.rating }} /5</p>
-                    <h6 class="montserrat text-uppercase">Price: </h6><p>€ {{ image.price }}</p>
+                    <h6 class="montserrat text-uppercase shadow-text">Description: </h6><p>{{ image.description }}</p>
+                    <h6 class="montserrat text-uppercase shadow-text">Category: </h6><p class="text-capitalize">{{ image.category }}</p>
+                    <h6 class="montserrat text-uppercase shadow-text">Rating: </h6><p class="text-capitalize">{{ image.rating }} /5</p>
+                    <h6 class="montserrat text-uppercase shadow-text">Price: </h6><p>€ {{ image.price }}</p>
+                    {% if request.user.is_superuser %}
+                    <h6 class="montserrat text-uppercase shadow-text">Uploaded by: </h6><p>{{ image.uploaded_by }}</p>
+                    <h6 class="montserrat text-uppercase">Notes: </h6><p class="bg-light text-dark p-2">{{ image.notes }}</p>
+                    <a href="{% url 'edit_image' image.id %}" class="btn btn-info text-white shadow-text">Edit</a>
+                    <a href="{% url 'delete_image' image.id %}" class="btn btn-danger text-white float-right shadow-text">Delete</a>
+                    {% endif %}
                 </div>
             </div>
 

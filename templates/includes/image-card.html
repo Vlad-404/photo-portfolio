@@ -8,19 +8,22 @@
     </a>
     <div class="container-fluid navbar-styling px-5 card-comment align-items-center">
         <div class="row">
-            <div class="col-6 text-left p-0">
+            <div class="col-6 text-left p-0 montserrat">
                 <p class="border-bottom border-white mb-2">{{ images.title }}</p>
                 <p>{{ images.category }}</p>
             </div>
-            <div class="col-6 text-right p-0">
+            <div class="col-6 text-right p-0 montserrat">
                 <p class="border-bottom border-white mb-2">{{ images.rating }} / 5</p>
                 <p>€ {{ images.price }}</p>
             </div>
         </div>
+        <!-- For image manipulation -->
         {% if request.user.is_superuser %}
-        <div class="row">
-            <div class="col-6 text-left p-0"><a href="" class="btn btn-info text-white">Edit</a></div>
-            <div class="col-6 text-right p-0"><a href="" class="btn btn-danger text-white" data-toggle="modal" data-target="#image-delete">Delete</a></div>
+        <div class="row d-flex justify-content-between">
+            <a href="{% url 'edit_image' images.id %}" class="btn btn-info text-white montserrat">Edit</a>
+            <a href="{% url 'delete_image' images.id %}" class="btn btn-danger text-white montserrat text-right">Delete</a>
+            <!-- <div class="col-6 text-left p-0"><a href="{% url 'edit_image' images.id %}" class="btn btn-info text-white">Edit</a></div>
+            <div class="col-6 text-right p-0"><a href="" class="btn btn-danger text-white" data-toggle="modal" data-target="#image-delete" data-imageid="{{ images.id }}">Delete</a></div> -->
         </div>
         {% endif %}
     </div>

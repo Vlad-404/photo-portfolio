@@ -7,8 +7,6 @@ from .models import Categories, SocialMedia
 def index(request):
     media_links = SocialMedia.objects.all()
     all_categories = Categories.objects.all()
-    messages.success(request,
-                         f'Welcome to my page')
 
     context = {
         'page_title': 'Welcome',
