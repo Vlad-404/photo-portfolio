@@ -348,8 +348,14 @@ As the owner:
     * **What went wrong:** Config vars on Heroku didn't had the same name as in Gitpod
     * **Resolution:** Changed the names of config vars on Heroku to match ones in Gitpod
 
-* **Description:** 
+* **Description:** Noticable white space on image view page under image container
     * **Bug ID:** #018
+    * **How I found it:** While refactoring the code for mobile screen sizes
+    * **What went wrong:** `#full-size-image-container` had minimum width of 768px while parent container didn't had any overflow so the whole page was scaling with this
+    * **Resolution:** Added `overflow-x: auto;` to image parent container `view-image-container`
+
+* **Description:** 
+    * **Bug ID:** #019
     * **How I found it:** 
     * **What went wrong:** 
     * **Resolution:**
