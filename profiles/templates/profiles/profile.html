@@ -30,9 +30,11 @@
             <form class="mt-3 mb-5" action="{% url 'profile' %}" method="POST" id="profile-update-form">
                 {% csrf_token %}
                 {{ form|crispy }}
-                <button class="btn btn-lg btn-secondary montserrat mx-auto">
-                    Update Information
-                </button>
+                <div class="text-center">
+                    <button class="btn btn-lg btn-secondary montserrat">
+                        Update Information
+                    </button>
+                </div>
             </form>
         </div>
         <div class="col-12 col-lg-6">
@@ -73,7 +75,7 @@
                 </table>
             </div>
             <div class="row">
-                <a href="{% url 'all_images' %}" class="btn btn-secondary btn-lg mx-auto my-3 montserrat mx-auto">
+                <a href="{% url 'all_images' %}" class="btn btn-secondary btn-lg my-3 montserrat mx-auto">
                     <span class="icon">
                         <i class="fas fa-chevron-left"></i>
                     </span>

@@ -330,11 +330,23 @@ As the owner:
     * **What went wrong:** Jquery that shows toast was not loading. It was present as `block postloadjs` in cart app which explains why it was displaying messages only there
     * **Resolution:** Moved `<script src="{% static 'js/script.js' %}"></script>` from `<head>` to bottom of the body
 
-* **Description:** 
+* **Description:** Removing image from cart sometimes took multiple times to succeed
     * **Bug ID:** #015
+    * **How I found it:** While testing the functionality for mobile screens
+    * **What went wrong:** Javascript was causing the issue
+    * **Resolution:** Removed the Javascript at the bottom of the `cart.html` template
+
+* **Description:** No message after search couldn't find the search term
+    * **Bug ID:** #016
+    * **How I found it:** By testing search for mobile devices. Discovered that there was the same issue for any other screen size.
+    * **What went wrong:** There was no handler that handled situations where there was no result from the search term
+    * **Resolution:** Added `if` statement in `image_presentation.views.all_images` under "`if 'search' in request.GET:`"
+
+* **Description:** 
+    * **Bug ID:** #017
     * **How I found it:** 
     * **What went wrong:** 
-    * **Resolution:** 
+    * **Resolution:**
 
 [Backt to top](#photo-portfolio)
 
@@ -373,11 +385,9 @@ You will need to setup the following environment variables on your system.
 | CLOUDINARY_CLOUD_NAME | Cloudinary Image package | Found in your Cloudinary account dashboard                    |
 | CLOUDINARY_API_KEY    | Cloudinary Image package | Found in your Clouinary account dashboard                    |
 | CLOUDINARY_API_SECRET | Cloudinary Image package | Found in your Clouinary account dashboard                    |
-| MONGO_DBNAME       | Mongo DB                 | This is the name of your database collection e.g.: "photo-portfolio" |
-| MONGO_URI          | Mongo DB                 | Found in the connect button on the database cluster          |
 | SECRET_KEY        | Session Variables        | This is a unique secret used for cookie encryption,  you can use any random string for this |
-| IP                    | Flask                    | You can use `0.0.0.0` here to indicate a local IP address    |
-| PORT                  | Flask                    | You can use the default port `5000`                          |
+
+
 
 
 
@@ -417,7 +427,7 @@ All of the images were made by me. I used various cameras to capture the images.
 
 - Big thanks to Nate Luebbe whos page served as an inspiration to my project. You can find his page here: [Nate Luebbe](https://www.nateluebbe.com/)
 - Sidenav for mobile devices used from w3schools: https://www.w3schools.com/howto/howto_js_sidenav.asp
-- Display for images in gallery was used from [medium.com](https://medium.com/@MilesOfRoses/css-image-gallery-for-pictures-with-different-aspect-ratios-a20ffecb75d5). Big thank you to [Miles Rose](http://milesrose.net) for sharing his gallery display code for free. Click on each link respectively to visit the author and see the original code
+- Display for image cards in gallery was used from [bootstrapious.com](https://bootstrapious.com/p/bootstrap-photo-gallery) as free resource.
 - Code from `quantity_input_script.html` for `+` and `-` buttons in image preview used from [Chris Zielinski](https://github.com/ckz8780) from [Code Institute](https://codeinstitute.net/) and most of the checkout app
 - YouTube user [Majin Dev](https://www.youtube.com/channel/UCu7jaqMRRr8xpljmT7urxYA) and his [video](https://www.youtube.com/watch?v=m5O4sSVbzjw) on instructions how to set up Cloudinary in Django
 

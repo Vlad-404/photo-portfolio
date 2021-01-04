@@ -30,7 +30,7 @@
                         <a class="nav-link text-white active text-uppercase montserrat" href="{% url 'home' %}#home-page-contact">Contact</a>
                     </li>
                     <li class="nav-item dropdown navbar-styling mheight-3-5">
-                        <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Account</a>
+                        <a class="nav-link text-white dropdown-toggle text-uppercase montserrat" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Profile</a>
                         <div class="dropdown-menu navbar-styling border-dark top-075rem" aria-labelledby="user-options">
                             {% if request.user.is_authenticated %}
                                 {% if request.user.is_superuser %}
@@ -38,7 +38,7 @@
                                     <a href="" class="dropdown-item text-white">Add Image Category</a>
                                     <a href="" class="dropdown-item text-white">Add Social Media</a>
                                 {% endif %}
-                                    <a href="{% url 'profile' %}" class="dropdown-item text-white">My Account</a>
+                                    <a href="{% url 'profile' %}" class="dropdown-item text-white">My Profile</a>
                                     <a href="{% url 'account_logout' %}" class="dropdown-item text-white">Logout</a>
                             {% else %}
                                     <a href="{% url 'account_signup' %}" class="dropdown-item text-white">Register</a>
@@ -78,7 +78,7 @@
         </div>
 
         <!-- Toast area -->
-        <div class="row">
+        <div class="row d-none d-xl-block">
             <div class="col">
                 {% for message in messages  %}
                     {% with message.level as level %}

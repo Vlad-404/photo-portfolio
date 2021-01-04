@@ -1,30 +1,19 @@
-<div class="card restrict-image-height text-center text-white rounded-0 border-0 m-2">
-    <a href="{% url 'image_view' images.id %}">
-        {% if images.imgurl == None %}
-            <img class="card-img rounded-0 border-none" src="{{ images.image.url }}" alt="{{ images.title }} image">
-        {% else %}
-            <img class="card-img rounded-0 border-none" src="{{ images.imgurl }}" alt="{{ images.title }} image">
-        {% endif %}
-    </a>
-    <div class="container-fluid navbar-styling px-5 card-comment align-items-center">
-        <div class="row">
-            <div class="col-6 text-left p-0 montserrat">
-                <p class="border-bottom border-white mb-2">{{ images.title }}</p>
-                <p>{{ images.category }}</p>
-            </div>
-            <div class="col-6 text-right p-0 montserrat">
-                <p class="border-bottom border-white mb-2">{{ images.rating }} / 5</p>
-                <p>€ {{ images.price }}</p>
+<div class="col-xl-4 col-lg-6 col-md-12 mb-4">
+    <div class="navbar-styling shadow-sm">
+        <a href="{% url 'image_view' images.id %}">
+            {% if images.imgurl == None %}
+                <img class="card-img rounded-0 border-none img-fluid card-img-top image-card-height" src="{{ images.image.url }}" alt="{{ images.title }} image" >
+            {% else %}
+                <img class="card-img rounded-0 border-none img-fluid card-img-top image-card-height" src="{{ images.imgurl }}" alt="{{ images.title }} image">
+            {% endif %}
+        </a>
+        <div class="p-4">
+            <h5> <a href="{% url 'image_view' images.id %}" class="text-white montserrat">{{ images.title }}</a></h5>
+            <p class="small text-white mb-0">{{ images.category }}</p>
+            <div class="d-flex align-items-center justify-content-between">
+                <p class="small mb-0"><span class="font-weight-bold">Rating: {{ images.rating }} / 5</span></p>
+                <div class="badge badge-info px-3 rounded-pill font-weight-normal montserrat">€ {{ images.price }}</div>
             </div>
         </div>
-        <!-- For image manipulation -->
-        {% if request.user.is_superuser %}
-        <div class="row d-flex justify-content-between">
-            <a href="{% url 'edit_image' images.id %}" class="btn btn-info text-white montserrat">Edit</a>
-            <a href="{% url 'delete_image' images.id %}" class="btn btn-danger text-white montserrat text-right">Delete</a>
-            <!-- <div class="col-6 text-left p-0"><a href="{% url 'edit_image' images.id %}" class="btn btn-info text-white">Edit</a></div>
-            <div class="col-6 text-right p-0"><a href="" class="btn btn-danger text-white" data-toggle="modal" data-target="#image-delete" data-imageid="{{ images.id }}">Delete</a></div> -->
-        </div>
-        {% endif %}
     </div>
 </div>
