@@ -59,19 +59,14 @@
     <!-- Divider and info -->
     <p class="montserrat border-top text-center text-muted mt-2 mb-4 pt-2">Tap/click on any image to get more information and see purchase options</p>
 
-    <!-- Messages container -->
-    {% if messages %}
-        {% for message in messages %}
-            <div class="text-center my-5 mx-auto w-50 text-white montserrat navbar-styling">{{ message }}</div>
-        {% endfor %}
-    {% endif %}
-
     <!-- Image cards -->
-    <!-- code from Miles Rose @ medium.com (see readme for more details) -->
-    <div id="images-wrapper">
-        {% for images in random %}
-            {% include 'includes/image-card.html' %}
-        {% endfor %}
+    <!-- Code for image cards from bootstrapious.com, see readme -->
+    <div id="container">
+        <div class="row">
+            {% for images in random %}
+                {% include 'includes/image-card.html' %}
+            {% endfor %}
+        </div>
    </div>
 
    <!-- Modal that initiates image deletion -->

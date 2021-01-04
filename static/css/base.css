@@ -176,6 +176,10 @@ a {
     min-height: 3rem;
 }
 
+.image-card-height {
+    height: 20rem;
+}
+
 /* Restricts the image height so it doesn't break the visual appeal of the page */
 .restrict-image-height {
     max-height: 100vh;
@@ -190,41 +194,6 @@ a {
 .toast-capper {
     height: 2px;
 }
-
-/* Classes for image container in galleries - code from Miles Rose @ medium.com (see readme for more details) */
-#images-wrapper {    
-   line-height: 0;       
-    -webkit-column-count: 3;    
-    -webkit-column-gap: 0px;    
-    -moz-column-count: 3;
-    -moz-column-gap: 0px;
-     column-count: 3;    
-     column-gap: 0px;
-}  
-#images-wrapper:first-child {    
-   width: 100% !important;    
-   height: auto !important;  
-   max-height: 80vh; /* Added this because some images can look too big */
-}  
-/* I deleted the additional #images-wrapper as I used Bootstrap classes for styling */
-
-/* Media querries for gallery display - changed to Bootstrap breakpoints */
-@media (max-width: 1200px) {
-   #images-wrapper {
-   -moz-column-count:    2;
-   -webkit-column-count: 2;
-   column-count:         2;
-   }
-  }  
-@media (max-width: 768px) {
-   #images-wrapper {
-   -moz-column-count:    1;
-   -webkit-column-count: 1;
-    column-count:        1;
-   }
-  }
-/* One media querry was removed as it wasn't necessary */
-/* End code from Miles Rose */
 
 /* Short info for the image cards in galleries */
 .card-comment {

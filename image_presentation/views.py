@@ -82,6 +82,11 @@ def all_images(request):
                     Please enter a search term if you wish to use search.")
                 return redirect(reverse('all_images'))
 
+            if '' in query:
+                messages.error(request, "No results for that query. \
+                    Please enter another search term if you wish to use search.")
+                return redirect(reverse('all_images'))
+
             queries = Q(
                 title__icontains=query
                 ) | Q(
