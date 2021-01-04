@@ -39,7 +39,7 @@
                     <div class="row">
                         <div class="col-2 mb-1">
                             <a href="{% url 'image_view' item.images.id %}">
-                                {% if images.imgurl == None %}
+                                {% if item.images.imgurl == None %}
                                     <img class="w-100" src="{{ item.images.image.url }}" alt="{{ item.images.title }}">
                                 {% else %}
                                     <img class="w-100" src="{{ item.images.imgurl }}" alt="{{ item.images.title }}">

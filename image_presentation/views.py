@@ -170,7 +170,6 @@ def edit_image(request, image_id):
         if form.is_valid():
             form.save()
             messages.success(request, 'Image edited successfully!')
-            # return redirect(reverse('image_view', args=[image.id]))
             return redirect('all_images')
         else:
             messages.error(
@@ -207,7 +206,7 @@ def delete_image(request, image_id):
     image = get_object_or_404(Images, pk=image_id)
     image.delete()
     # Deletes the image on Cloudinary
-    cloudinary.uploader.destroy('image.imgid')
+    # cloudinary.uploader.destroy('image.imgid')
     # And displays the message
     messages.success(request, f'You have deleted {image.title} image')
 

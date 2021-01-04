@@ -15,14 +15,14 @@
                 {% endif %}
             </div>
         </div>
-        {% if grand_total and not on_profile_page %}
+        {% if grand_total and not on_profile_page and not on_home_page %}
             <p class=" image-view-dropup text-white montserrat py-1">Your Cart({{ images_count }})</p>
             <div class="cart-notification-wrapper">
                 {% for item in cart_items %}
                     <div class="row">
                         <div class="col-3 my-1">
-                            {% if images.imgurl == None %}
-                                <img src="{{ item.images.image.url }}" alt="{{ item.images.title }} image" class="w-100">
+                            {% if item.images.imgurl == None %}
+                                <img src="{{ item.image.url }}" alt="{{ item.images.title }} image" class="w-100">
                             {% else %}
                                 <img src="{{ item.images.imgurl }}" alt="{{ item.images.title }} image" class="w-100">
                             {% endif %}
