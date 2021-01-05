@@ -86,7 +86,7 @@ As a user:
 3. As a customer, I want to be able to chose different sizes for the images
 4. As a recruiter, I want to see Vladimir's work and decide whether to hire him or not
 ---
-5. I want to be able to display my work publicly
+5. I want to be able to display my work publicly so I can get exposure
 6. I want to be able to add, remove and edit the images
 7. I want to be able to see the address where I should send the printed image if purchase has been made
 8. I want to be able to see which images are most popular so I can make more similar ones
@@ -209,42 +209,42 @@ Other than some long initial loading times on deployed Heroku page on majority o
 | Safari           | iPad Mini   |        Excellent                                             | Version iPadOS 14.03          |
 
 #### Testing per device
-( :heavy_check_mark: = pass, x = failed)
+( :heavy_check_mark: = pass, :x: = failed)
 
-| **Test**      | **Google Chrome(PC)** | **Opera(PC)** | **Firefox(PC)** | **Opera Touch(mobile)** | Safari(iPad mini) |
+| **Test**      | **Google Chrome(PC)** | **Opera(PC)** | **Opera Touch(mobile)** | Safari(iPad mini) |
 | :---------------------------- | :------: | :-----: | :--------------: | :--------------: | :--------------: |
-| Test links to all pages    | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Try to access the user area without signing in    | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test search    | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark: |       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test messages   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test filtering    | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test link to contact form outside home page    | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test photo info page    | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test hide sidebar   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test adjusting the quantity for purchase in image view   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test adding to cart   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test update cart quantity   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test remove from cart   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test adding to cart   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test purchase form   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Purchase form - wrong form field entry   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Purchase form - wrong payment details   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Purchase form - save info for future purchases   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Purchase form - webhooks by monitoring Stripe dashboard   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Purchase form - interrupted payment process   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test update default delivery info saving   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test account registration   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test email registration   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test login   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test logout   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test add new image   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test modify image   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test delete image   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test edit/remove image buttons displaying for different types of accounts  | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test reject access to admin pages if user is not admin   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test filling the contact form on home page | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test sending contact request mails   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test sending purchase confirmation email   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test links to all pages    | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Try to access the user area without signing in    | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test search    | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark: |       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test messages   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test filtering    | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test link to contact form outside home page    | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test photo info page    | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test hide sidebar   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test adjusting the quantity for purchase in image view   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test adding to cart   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test update cart quantity   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test remove from cart   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test adding to cart   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test purchase form   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Purchase form - wrong form field entry   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Purchase form - wrong payment details   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Purchase form - save info for future purchases   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Purchase form - webhooks by monitoring Stripe dashboard   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Purchase form - interrupted payment process   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test update default delivery info saving   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test account registration   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test email registration   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test login   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test logout   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test add new image   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test modify image   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test delete image   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test edit/remove image buttons displaying for different types of accounts  | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |:heavy_check_mark: |
+| Test reject access to admin pages if user is not admin   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test filling the contact form on home page | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test sending contact request mails   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
+| Test sending purchase confirmation email   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
 
 During testing, these errors were found and corrected:
 - Removing an item from cart manually resulted in 500 error. See bug#019
@@ -260,16 +260,15 @@ As a user:
     - as above, during the purchase, user can select which size he wants: S, M or L. Each size has dimensions in mm so the user has an idea of how big a delivered image will be.
 4. As a recruiter, I want to see Vladimir's work and decide whether to hire him or not
     - All of the best images are displayed on this web page, and everyone can sort them by category, panorama or not, colour or black/white, name, rating, price and top rated.  This will make the recruiter's job much easier.
-
-As the owner:
-1. I want to be able to display my work publicly
+---
+5. I want to be able to display my work publicly so I can get exposure
     - all images will be hosted on Heroku where they will have exposure to everyone on the internet, accessible 24 hours a day - every day.
-2. I want to be able to add, remove and edit the images
+6. I want to be able to add, remove and edit the images
     - thanks to forms and Cloudinary, images can be easily uploaded, manipulated and deleted.
-3. I want to be able to see the address where I should send the printed image if purchase has been made
+7. I want to be able to see the address where I should send the printed image if purchase has been made
     - users won't be able to complete their purchase if the address is missing. This is where the image should be sent.
-4. I want to be able to see which images are most popular so I can make more similar ones
-    - thanks to rating system, it will be possible to see which images are more popular.
+8. I want to be able to see which images are most popular so I can make more similar ones
+    - ~~thanks to the rating system,~~ Since there is no rating system as of writing this readme, popularity of the images can be assessed by how many images has been purchased.
 
 [Backt to top](#photo-portfolio)
 
