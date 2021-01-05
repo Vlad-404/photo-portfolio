@@ -118,7 +118,7 @@ As every project, this one had them too. Instead of making a long list in the re
 
 * **Description:** Removing item from cart resulted in 500 error
     * **Bug ID:** #019
-    * **How I found it:** While testing the site on Safari(iPad min)
+    * **How I found it:** While testing the site on Safari(iPad mini)
     * **What went wrong:** Wrong link was given to `cart.html` when pressing `Remove` button
     * **Resolution:** Fixed the template name from `button-back.html` to `cart/buttons-back.html`
 

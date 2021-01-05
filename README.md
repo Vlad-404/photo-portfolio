@@ -2,7 +2,7 @@
 
 ![Desktop Demo](https://res.cloudinary.com/drtxn8d5t/image/upload/v1609721113/photo-portfolio/display-images/mockup_aso6tx.png "Desktop Demo")
 
-Welcome to my photos portfolio page! Here you will be able to see some of my work I gathered over time and during my travels. I welcome you to make your self comfortable, enjoy the images and if you like some of them, why not consider purchasing them?
+Welcome to my photos portfolio page! Here you will be able to see some of my work I gathered over time and during my travels. I welcome you to make your self comfortable, enjoy the images and if you like some of them, why not consider a purchase?
 
 Contents:
 * UX (user experience)
@@ -246,8 +246,9 @@ Other than some long initial loading times on deployed Heroku page on majority o
 | Test sending contact request mails   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
 | Test sending purchase confirmation email   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |
 
-During testing, these errors were found and corrected:
+During testing, these errors were found:
 - Removing an item from cart manually resulted in 500 error. See bug#019
+- `Home` link in `header-navbar.html` sometimes ends up under cart icon on small number of screen sizes and only if there was something in the cart. Left unresolved as it affects a very small number of cases and is not a major bug
 
 ## User Stories Testing
 
@@ -315,7 +316,7 @@ You will need to setup the following environment variables on your system:
 | DATABASE_URL        | Default database        | Database used for this project is postgress |
 | STRIPE_PUBLIC_KEY | Your stripe public key | Found in your Stripe account dashboard under *Developers / API Keys*                   |
 | STRIPE_SECRET_KEY | Your stripe secret key | Found in your Stripe account dashboard under *Developers / API Keys*                   |
-| STRIPE_WH_KEY | Your stripe secret webhook key | Found in your Stripe account dashboard under *Developers / API Keys*                   |
+| STRIPE_WH_KEY | Your stripe secret webhook key | Found in your Stripe account dashboard after you create a webhook                   |
 | CLOUDINARY_CLOUD_NAME | Cloudinary Image package | Found in your Cloudinary account dashboard                    |
 | CLOUDINARY_API    | Cloudinary Image package | Found in your Clouinary account dashboard                    |
 | CLOUDINARY_SECRET | Cloudinary Image package | Found in your Clouinary account dashboard                    |
