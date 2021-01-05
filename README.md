@@ -208,12 +208,12 @@ Other than some long initial loading times on deployed Heroku page on majority o
 | Safari           | iPad Mini   |        ???                                             | Version ??          |
 
 #### Testing per device
-( [x] = pass, x = failed)
+( [ x ] = pass, x = failed)
 
 | **Test**      | **Google Chrome(PC)** | **Opera(PC)** | **Firefox(PC)** | **Opera Touch(mobile)** | Safari(iPad mini) |
 | :---------------------------- | :------: | :-----: | :--------------: | :--------------: | :--------------: |
-| Test links to all pages    | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Try to access the user area without signing in    | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test links to all pages    | [ x ]         |   [ x ]       | [ x ]|       [ x ]  |  [x] |   [x] |
+| Try to access the user area without signing in    | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
 | Test search    | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
 | Test messages   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
 | Test filtering    | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
@@ -246,7 +246,7 @@ Other than some long initial loading times on deployed Heroku page on majority o
 | Test sending purchase confirmation email   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
 
 During testing, these errors were found and corrected:
-- Removing an item from cart manually resulted in 500 error. 
+- Removing an item from cart manually resulted in 500 error. See bug#019
 
 ## User Stories Testing
 
@@ -390,24 +390,21 @@ As the owner:
     * **What went wrong:** Wrong link was given to `cart.html` when pressing `Remove` button
     * **Resolution:** Fixed the template name from `button-back.html` to `cart/buttons-back.html`
 
-* **Description:** 
-    * **Bug ID:** #020
-    * **How I found it:** 
-    * **What went wrong:** 
-    * **Resolution:**
 
 [Backt to top](#photo-portfolio)
 
 # Deployment
-The repository for this project is hosted on [GitHub](https://github.com/) and uses [Heroku](https://www.heroku.com/) to serve the site to the world wide web. If you would like to contribute to this project you would need to first have some sort of online code editor like [Gitpod](https://www.gitpod.io/) or local such as [VS Code](https://code.visualstudio.com/). Also you will need some version control software like [Git](https://git-scm.com/). For Git, you will also need a GitHub account.
+The repository for this project is hosted on [GitHub](https://github.com/Vlad-404/photo-portfolio) and uses [Heroku](https://www.heroku.com/) to serve the site to the world wide web. If you would like to contribute to this project you will need to have online code editor like [Gitpod](https://www.gitpod.io/) or local such as [VS Code](https://code.visualstudio.com/). Also you will need some version control software like [Git](https://git-scm.com/). For Git, you will also need a GitHub account.
 
 #### Prerequisites
 
 In order to contribute to this repository, you will need to have the following installed:
 
+For online editor:
 - Python 3.8.3 or higher
 - Git version control
 - Code editor - [Gitpod](https://www.gitpod.io/) or [VS Code](https://code.visualstudio.com/) are recommended
+- Account on [GitHub](https://github.com/) for version controll
 
 #### Development
 
@@ -415,39 +412,45 @@ There are a number of steps required to deploy a local version of this project.
 
 ##### Local copy
 
-- At the top of the repository click on the **Code** button and select *Download zip*
-- Copy the path to the repo "https://github.com/Vlad-404/#"
-- Navigate to the folder where you would like to make a copy of this repository - *"C:\WorkFolder\MyRepo\..."* and save.
-- Start VS Code and click on *"File -> Open Folder..."*
-- Navigate to the downloaded files *"C:\WorkFolder\MyRepo\..."* and click on "Select Folder"
-- If you don't have your environment set up, please refer to the VS Code documentation
-- Install all the dependencies by typing in the terminal: ``pip3 install -r requirements.txt``
-- If you add or update any new packages to the project use ``pip freeze --local > requirements.txt`` to update the [requirements.txt](requirements.txt) file with the new dependencies.
+1.  At the top of the repository click on the **Code** button and select *Download zip*
+2.  Copy the path to the repo "https://github.com/Vlad-404/#"
+3.  Navigate to where you would like to save this file on your system
+4.  Start VS Code and set up virtual environment by following instructions here: https://code.visualstudio.com/docs/python/tutorial-django
+5.  Open the saved file with VS Code
+6.  Install all the dependencies by typing in the terminal: `pip3 install -r requirements.txt` Depending on your operating system you will have to adjust the command, but as long as `-r requirements.txt` is there, all dependencies will install.
+7.  If you add or update any new packages to the project use `pip freeze > requirements.txt` to update the [requirements.txt](requirements.txt) file with the new dependencies.
+8. Create your own Github repository and connect to it if you want to use Github for version controll
+
 
 ##### Environment Variables
 
-You will need to setup the following environment variables on your system.
+You will need to setup the following environment variables on your system:
 
 | Variable name         | Used for                 | Notes                                                        |
 | --------------------- | ------------------------ | ------------------------------------------------------------ |
-| CLOUDINARY_CLOUD_NAME | Cloudinary Image package | Found in your Cloudinary account dashboard                    |
-| CLOUDINARY_API_KEY    | Cloudinary Image package | Found in your Clouinary account dashboard                    |
-| CLOUDINARY_API_SECRET | Cloudinary Image package | Found in your Clouinary account dashboard                    |
 | SECRET_KEY        | Session Variables        | This is a unique secret used for cookie encryption,  you can use any random string for this |
-
-
-
-
+| DATABASE_URL        | Default database        | Database used for this project is postgress |
+| STRIPE_PUBLIC_KEY | Your stripe public key | Found in your Stripe account dashboard under *Developers / API Keys*                   |
+| STRIPE_SECRET_KEY | Your stripe secret key | Found in your Stripe account dashboard under *Developers / API Keys*                   |
+| STRIPE_WH_KEY | Your stripe secret webhook key | Found in your Stripe account dashboard under *Developers / API Keys*                   |
+| CLOUDINARY_CLOUD_NAME | Cloudinary Image package | Found in your Cloudinary account dashboard                    |
+| CLOUDINARY_API    | Cloudinary Image package | Found in your Clouinary account dashboard                    |
+| CLOUDINARY_SECRET | Cloudinary Image package | Found in your Clouinary account dashboard                    |
+| STRIPE_PUBLIC_KEY | Your stripe public key | Found in your Stripe account dashboard under *Developers / API Keys*                   |
 
 > Note: you will need to add these environment variable to your GitHub repo in "env.py" and Heroku  in "settings -> config vars"
+
+> Warning: Do not expose these variables anywhere on your site as they pose a serious security risk
 
 [Backt to top](#photo-portfolio)
 
 ##### Deployment
 
+For deployment I used [Heroku](https://www.heroku.com/) hosting services.
+
 The easiest way to deploy the project to Heroku is to set your connect method to GitHub and link the repository master branch. If you set the project up for automatic deploys, it will deploy once the master branch is updated.
 
-My photo portfolio site was developed on GitPod and VS code, using GitHub and Heroku to host the repository. As GitHub pages cannot host dynamic pages, for this purpose I used Heroku.
+My photo portfolio site was developed on GitPod and VS code, using GitHub and Heroku to host the repository. Heroku was used because GitHub pages cannot host dynamic pages.
 
 When deploying photo portfolio using Heroku, the following steps were taken:
 
@@ -460,16 +463,15 @@ Linking the Heroku and GitHub:
 * Enter repo name in the empty field and click on search. Be sure your repo exists on GitHub and that you typed it in correctly.
 * When repo shows click on "Connect"
 * Your Heroku app will be synchronised each time you "git push"
+* Set up your environmental variables in *Settings / Reveal Config Vars*
 * Website is now live on Heroku. To run the site, click on "Open App" at the top
 
 If GitHub asks you to authorize the Heroku app in any of the steps above, do so, and you will be able to do an automated deployment from GitHub to Heroku.
 
-
-
 # Credits
 
 ## Content
-All of the images were made by me. I used various cameras to capture the images. Even if I was carefull not to include any logos, business names or faces, if you find anything related to yourself, and you don't want it contained in my photos, please contact me on vmijat21@gmail.com and explain the situation. I will be glad to answer and correct if there are any issues you find with my photos.
+All of the images were made by me. I used various cameras to capture the images. Even if I was carefull not to include any logos, business names or faces, if you find any copyright or privacy issues, please contact me on vmijat21@gmail.com and  please explain the situation. I will be glad to answer and work out the issues presented.
 
 ## Acknowledgments and Thank You's
 
@@ -478,12 +480,13 @@ All of the images were made by me. I used various cameras to capture the images.
 - Display for image cards in gallery was used from [bootstrapious.com](https://bootstrapious.com/p/bootstrap-photo-gallery) as free resource.
 - Code from `quantity_input_script.html` for `+` and `-` buttons in image preview used from [Chris Zielinski](https://github.com/ckz8780) from [Code Institute](https://codeinstitute.net/) and most of the checkout app
 - YouTube user [Majin Dev](https://www.youtube.com/channel/UCu7jaqMRRr8xpljmT7urxYA) and his [video](https://www.youtube.com/watch?v=m5O4sSVbzjw) on instructions how to set up Cloudinary in Django
+- [Chris Zielinski](https://github.com/ckz8780) and the whole team at [Code Institute](https://codeinstitute.net/) whos lessons and videos on *Boutique Ado* helped me materialise this project.
 
 [Backt to top](#photo-portfolio)
 
 # Disclaimer
 
-This page was built for educational purposes and all resources were used under fair usage and/or under free licence! If you find any content that violates the copyrights, please contact me on vmijat21@gmail.com
+This page was built for educational purposes and all resources were used under fair usage and/or under free licence! All of the images are Vladimir Mijatovic's ownership. If you find any content that violates the copyrights or your privacy, please contact me on vmijat21@gmail.com
 
 Thank you for visiting my page and I hope you'll have fun browsing through my images as I did making them.
 
