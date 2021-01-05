@@ -29,13 +29,13 @@ Contents:
 # UX 
 
 ## Idea
-The idea behind this project was to present the pictures I gathered over time and during my travels. I was always fascinated by the mutual relationships of different spaces, colours and how they all work together, especially in nature. This why most of my pictures are about nature. My other interest is gaming where this fascination with space and colours didn't get ignored. Even if games are property of their publishers/ developers, I decided to include some of them, as pictures here are a result of my own effort.
+The idea behind this project was to present the pictures I gathered over time and during my travels. I was always fascinated by the mutual relationships of different spaces, colours and how they all work together, especially in nature. This is why most of my pictures are about nature. My other interest is gaming where this fascination with space and colours didn't get ignored.
 
 As my collection of pictures was increasing, I decided to use it and make a portfolio website where I can possibly profit out of a static resource which are images. That is why I set up a web site with portfolio of my work which can serve as an online shop.
 
-As this is only for educational purposes, I will not be charging for the images or sending them out just yet, and if someone tries to buy something, there wilL be a notification not to use their real bank card.
+As this is only for educational purposes, I will not be charging for the images or sending them out just yet, and if someone tries to buy something, Stripe payment system won't let them untill I activate my account.
 
-The scope of this project will be localized on just the images I made, and potential customers will be able to select the size of the image they order. Making this site to be a platform where I can make my living of, is not in the scope of this project, but it's open to the possibility.
+The scope of this project will be localized on just the images I made. Making this site to be a platform where I can make my living of, is not in the scope of this project, but it's open to the possibility.
 
 I chose to make this project because of the following:
 * I love to travel
@@ -44,13 +44,13 @@ I chose to make this project because of the following:
 * I can see which of my pictures are more desirable so I can improve on my photography and editing skills
 * it gives me exposure
 
-[Backt to top](#photo-portfolio)
+[Back to top](#photo-portfolio)
 
 ## Research and preparations
 
 Idea for this website came to me while I was talking to a fellow student and I saw this as a viable topic. When I saw his project, I liked it and started looking online for some inspirations to see how difficult will this be considering my skills and timeframe I had.
 
-After going through photo portfolio pages, I found one which served as an inspiration for my project.
+After going through photo portfolio pages, I found one which served as an inspiration for my project: [Nate Luebbe](https://www.nateluebbe.com/).
 
 Going through all of these portfolio pages, I noticed that all of them some things in common:
 * minimalistic design
@@ -60,7 +60,7 @@ Going through all of these portfolio pages, I noticed that all of them some thin
 * some of the best effects I found on the internet in regards to presentation
 
 
-[Backt to top](#photo-portfolio)
+[Back to top](#photo-portfolio)
 
 ### Wireframes
 
@@ -68,7 +68,14 @@ After the initial idea, I decided to make a couple of sketches and make wirefram
 You can find all the wireframes in the [wireframes](https://github.com/Vlad-404/photo-portfolio/tree/master/wireframes) folder.
 
 After finishing the project, some of the design and features were changed:
-- ...
+- I removed the ability for users to rate the images due to time constrains
+- Image purchase is now available to everyone instead of just registered users
+- Image upload app is now part of the `image_presentation` app
+- `basket` has been renamed to `cart` for better assotiation with shopping
+- Different image sizes were removed from purchasing a it took too much time to implement
+- Removed the ability to purchase the same item from order history
+- I added a separate page instead of full page modal where visitors and users can see an image accross the full page and decide about their purchase;
+And some minor UI changes. If you want to know more, scroll down to *[Features Left to Implement](#features-left-to-implement)*.
 
 ## User stories
 
@@ -77,20 +84,19 @@ As a user:
 2. As a new visitor to the page, I want to be able to purchase images and get them delivered to my house
 3. As a customer, I want to be able to chose different sizes for the images
 4. As a recruiter, I want to see Vladimir's work and decide whether to hire him or not
+---
+5. I want to be able to display my work publicly
+6. I want to be able to add, remove and edit the images
+7. I want to be able to see the address where I should send the printed image if purchase has been made
+8. I want to be able to see which images are most popular so I can make more similar ones
 
-As an owner:
-1. I want to be able to display my work publicly
-2. I want to be able to add, remove and edit the images
-3. I want to be able to see the address where I should send the printed image if purchase has been made
-4. I want to be able to see which images are most popular so I can make more similar ones
-
-[Backt to top](#photo-portfolio)
+[Back to top](#photo-portfolio)
 
 ## Design Choices
-Based on the research I made browsing through some other photo portfolio pages, I decided to continue my approach from previous projects and that is making it simple and easy to navigate. I used Nate Leuebbe' page as an inspiration. You can find the link below in [Credits](#credits) section.
+Based on the research I made browsing through some other photo portfolio pages, I decided to continue my approach from previous projects and that is making it simple and easy to navigate.
 
 From this, I decided on the following:
-- minimalism with very few colours so images can stand out and be in the focus
+- minimalism with very few colours so images can stand out and be the focus of the site
 - the UI needs to be easy to navigate; each part of the page has to be easily acessible.
 - uniform and appealing look
 - put more focus on design - css transitions and JS effects are much more represented than on previous projects
@@ -104,33 +110,37 @@ For styling the page Bootstrap library was used.
 The following fonts were chosen:
 * For page name:
     - [Black Ops One](https://fonts.google.com/specimen/Black+Ops+One?selection.family=Black+Ops+One&category=Display&preview.text_type=custom&sidebar.open=true) goes with Open Sans and Roboto
-* For accents:
-    - [Montserrat](https://fonts.google.com/specimen/Montserrat) for titles and accents
-* For all of the text:
-    - [Open Sans](https://fonts.google.com/specimen/Open+Sans?query=open+sans) for regular text
+* For amost of the site:
+    - [Montserrat](https://fonts.google.com/specimen/Montserrat) for most of the page as it fits well with...
+* For all of the form and smaller text:
+    - [Open Sans](https://fonts.google.com/specimen/Open+Sans?query=open+sans) for forms, descriptions, sub-menu and small text
 
 
 ### Colours
 
 Colours used:
+Most of the colours are brought down to a [minimum](#design-choices). Grayish colours were used for navigation butons, navbars, footer while elements that have site wide impact used bootstrap colours(info, primary, danger,...)
 
 | Colours       | Hex           | Bootstrap value  | Used in         |
 | :------------- |:-------------:| :-----:| :-----:|
-| color1      | #ff7043 | deep-orange lighten-1 | titles, neutral buttons|
-| color2      | #424242 | grey darken-3 |navbar, header and footer background|
-| color3      | #00e676 | green accent-3 |for floating Icon and some buttons|
-
+| gray      | #5a6268 | `element`-secondary | nav buttons, navbars, rules, message backgrounds|
+| gray      | #5F5F5F90 | none | navbars, and everywhere I needed transparency|
+| blue      | #0275d8 | `element`-primary | messages |
+| teal       | #5bc0de | `element`-info |messages from cart, infos, free delivery info, edit and update buttons |
+| yellow       | #fff3cd | `element`-warning | free delivery info |
+| red       | #c82333 | `element`-danger | buttons for deleting, checkbox and text in image upload form, error messages in forms, messages |
 
 
 ### Icons
 
 Icons were used from a [FontAwesome page](https://fontawesome.com/). 
 
-[Backt to top](#photo-portfolio)
+[Back to top](#photo-portfolio)
 
 # Features
-As per the initial idea, UI has to have a uniform and appealing look, be easy to navigate, and be quick to get anywhere on the page within 3 clicks. For this reason, multi-page concept was implemented. Thanks to Django, I used apps to cut down on repetitive tasks like creating everything from ground up.
-as per [research](#research-and-preparations) and [design choices](#design-choices), I decided on these the following features:
+As per the initial idea, UI has to have a uniform and appealing look, be easy and intuitive to navigate. For this reason, multi-page concept was implemented. Thanks to Django, I used apps to cut down on repetitive tasks like creating everything from ground up.
+
+As per [research](#research-and-preparations) and [design choices](#design-choices), I decided on these the following features:
 * minimalistic design
 * initial page with transparent header for navigation. Scrolling down reveals cards that stretch accross the screen and lead to a respective category
 * search bar
@@ -141,16 +151,15 @@ as per [research](#research-and-preparations) and [design choices](#design-choic
 * Users can create and delete their account
 * Image hosting will be handled by a third-party provider - [Cloudinary](https://cloudinary.com) as current storage capacities aren't adequate for a large number of images. 
 
-## Decisions during development
-As every project encounters issues during it's development, I have decided to add things not originally planned or modify some parts of the site to better serve the purpose or simplify things.
-* **Added** - I added a separate page instead of full page modal where visitors and users can see an image accross the full page and decide about their purchase;
-* ...
-
 ## Features Left to Implement
 
-* Using different price for different size was dropped from the project and left for future implementations. Reason for this is time limitation.
+The following features were left for future implementaions:
+* Different image sizes with respective prices - printing a small image is not the same as printing a large panorama image. Adding different price for different size required more coding and as a beginner with Django, I didn't had time to add relation between size and price while purchasing.
+* Rating system - it took too long to implement
+* Adding category and social links - it can be added through the admin console, but adding them through the site UI was left out
+* Sorting within a selected category in image gallery - while it is an integral part of the page, it doesn't have a significant impact on page functionality, so it was left out untill future implementations. Current functionality only supports sorting of all images.
 
-[Backt to top](#photo-portfolio)
+[Back to top](#photo-portfolio)
 
 # Technologies Used
 
@@ -162,11 +171,10 @@ As every project encounters issues during it's development, I have decided to ad
 * JSON
 * Python
 
-## Others
+## Tools, frameworks and librarys
 - [Django](https://www.djangoproject.com)
 - [Stripe](https://stripe.com)
 - [JQuerry](https://jquery.com/)
-- [Flask 1.1.2](https://palletsprojects.com/p/flask/)
 - [Jinja2 2.11.2](https://pypi.org/project/Jinja2/)
 - [Cloudinary 1.21.0](https://cloudinary.com/)
 - [Git](https://git-scm.com/)
@@ -183,40 +191,62 @@ As every project encounters issues during it's development, I have decided to ad
 
 for more details and dependencies, please refer to [requirements.txt](#) file
 
-[Backt to top](#photo-portfolio)
+[Back to top](#photo-portfolio)
 
 # Testing
 
 #### Browser and Device Testing on Heroku page
+Other than some long initial loading times on deployed Heroku page on majority of devices, following platforms were tested:
 
 | **Browser**      | **Device** | **Compatibility**                                            | **Version**            |
 | :--------------- | :---------: | :-----------------------------------------------------------: | :--------------------- |
-| Google Chrome    | PC         |         ???                                             | Version ?? (x64)|
+| Google Chrome    | PC         |         Excellent                                             | Version 87.0.4280.88 (Official Build) (64-bit) (x64)|
 | Firefox          | PC         |          ???                                           | Version ??      | 
-| Opera            | PC         | ??? | Version  ??|
+| Opera            | PC         | Excellent | Version 73.0.3856.284(x64)|
 | Google Chrome | OnePlus 3t  |      ???                                               |      Version ??  |
-| Opera Touch | OnePlus 3t  | ???                                                    | Version ??       |
+| Opera Touch | OnePlus 3t  | Excellent                                                    | Version 2.8.4       |
 | Safari           | iPad Mini   |        ???                                             | Version ??          |
 
-- [ ] Test links to all pages
-- [ ] Try to access the user area without signing in
-- [ ] Test filtering dropdowns
-- [ ] Test searching
-- [ ] Test photo info page
-- [ ] Test errors by typing in random page redirects
-- [ ] Test account registration
-- [ ] Test log out 
-- [ ] Test sign in
-- [ ] Test admin page
-- [ ] Test add new image
-- [ ] Test add / del image
-- [ ] Test update image
-- [ ] Purchasing test
-- [ ] Test basket
-- [ ] Test purchasing
-    - [ ] Test if all required fields are filled
-    - [ ] Test redirects after purchasing
-    - [ ] Test going back after purchase has been made
+#### Testing per device
+( [x] = pass, x = failed)
+
+| **Test**      | **Google Chrome(PC)** | **Opera(PC)** | **Firefox(PC)** | **Opera Touch(mobile)** | Safari(iPad mini) |
+| :---------------------------- | :------: | :-----: | :--------------: | :--------------: | :--------------: |
+| Test links to all pages    | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Try to access the user area without signing in    | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test search    | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test messages   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test filtering    | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test link to contact form outside home page    | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test photo info page    | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test hide sidebar   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test adjusting the quantity for purchase in image view   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test adding to cart   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test update cart quantity   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test remove from cart   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test adding to cart   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test purchase form   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Purchase form - wrong form field entry   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Purchase form - wrong payment details   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Purchase form - save info for future purchases   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Purchase form - webhooks by monitoring Stripe dashboard   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Purchase form - interrupted payment process   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test update default delivery info saving   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test account registration   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test email registration   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test login   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test logout   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test add new image   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test modify image   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test delete image   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test edit/remove image buttons displaying for different types of accounts  | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test reject access to admin pages if user is not admin   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test filling the contact form on home page | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test sending contact request mails   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test sending purchase confirmation email   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+
+During testing, these errors were found and corrected:
+- Removing an item from cart manually resulted in 500 error. 
 
 ## User Stories Testing
 
@@ -354,8 +384,14 @@ As the owner:
     * **What went wrong:** `#full-size-image-container` had minimum width of 768px while parent container didn't had any overflow so the whole page was scaling with this
     * **Resolution:** Added `overflow-x: auto;` to image parent container `view-image-container`
 
-* **Description:** 
+* **Description:** Removing item from cart resulted in 500 error
     * **Bug ID:** #019
+    * **How I found it:** While testing the site on Safari(iPad min)
+    * **What went wrong:** Wrong link was given to `cart.html` when pressing `Remove` button
+    * **Resolution:** Fixed the template name from `button-back.html` to `cart/buttons-back.html`
+
+* **Description:** 
+    * **Bug ID:** #020
     * **How I found it:** 
     * **What went wrong:** 
     * **Resolution:**
