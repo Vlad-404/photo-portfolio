@@ -250,6 +250,12 @@ During testing, these errors were found:
 - Removing an item from cart manually resulted in 500 error. See bug#019
 - `Home` link in `header-navbar.html` sometimes ends up under cart icon on small number of screen sizes and only if there was something in the cart. Left unresolved as it affects a very small number of cases and is not a major bug
 
+## Testing with validation services
+
+**W3C markup validation** returned `The aria-labelledby attribute must point to an element in the same document` errors. Reason for this might be use of template logic and conditions that are required for some `if` statements to work. There was an empty header error as well but it wasn't consisent. I disregarded this error as it didn't had any impact on the site.
+
+**The W3C CSS Validation Service** returned no errors for css files.
+
 ## User Stories Testing
 
 As a user:

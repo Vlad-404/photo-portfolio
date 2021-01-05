@@ -283,12 +283,14 @@ a {
 
 /* Glow animation to get users attention */
 @keyframes glowing {
-    0%   {color: #fff; text-shadow: 0 0 20px 5px #4b4b4b;}
-    50%  {color: #4b4b4b; text-shadow: 0 0 20px 5px #fff;}
-    100% {color: #fff; text-shadow: 0 0 20px 5px #4b4b4b;}
+    0%   {color: #fff; box-shadow: 0 0 20px 5px #4b4b4b;}
+    50%  {color: #4b4b4b; box-shadow: 0 0 20px 5px #fff; background-color: #fff;}
+    100% {color: #fff; box-shadow: 0 0 20px 5px #4b4b4b;}
 }
 
 .glow {
+    border-radius: 50%;
+
     animation-name: glowing;
     animation-duration: 3s;
     animation-iteration-count: 3;

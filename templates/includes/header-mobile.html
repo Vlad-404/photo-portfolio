@@ -1,9 +1,9 @@
-<!-- Collpsible sidebar for mobile devices -->
+<!-- Collapsible sidebar for mobile devices -->
 <aside>
     <div class="container fixed-nav navbar-mobile-max-width d-xl-none z-2000">
         <div class="row">
-            <button class="btn navbar-styling" type="button" data-toggle="collapse" data-target="#mobile-sidenav" aria-expanded="false" aria-controls="collapseExample">
-                <h2 class="text-white"><i class="fas fa-bars"></i>{% if grand_total %}  €{% endif %}</h2>
+            <button class="btn btn-lg navbar-styling" type="button" data-toggle="collapse" data-target="#mobile-sidenav" aria-expanded="false" aria-controls="collapseExample">
+                <i class="fas fa-bars"></i>{% if grand_total %}  €{% endif %}
             </button>
         </div>
         <div class="row mt-3 montserrat">
@@ -31,7 +31,9 @@
                 <div class="row">
                     {% for social in media_links %}
                     <div class="col">
-                        <a href="{{ social.site_url}}" class="nav-item text-center text-white"><h3><i class="{{ social.icon}}"></i></h3></a>
+                        <a href="{{ social.site_url}}" class="nav-item text-center text-white">
+                            <i class="{{ social.icon}}"></i>
+                        </a>
                     </div>
                     {% endfor %}
                 </div>

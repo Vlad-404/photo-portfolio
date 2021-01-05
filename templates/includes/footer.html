@@ -5,7 +5,9 @@
                 <ul class="nav">
                     {% for social in media_links %}
                     <li class="mr-3 ml-3">
-                        <a href="{{ social.site_url }}" class="nav-item text-center text-muted" target="_blank" rel="noopener"><h3><i class="{{ social.icon }}"></i></h3></a>
+                        <a href="{{ social.site_url }}" class="nav-item text-center text-muted" target="_blank" rel="noopener">
+                            <i class="{{ social.icon }}"></i>
+                        </a>
                     </li>
                     {% endfor %}
                 </ul>
