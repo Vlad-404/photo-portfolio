@@ -21,6 +21,7 @@ Contents:
     * [Bugs during development](#bugs-during-development)
     * [User stories Testing](#user-stories-testing)
 * [Deployment](#deployment)
+    * [Emails](#emails)
 * [Credits](#credits)
     * Content
     * Acknowledgments and thank you's
@@ -200,50 +201,49 @@ Other than some long initial loading times on deployed Heroku page on majority o
 
 | **Browser**      | **Device** | **Compatibility**                                            | **Version**            |
 | :--------------- | :---------: | :-----------------------------------------------------------: | :--------------------- |
-| Google Chrome    | PC         |         Excellent                                             | Version 87.0.4280.88 (Official Build) (64-bit) (x64)|
-| Firefox          | PC         |          ???                                           | Version ??      | 
+| Google Chrome    | PC         |         Excellent                                             | Version 87.0.4280.88 (Official Build) (64-bit) (x64)| 
 | Opera            | PC         | Excellent | Version 73.0.3856.284(x64)|
-| Google Chrome | OnePlus 3t  |      ???                                               |      Version ??  |
-| Opera Touch | OnePlus 3t  | Excellent                                                    | Version 2.8.4       |
-| Safari           | iPad Mini   |        ???                                             | Version ??          |
+| Google Chrome | OnePlus 3t  |      Mostly inteface issues with small tap surfaces; fixed                                                |      Version 87.0.4280.101  |
+| Opera Touch | OnePlus 3t  | Mostly inteface issues with small tap surfaces; fixed                                                    | Version 2.8.4       |
+| Safari           | iPad Mini   |        Excellent                                             | Version iPadOS 14.03          |
 
 #### Testing per device
-( [ x ] = pass, x = failed)
+( :heavy_check_mark: = pass, x = failed)
 
 | **Test**      | **Google Chrome(PC)** | **Opera(PC)** | **Firefox(PC)** | **Opera Touch(mobile)** | Safari(iPad mini) |
 | :---------------------------- | :------: | :-----: | :--------------: | :--------------: | :--------------: |
-| Test links to all pages    | [ x ]         |   [ x ]       | [ x ]|       [ x ]  |  [x] |   [x] |
+| Test links to all pages    | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
 | Try to access the user area without signing in    | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
-| Test search    | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test messages   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test filtering    | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test link to contact form outside home page    | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test photo info page    | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test hide sidebar   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test adjusting the quantity for purchase in image view   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test adding to cart   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test update cart quantity   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test remove from cart   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test adding to cart   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test purchase form   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Purchase form - wrong form field entry   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Purchase form - wrong payment details   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Purchase form - save info for future purchases   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Purchase form - webhooks by monitoring Stripe dashboard   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Purchase form - interrupted payment process   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test update default delivery info saving   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test account registration   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test email registration   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test login   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test logout   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test add new image   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test modify image   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test delete image   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test edit/remove image buttons displaying for different types of accounts  | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test reject access to admin pages if user is not admin   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test filling the contact form on home page | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test sending contact request mails   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
-| Test sending purchase confirmation email   | [x]         |   [x]       | [x]|       [x]  |  [x] |   [x] |
+| Test search    | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark: |       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test messages   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test filtering    | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test link to contact form outside home page    | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test photo info page    | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test hide sidebar   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test adjusting the quantity for purchase in image view   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test adding to cart   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test update cart quantity   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test remove from cart   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test adding to cart   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test purchase form   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Purchase form - wrong form field entry   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Purchase form - wrong payment details   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Purchase form - save info for future purchases   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Purchase form - webhooks by monitoring Stripe dashboard   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Purchase form - interrupted payment process   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test update default delivery info saving   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test account registration   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test email registration   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test login   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test logout   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test add new image   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test modify image   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test delete image   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test edit/remove image buttons displaying for different types of accounts  | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test reject access to admin pages if user is not admin   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test filling the contact form on home page | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test sending contact request mails   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
+| Test sending purchase confirmation email   | :heavy_check_mark:         |   :heavy_check_mark:       | :heavy_check_mark:|       :heavy_check_mark:  |  :heavy_check_mark: |   :heavy_check_mark: |
 
 During testing, these errors were found and corrected:
 - Removing an item from cart manually resulted in 500 error. See bug#019
@@ -436,7 +436,8 @@ You will need to setup the following environment variables on your system:
 | CLOUDINARY_CLOUD_NAME | Cloudinary Image package | Found in your Cloudinary account dashboard                    |
 | CLOUDINARY_API    | Cloudinary Image package | Found in your Clouinary account dashboard                    |
 | CLOUDINARY_SECRET | Cloudinary Image package | Found in your Clouinary account dashboard                    |
-| STRIPE_PUBLIC_KEY | Your stripe public key | Found in your Stripe account dashboard under *Developers / API Keys*                   |
+| EMAIL_HOST_USER | Mail distribution | This the email address where emails will be sent from |
+| EMAIL_HOST_PASS | Mail distribution | App password for Gmail |
 
 > Note: you will need to add these environment variable to your GitHub repo in "env.py" and Heroku  in "settings -> config vars"
 
@@ -467,6 +468,15 @@ Linking the Heroku and GitHub:
 * Website is now live on Heroku. To run the site, click on "Open App" at the top
 
 If GitHub asks you to authorize the Heroku app in any of the steps above, do so, and you will be able to do an automated deployment from GitHub to Heroku.
+
+#### Emails
+Email distribution service I used was gmail. If you want to use it too, this is the set up:
+
+1. Login to your Gmail
+2. Navigate to your Google account settings
+3. Select *Security* and add 2 step verification
+4. Navigate back to the the page in step 3 and select **App passwords**
+5. Create app password and copy it to your environmental variable named **EMAIL_HOST_PASS**
 
 # Credits
 
