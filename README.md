@@ -155,10 +155,11 @@ As per [research](#research-and-preparations) and [design choices](#design-choic
 ## Features Left to Implement
 
 The following features were left for future implementaions:
-* Different image sizes with respective prices - printing a small image is not the same as printing a large panorama image. Adding different price for different size required more coding and as a beginner with Django, I didn't had time to add relation between size and price while purchasing.
-* Rating system - it took too long to implement
-* Adding category and social links - it can be added through the admin console, but adding them through the site UI was left out
-* Sorting within a selected category in image gallery - while it is an integral part of the page, it doesn't have a significant impact on page functionality, so it was left out untill future implementations. Current functionality only supports sorting of all images.
+* **Different image sizes with respective prices** - printing a small image is not the same as printing a large panorama image. Adding different price for different size required more coding and as a beginner with Django, I didn't had time to add relation between size and price while purchasing.
+* **Rating system** - it took too long to implement
+* **Adding category and social links** - it can be added through the admin console, but adding them through the site UI was left out
+* **Sorting within a selected category in image gallery** - while it is an integral part of the page, it doesn't have a significant impact on page functionality, so it was left out untill future implementations. Current functionality only supports sorting of all images.
+* **Removing own profile** - this can be done in Django admin console but, due to time limitations, this feature was left out. Since it doesn't have a significant impact to site functionality it was left for future implementaions.
 
 [Back to top](#photo-portfolio)
 
@@ -477,6 +478,8 @@ Email distribution service I used was gmail. If you want to use it too, this is 
 3. Select *Security* and add 2 step verification
 4. Navigate back to the the page in step 3 and select **App passwords**
 5. Create app password and copy it to your environmental variable named **EMAIL_HOST_PASS**
+
+The site is set up so you only need to add *EMAIL_HOST_PASS* and *EMAIL_HOST_USER* in your environment. If you don't want to use Gmail, please reffer to your email providers documentation.
 
 # Credits
 
