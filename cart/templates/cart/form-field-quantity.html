@@ -1,0 +1,31 @@
+<!-- Item quantity -->
+<form class="form update-form" method="POST" action="{% url 'adjust_cart' item.image_id %}">
+    {% csrf_token %}
+    <div class="form-group">
+        <div class="input-group">
+            <div class="input-group-prepend">
+                <button class="decrement-qty btn btn-sm btn-secondary rounded-1" 
+                    data-item_id="{{ item.image_id }}" id="decrement-qty_{{ item.image_id }}">
+                    <span>
+                        <i class="fas fa-minus fa-sm"></i>
+                    </span>
+                </button>
+            </div>
+            <input class="form-control form-control-sm qty_input" type="number"
+                name="quantity" value="{{ item.quantity }}" min="1" max="5"
+                data-item_id="{{ item.image_id }}"
+                id="id_qty_{{ item.image_id }}">
+            <div class="input-group-append">
+                <button class="increment-qty btn btn-sm btn-secondary rounded-1"
+                    data-item_id="{{ item.image_id }}" id="increment-qty_{{ item.image_id }}">
+                    <span>
+                        <i class="fas fa-plus fa-sm"></i>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <!-- Buttons for adjusting the quantity and removing the item -->
+    <button type="submit" class="btn btn-info update-link montserrat mt-2">Update</button>
+    <a href="{% url 'remove_from_cart' item.image_id %}" class="btn btn-danger remove-item float-right montserrat mt-2" id="remove_{{ item.image_id }}">Remove</a>
+</form>

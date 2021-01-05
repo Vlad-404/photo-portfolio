@@ -299,6 +299,10 @@ a {
     max-height: 20rem;
 }
 
+.image-fit-contain {
+    object-fit: contain;
+}
+
 .update-link,
 .remove-item {
     cursor: pointer;
@@ -316,6 +320,20 @@ select option {
 select:invalid,
 select option[value=""] {
     color: #aab7c4 !important;
+}
+
+.back-to-top {
+    height: 42px;
+    width: 42px;
+    position: fixed;
+    bottom: 50px;
+    right: 10px;
+}
+
+.btt-link,
+.update-link,
+.remove-item {
+    cursor: pointer;
 }
 
 /* ALLAUTH FORMATTING */

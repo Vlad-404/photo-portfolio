@@ -1,0 +1,6 @@
+<!-- Image field -->
+{% if item.images.imgurl == None %}
+    <img src="{{ item.images.image.url }}" alt="{{ item.images.title }} image" class="img-fluid cart-restrict-imageheight">
+{% else %}
+    <img src="{{ item.images.imgurl }}" alt="{{ item.images.title }} image" class="img-fluid cart-restrict-imageheight">
+{% endif %}

@@ -1,0 +1,14 @@
+<!-- Delivery notification -->
+{% if grand_total > free_delivery_threshold %}
+    <div class="row">
+        <div class="col-12 alert alert-info">
+            <h5 class="montserrat text-center my-3">Congratulations! You get a free delivery.</h5>
+        </div>
+    </div>
+{% else %}
+    <div class="row">
+        <div class="col-12 alert alert-warning">
+            <h5 class="montserrat text-center my-3">You can get a free delivery if you add € {{ free_delivery_delta }} to your order...</h5>
+        </div>
+    </div>
+{% endif %}
