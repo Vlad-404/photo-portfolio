@@ -12,7 +12,7 @@
         {% if image.imgurl == None %}
             <img src="{{ image.image.url }}" alt="{{ image.title }} image" id="full-size-image-container" style="z-index: -1;">
         {% else %}
-            <img src="{{ image.imgurl }}" alt="{{ image.title }} image" id="full-size-image-container" style="z-index: -1 cursor-zoom;"> 
+            <img src="{{ image.imgurl }}" alt="{{ image.title }} image" id="full-size-image-container" style="z-index: -1;"> 
         {% endif %}
 
         <!-- Info sidebar with purchase options -->

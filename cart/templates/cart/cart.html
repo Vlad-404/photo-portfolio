@@ -17,7 +17,7 @@
             <h2 class="montserrat text-center shadow-text mt-5 mb-3">Your Shopping Cart</h2>
         </div>
     </div>
-    <div class="row w-100">
+    <div class="row">
         <div class="col-12 navbar-styling">
             <h5 class="montserrat text-center shadow-text my-3">You can get a free delivery on orders over € {{ free_delivery_threshold }}!</h5>
         </div>
@@ -25,9 +25,63 @@
     <div class="row">
         <div class="col {% if not cart_items %}text-center{% endif %}">
             {% if cart_items %}
-                <div class="table-responsive rounded">
+            <!-- For small screens -->
+                <div class="d-block d-md-none">
+                    <div class="row mt-3">
+                        <div class="col-12">
+                            {% include 'cart/form-field-total.html' %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            {% include 'cart/buttons-checkout.html' %}
+                            <p class="text-muted text-center">You can see the contents of your cart below</p>
+                            {% if cart_items|length > 3 %}
+                            {% include 'cart/form-field-delivery.html' %}
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    {% for item in cart_items %}
+                        <div class="row">
+                            <div class="col-12 mb-2 d-flex justify-content-center">
+                                {% include 'cart/form-field-image.html' %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mb-2">
+                                {% include 'cart/form-field-title.html' %}
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-12 mb-2 order-sm-last">
+                                <!-- Individual price -->
+                                <p class="my-0">Individual Price: € {{ item.images.price }}</p>
+                                <!-- Subtotal -->
+                                <p class="my-0"><strong>Subtotal:</strong> € {{ item.subtotal }}</p>
+                            </div>
+                        </div>
+                        <div class="row {% if cart_items|length > 1 %}border-bottom{% endif %} mb-3 pb-2">
+                            <div class="col-12 mb-2">
+                                {% include 'cart/form-field-quantity.html' %}
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    {% include 'cart/form-field-delivery.html' %}
+                </div>
+
+                <!-- Button for back to top -->
+                <div class="back-to-top shadow-sm rounded-0 navbar-styling border-secondary" data-toggle="tooltip" data-placement="left" title="Back to Top of the Page">
+                    <a class="btt-link d-flex h-100">
+                        <i class="fas fa-arrow-up text-white mx-auto my-auto"></i>
+                    </a>	
+                </div>
+            
+            <!-- For medium and larger screens -->
+                <div class="table-responsive rounded d-none d-md-block">
                     <table class="table table-sm table-borderless osans">
-                        <thead class="text-black">
+                        <thead class="text-black border-bottom border-secondary">
                             <tr>
                                 <th scope="col">Image Info:</th>
                                 <th scope="col">Title:</th>
@@ -38,53 +92,22 @@
                         </thead>
 
                         {% for item in cart_items %}
-                            <tr>
+                            <tr class="{% if cart_items|length > 1 %}border-bottom{% endif %}">
                                 <td class="p-3 w-25">
-                                    {% if item.images.imgurl == None %}
-                                        <img src="{{ item.images.image.url }}" alt="{{ item.images.title }} image" class="img-fluid cart-restrict-imageheight">
-                                    {% else %}
-                                        <img src="{{ item.images.imgurl }}" alt="{{ item.images.title }} image" class="img-fluid cart-restrict-imageheight">
-                                    {% endif %}
+                                    {% include 'cart/form-field-image.html' %}
                                 </td>
                                 <td class="py-3">
-                                    <p class="my-0"><strong>{{ item.images.title }}</strong></p>
+                                    {% include 'cart/form-field-title.html' %}
                                 </td>
                                 <td class="py-3">
+                                    <!-- Individual price -->
                                     <p class="my-0">€ {{ item.images.price }}</p>
                                 </td>
                                 <td class="py-3">
-                                    <form class="form update-form" method="POST" action="{% url 'adjust_cart' item.image_id %}">
-                                        {% csrf_token %}
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <button class="decrement-qty btn btn-sm btn-secondary rounded-1" 
-                                                        data-item_id="{{ item.image_id }}" id="decrement-qty_{{ item.image_id }}">
-                                                        <span>
-                                                            <i class="fas fa-minus fa-sm"></i>
-                                                        </span>
-                                                    </button>
-                                                </div>
-                                                <input class="form-control form-control-sm qty_input" type="number"
-                                                    name="quantity" value="{{ item.quantity }}" min="1" max="5"
-                                                    data-item_id="{{ item.image_id }}"
-                                                    id="id_qty_{{ item.image_id }}">
-                                                <div class="input-group-append">
-                                                    <button class="increment-qty btn btn-sm btn-secondary rounded-1"
-                                                        data-item_id="{{ item.image_id }}" id="increment-qty_{{ item.image_id }}">
-                                                        <span>
-                                                            <i class="fas fa-plus fa-sm"></i>
-                                                        </span>
-                                                    </button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-- Buttons for adjusting the quantity and removing the item -->
-                                        <button type="submit" class="btn btn-info update-link osans mt-2">Update</button>
-                                        <a href="{% url 'remove_from_cart' item.image_id %}" class="btn btn-danger remove-item float-right mt-2" id="remove_{{ item.image_id }}">Remove</a>
-                                    </form>
+                                    {% include 'cart/form-field-quantity.html' %}
                                 </td>
                                 <td class="py-3">
+                                    <!-- Subtotal -->
                                     <p class="my-0"><strong>€ {{ item.subtotal }}</strong></p>
                                 </td>
                             </tr>
@@ -92,48 +115,31 @@
                         
                         <tr>
                             <td colspan="5" class="pt-5 text-right">
-                                <h6><strong>Cart Total: €{{ total|floatformat:2 }}</strong></h6>
-                                <h6>Delivery: €{{ delivery|floatformat:2 }}</h6>
-                                <h4 class="mt-4 montserrat"><strong>Grand Total: € {{ grand_total|floatformat:2 }}</strong></h4>
+                                {% include 'cart/form-field-total.html' %}
                             </td>
                         </tr>
                     </table>
-                </div>
-                {% if grand_total > free_delivery_threshold %}
-                    <div class="row w-100">
-                        <div class="col-12 alert alert-info">
-                            <h5 class="montserrat text-center my-3">Congratulations! You get a free delivery.</h5>
+
+                    <!-- Delivery notification -->
+                    {% if grand_total > free_delivery_threshold %}
+                        <div class="row w-100">
+                            <div class="col-12 alert alert-info">
+                                <h5 class="montserrat text-center my-3">Congratulations! You get a free delivery.</h5>
+                            </div>
                         </div>
-                    </div>
-                {% else %}
-                    <div class="row w-100">
-                        <div class="col-12 alert alert-warning">
-                            <h5 class="montserrat text-center my-3">You can get a free delivery if you add € {{ free_delivery_delta }} to your order...</h5>
+                    {% else %}
+                        <div class="row w-100">
+                            <div class="col-12 alert alert-warning">
+                                <h5 class="montserrat text-center my-3">You can get a free delivery if you add € {{ free_delivery_delta }} to your order...</h5>
+                            </div>
                         </div>
-                    </div>
-                {% endif %}
-                
-                <div class="container-fluid">
-                    <div class="row w-100 align-content-center">
-                        <a href="{% url 'all_images' %}" class="btn btn-secondary btn-lg mx-auto my-3 montserrat">
-                            <span class="icon">
-                                <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="text-uppercase">Keep Adding Images</span>
-                        </a>
-                        <a href="{% url 'checkout' %}" class="btn btn-secondary btn-lg mx-auto my-3 montserrat">
-                            <span class="text-uppercase">Secure Checkout</span>
-                            <span class="icon">
-                                <i class="fas fa-lock"></i>
-                            </span>
-                        </a>
-                    </div>
+                    {% endif %}
                 </div>
+
+                {% include 'cart/buttons-checkout.html' %}
+
             {% else %}
-                <p class="lead my-5 text-center montserrat">Your cart is empty</p>
-                <a href="{% url 'all_images' %}" class="btn btn-secondary rounded-1 btn-lg">
-                    <p class="mx-auto my-auto">Back to All Images</p>
-                </a>
+                {% include 'cart/buttons-back.html' %}
             {% endif %}
         </div>
     </div>
@@ -147,4 +153,9 @@
 {% block postloadjs %}
     {{ block.super }}
     {% include 'gallery/includes/quantity_input_script.html' %}
+    <script type="text/javascript">
+		$('.btt-link').click(function(e) {
+			window.scrollTo(0,0)
+		})
+	</script>
 {% endblock %}

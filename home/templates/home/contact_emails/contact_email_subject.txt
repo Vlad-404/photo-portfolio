@@ -1,1 +1,1 @@
-Photo Portfolio website - new message from {{ contact_name }}
+Photo Portfolio website - new message from {{ contact_name }} at Vladimir's photo portfolio page

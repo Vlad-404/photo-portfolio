@@ -1,4 +1,4 @@
-You have a new message from {{ contact_name }},
+This is a new message from {{ contact_name }},
 
 This is the message {{ contact_name }} sent:
 
@@ -6,6 +6,7 @@ This is the message {{ contact_name }} sent:
 
 Contacts email is: {{ contact_email }}
 
-Sent as a user message from Photo Portfolio page.
+This is a notification mail from Vladimir Mijatovic Photo Portfolio page.
 
-Regards
+Regards,
+Vladimir
